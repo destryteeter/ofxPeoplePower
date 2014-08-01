@@ -11,8 +11,8 @@ void ofApp::setup(){
     ofxPeoplePower.prefix = ofxPeoplePower.esp_old;
     
     //temporarily hardcode username:password
-    ppUsername = "destry@peoplepowerco.com";
-    ppPassword = "aaaaaa";
+    ppUsername = "";
+    ppPassword = "";
     
 	//the string is printed at the top of the app
 	//to give the user some feedback
