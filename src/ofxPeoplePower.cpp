@@ -8,11 +8,7 @@
 
 #include "ofxPeoplePower.h"
 
-// Notes:
-//
-//-- use "null" value in unused optional feilds.
-//
-//
+// Notes: use "null" value in unused optional feilds.
 
 // ------------------------------------------------------------------------------------------------------------------------
 // *** Account Management ***
@@ -25,25 +21,9 @@ void ofxPeoplePower::login(string username, string password) {
     
     XML.loadFromBuffer(buffer.getText());
 }
-/* depreciated
-void ofxPeoplePower::loginByKey(string key) {
-    URL = prefix + "/loginByKey/" + key + "/14";
-    ofHttpResponse resp = ofLoadURL(URL);
-    ofBuffer buffer = resp.data.getText();
-    
-    XML.loadFromBuffer(buffer.getText());
-}*/
 
 void ofxPeoplePower::logout(string key) {
     URL = prefix + "/logout/" + key;
-    ofHttpResponse resp = ofLoadURL(URL);
-    ofBuffer buffer = resp.data.getText();
-    
-    XML.loadFromBuffer(buffer.getText());
-}
-
-void ofxPeoplePower::newPassword(string username, string forward_id) {
-    URL = prefix + "/newPassword?username=" + username + "&forward=" + forward_id;
     ofHttpResponse resp = ofLoadURL(URL);
     ofBuffer buffer = resp.data.getText();
     
@@ -58,52 +38,8 @@ void ofxPeoplePower::user(string key) {
     XML.loadFromBuffer(buffer.getText());
 }
 
-
 // ------------------------------------------------------------------------------------------------------------------------
-// -- *** Billing Info ***
-// ------------------------------------------------------------------------------------------------------------------------
-
-void ofxPeoplePower::utilities(string country_id, string state_id, string zip, string name) {
-    URL = prefix + "/utilities?countryId=" + country_id + "&stateId=" + state_id + "&zipCode=" + zip + "&name=" + name;
-    ofHttpResponse resp = ofLoadURL(URL);
-    ofBuffer buffer = resp.data.getText();
-    
-    XML.loadFromBuffer(buffer.getText());
-}
-
-void ofxPeoplePower::billingRates(string utility_id, string state_id, string zip) {
-    URL = prefix + "/billingRates/" + utility_id + "?stateId=" + state_id + "&zipCode=" + zip;
-    ofHttpResponse resp = ofLoadURL(URL);
-    ofBuffer buffer = resp.data.getText();
-    
-    XML.loadFromBuffer(buffer.getText());
-}
-
-void ofxPeoplePower::avarageBudget(string country_id, string state_id) {
-    URL = prefix + "/averageBudget/" + country_id + "?stateId=" + state_id;
-    ofHttpResponse resp = ofLoadURL(URL);
-    ofBuffer buffer = resp.data.getText();
-    
-    XML.loadFromBuffer(buffer.getText());
-}
-
-void ofxPeoplePower::billingInfoGET(string key, string location_id) {
-    URL = prefix + "/billingInfo/" + key + "/" + location_id;
-    ofHttpResponse resp = ofLoadURL(URL);
-    ofBuffer buffer = resp.data.getText();
-    
-    XML.loadFromBuffer(buffer.getText());
-}
-// ------------------------------------------------------------------------------------------------------------------------
-// *** User Notification ***
-// ------------------------------------------------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------------------------------------------------
-// *** Device Types ***
-// ------------------------------------------------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------------------------------------------------
-// *** Device Activation ***
+// *** Monitoring ***
 // ------------------------------------------------------------------------------------------------------------------------
 
 void ofxPeoplePower::deviceStatus(string key, string device_id) {
@@ -113,14 +49,6 @@ void ofxPeoplePower::deviceStatus(string key, string device_id) {
     
     XML.loadFromBuffer(buffer.getText());
 }
-
-// ------------------------------------------------------------------------------------------------------------------------
-// *** Consumer Mapping ***
-// ------------------------------------------------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------------------------------------------------
-// *** Monitoring ***
-// ------------------------------------------------------------------------------------------------------------------------
 
 void ofxPeoplePower::deviceInfo(string key, string location_id, string user_id, string consumer, string checkPersistent) {
     URL = prefix + "/deviceInfo/" + key + "?locationId=" + location_id + "&userId=" + user_id + "&consumers=" + consumer + "&checkPersisetnt=" + checkPersistent;

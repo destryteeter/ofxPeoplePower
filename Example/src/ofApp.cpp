@@ -96,12 +96,6 @@ void ofApp::keyPressed(int key){
         XML.saveFile("myProfile.xml");
         
         message = "Signed out!";
-        
-        XML.copyXmlToString(temp); // Check XML
-        cout << "check XML: " << temp.data() << endl;
-        
-        ofxPeoplePower.XML.copyXmlToString(temp); // Check XML
-        cout << "check XML: " << temp.data() << endl;
     }
     if(key == 'l') {
         
@@ -117,6 +111,7 @@ void ofApp::keyPressed(int key){
         XML.setValue("location_id", ofxPeoplePower.XML.getAttribute("response:locations:location", "id", 0));
         XML.popTag();
         
+        // Use example data
         getDeviceData();
         
         if (XML.getValue("profile:key","null") == "null") {
@@ -132,6 +127,7 @@ void ofApp::keyPressed(int key){
     // Load LocationEnergyUsage
     if(key == 'e') {
         ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
+
         ofxPeoplePower.XML.copyXmlToString(temp);
         cout << temp.data() << endl;
         

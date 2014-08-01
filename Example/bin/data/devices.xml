@@ -2,11 +2,6 @@
 <response>
      <resultCode>0</resultCode>
      <devices>
-          <device connected="false" desc="iPod touch" id="E021047D-4E34-49B2-B305-90BF57BE13E4::149168" lastDataReceivedDate="2014-07-23T09:42:37-04:00" lastMeasureDate="2014-07-23T09:42:43-04:00" locationId="144526" type="21" typeCategory="6"/>
-          <device connected="false" desc="Destry Teeter’s iPhone" id="89677BB0-11C1-48FD-B748-82522F78225D::149168" lastDataReceivedDate="2014-07-25T10:53:25-04:00" lastMeasureDate="2014-07-25T10:53:31-04:00" locationId="144526" type="21" typeCategory="6"/>
           <device connected="true" desc="Entertainment Center" id="MON31693" lastDataReceivedDate="2014-07-29T11:51:04-04:00" lastMeasureDate="2014-07-29T11:51:04-04:00" locationId="144526" type="2012" typeCategory="2"/>
-          <device connected="false" desc="Destry Teeter’s iPhone" id="29A566D3-A69B-4238-B8EC-DFB6F761BE0D::149168" lastDataReceivedDate="2014-07-28T20:58:49-04:00" lastMeasureDate="2014-07-28T20:58:58-04:00" locationId="144526" type="21" typeCategory="6"/>
-          <device connected="false" desc="iPod touch" id="78667808-D2E4-46D0-9D7B-440886C8EC14::149168" lastDataReceivedDate="2014-07-28T19:11:34-04:00" lastMeasureDate="2014-07-28T19:11:43-04:00" locationId="144526" type="21" typeCategory="6"/>
-            <device connected="false" desc="TEST3" id="78667808-D2E4-46D0-9D7B-440886C8EC14::149168" lastDataReceivedDate="2014-07-28T19:11:34-04:00" lastMeasureDate="2014-07-28T19:11:43-04:00" locationId="144526" type="21" typeCategory="6"/>
      </devices>
 </response>
