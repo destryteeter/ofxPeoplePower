@@ -103,7 +103,8 @@ public:
     
     // Get Current Device Parameters
     // Returns real time parameter readings at a device level. The method will return current data stored on the server and request update from the device
-    // More details...
-    void deviceParameters(string key, string location_id, string device_id, string param_name1, string param_name2, string param_name3);
+    // -- DeviceId: (optional)
+    // -- ParamName: (optinoal (example = "power", "energy")
+    void GetCurrentParameters(string key, string location_id, string device_id, string param_name);
 };
 
