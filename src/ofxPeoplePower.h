@@ -93,7 +93,7 @@ public:
 
     // Get real time device readings
     // Returns real time parameter readings at a device level. The method will return current data stored on the server and request update from the device
-    void deviceReadings(string key, string device_id, string start_date, string end_date, string location_id, string param_name, string index, string interval);
+    void deviceReadings(string key, string location_id, string device_id, string start_date, string end_date, string param_name);
     
     // Get Current Device Parameters
     // Returns real time parameter readings at a device level. The method will return current data stored on the server and request update from the device
