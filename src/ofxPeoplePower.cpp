@@ -139,8 +139,16 @@ void ofxPeoplePower::deviceReadings(string key, string location_id, string devic
     XML.loadFromBuffer(buffer.getText());
 }
 
-void ofxPeoplePower::lastDeviceReadings(string key, string device_id, string row_count, string start_date, string end_date, string location_id, string param_name, string index) {
-    URL = prefix + "/lastDeviceReadings/" + key + "/" + device_id + "/" + row_count + "?startDate=" + start_date + "&endDate=" + end_date + "&locationId=" + location_id + "&paramName=" + param_name + "&index=" + index;
+void ofxPeoplePower::lastDeviceReadings(string key, string device_id, string row_count, string start_date, string end_date, string param_name, string location_id) {
+    if (end_date == "null" && param_name == "null") {
+        URL = prefix + "/lastDeviceReadings/" + key + "/" + device_id + "/" + row_count + "?startDate=" + start_date + "&locationId=" + location_id;
+    } else if (!(end_date == "null") && param_name == "null") {
+        URL = prefix + "/lastDeviceReadings/" + key + "/" + device_id + "/" + row_count + "?startDate=" + start_date + "&endDate=" + end_date + "&locationId=" + location_id;
+    } else if (end_date == "null" && !(param_name == "null")) {
+        URL = prefix + "/lastDeviceReadings/" + key + "/" + device_id + "/" + row_count + "?startDate=" + start_date + "&paramName=" + param_name + "&locationId=" + location_id;
+    } else {
+    URL = prefix + "/lastDeviceReadings/" + key + "/" + device_id + "/" + row_count + "?startDate=" + start_date + "&endDate=" + end_date + "&paramName=" + param_name + "&locationId=" + location_id;
+    }
     ofHttpResponse resp = ofLoadURL(URL);
     ofBuffer buffer = resp.data.getText();
     
