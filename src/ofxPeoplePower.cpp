@@ -127,8 +127,16 @@ void ofxPeoplePower::lastDeviceReadings(string key, string device_id, string row
     XML.loadFromBuffer(buffer.getText());
 }
 
-void ofxPeoplePower::deviceParameters(string key, string location_id, string device_id, string param_name1, string param_name2, string param_name3) {
-    URL = prefix + "/deviceParameters/" + key + "?locationId=" + location_id + "&deviceId=" + device_id + "&paramName=" + param_name1 + "&paramName=" + param_name2 + "&paramName=" + param_name3;
+void ofxPeoplePower::GetCurrentParameters(string key, string location_id, string device_id, string param_name) {
+    if (device_id == "null" && param_name == "null") {
+        URL = prefix + "/deviceParameters/" + key + "/" + location_id + "/true/true";
+    } else if (!(device_id == "null") && param_name == "null") {
+        URL = prefix + "/deviceParameters/" + key + "/" + location_id + "/true/true" + "?deviceId=" + device_id;
+    } else if (device_id == "null" && !(param_name == "null")) {
+        URL = prefix + "/deviceParameters/" + key + "/" + location_id + "/true/true" + "?paramName=" + param_name;
+    } else {
+        URL = prefix + "/deviceParameters/" + key + "/" + location_id + "/true/true" + "?deviceId=" + device_id + "&paramName=" + param_name;
+    }
     ofHttpResponse resp = ofLoadURL(URL);
     ofBuffer buffer = resp.data.getText();
     
