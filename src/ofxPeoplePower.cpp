@@ -123,8 +123,16 @@ void ofxPeoplePower::deviceEnergyUsage(string key, string location_id, string ag
     XML.loadFromBuffer(buffer.getText());
 }
 
-void ofxPeoplePower::deviceReadings(string key, string device_id, string start_date, string end_date, string location_id, string param_name, string index, string interval) {
-    URL = prefix + "/deviceReadings/" + key + "/" + device_id + "/" + start_date + "?endDate=" + end_date + "&locationId=" + location_id + "&paramName=" + param_name + "&index=" + index + "&interval=" + interval;
+void ofxPeoplePower::deviceReadings(string key, string location_id, string device_id, string start_date, string end_date, string param_name) {
+    if (end_date == "null" && param_name == "null") {
+        URL = prefix + "/deviceReadings/" + key + "/" + device_id + "/" + start_date + "&locationId=" + location_id;
+    } else if (!(end_date == "null") && param_name == "null") {
+        URL = prefix + "/deviceReadings/" + key + "/" + device_id + "/" + start_date + "?endDate=" + end_date + "&locationId=" + location_id;
+    } else if (end_date == "null" && !(param_name == "null")) {
+        URL = prefix + "/deviceReadings/" + key + "/" + device_id + "/" + start_date + "&paramName=" + param_name + "&locationId=" + location_id;
+    } else {
+        URL = prefix + "/deviceReadings/" + key + "/" + device_id + "/" + start_date + "?endDate=" + end_date + "&paramName=" + param_name + "&locationId=" + location_id;
+    }
     ofHttpResponse resp = ofLoadURL(URL);
     ofBuffer buffer = resp.data.getText();
     
