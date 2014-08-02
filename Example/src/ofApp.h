@@ -45,6 +45,39 @@ public:
         XML.popTag();
     }
     
+    void XMLTranslate(ofxXmlSettings XML, ofxXmlSettings ppXML, string api) {
+        
+        // Copy data for devices
+        if (api == "device") {
+            
+            XML.pushTag("profile");
+            XML.pushTag("devices");
+            ppXML.pushTag("response");
+            ppXML.pushTag("devices");
+        }
+        
+        for (int i = 0; i < ppXML.getNumTags(api); i++) {
+//            XML.addValue(api, ppXML.getAttribute(api,"desc","null", i));
+            XML.addTag(api);
+            for (int j = 0; j < ppXML.getNumAttributes(api); j++) {
+                vector<string> attributeNames;
+                
+                ppXML.getAttributeNames(api, attributeNames);
+                XML.setAttribute(api, attributeNames[j], ppXML.getAttribute(api,attributeNames[j],"null", i), i);
+            }
+        }
+        
+        // Pop XML to root
+        while (XML.getPushLevel() > 0) {
+            XML.popTag();
+        }
+        
+        // Pop ppXML to root
+        while (ppXML.getPushLevel() > 0) {
+            ppXML.popTag();
+        }
+    };
+    
     void getDeviceData() {
         // Clear previous devices
         XML.clearTagContents("profile:devices");
@@ -64,6 +97,13 @@ public:
         // iterate through tags, copy to XML and set attributes
         for (int i = 0; i < devicesXML.getNumTags("device"); i++ ) {
             XML.addValue("device", devicesXML.getAttribute("device","desc","null", i));
+            
+            for (int j = 0; j < devicesXML.getNumAttributes("device"); j++) {
+                vector<string> attributeNames;
+                
+                devicesXML.getAttributeNames("device", attributeNames);
+                XML.setAttribute("device", attributeNames[j], devicesXML.getAttribute("device",attributeNames[j],"null", i), i);
+            /*
             // TODO: enumerate through number of attributes and setAttributes to device
             XML.setAttribute("device", "id", devicesXML.getAttribute("device","id","null", i), i);
             XML.setAttribute("device", "connected", devicesXML.getAttribute("device","connected","null", i), i);
@@ -71,6 +111,8 @@ public:
             XML.setAttribute("device", "lastMeasureDate", devicesXML.getAttribute("device","lastMeasureDate","null", i), i);
             XML.setAttribute("device", "type", devicesXML.getAttribute("device","type","null", i), i);
             XML.setAttribute("device", "typeCategory", devicesXML.getAttribute("device","typeCategory","null", i), i);
+             */
+            }
         }
         devicesXML.popTag();
         devicesXML.popTag();

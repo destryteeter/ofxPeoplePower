@@ -11,8 +11,8 @@ void ofApp::setup(){
     ofxPeoplePower.prefix = ofxPeoplePower.esp_old;
     
     //temporarily hardcode username:password
-    ppUsername = "";
-    ppPassword = "";
+    ppUsername = "destry@peoplepowerco.com";
+    ppPassword = "aaaaaa";
     
 	//the string is printed at the top of the app
 	//to give the user some feedback
@@ -85,6 +85,7 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     if(key == 'q') {
+        
         ofFile::removeFile("myProfile.xml");
         XML.clear();
         XML.clear(); // Make sure XML is blank.
@@ -112,7 +113,11 @@ void ofApp::keyPressed(int key){
         XML.popTag();
         
         // Use example data
-        getDeviceData();
+//        getDeviceData();
+        
+        ofxPeoplePower.deviceInfo(XML.getValue("profile:key","null"), XML.getValue("profile:location_id", "null"));
+        
+        XMLTranslate(XML, ofxPeoplePower.XML, "device");
         
         if (XML.getValue("profile:key","null") == "null") {
             message = "Login failed, please try again!";
@@ -121,7 +126,6 @@ void ofApp::keyPressed(int key){
             message = "Login successful";
             XML.saveFile();
         }
-        
     }
     
     // Load LocationEnergyUsage
