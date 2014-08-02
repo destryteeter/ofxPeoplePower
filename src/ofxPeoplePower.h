@@ -85,6 +85,9 @@ public:
 
     // Get instantaneous readings history of a device
     // Returns historical information about device instantaneous readings granulated by small period of time
+    // -- Continuous: (0 - get only latest data without updating it from devices, 1 - request update from devices)
+    // -- DeviceId: (optional)  - request data for specific device ID
+    // -- ClientId: (optional but highly recommended) - unique client application ID (for example UDID) to distinguish requests from more than one user views of real time value from ESP clients
     void realTimeDeviceReadings(string key, string location_id, string continuous, string device_id, string client_id);
 
     // Get Last N history records
