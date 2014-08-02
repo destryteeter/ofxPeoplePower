@@ -78,7 +78,7 @@ void ofApp::draw(){
 	TTF.drawString("Get energy usage hit 'e' key.", 30, 81);
     
     // Add status message
-    TTF.drawString("Displaying historical energy usage: " + message, 30, ofGetHeight() - 22);
+    TTF.drawString("Status: " + message, 30, ofGetHeight() - 22);
     
 }
 
@@ -112,13 +112,17 @@ void ofApp::keyPressed(int key){
         XML.setValue("location_id", ofxPeoplePower.XML.getAttribute("response:locations:location", "id", 0));
         XML.popTag();
         
-        // Use example data
-//        getDeviceData();
-        
+        // Get user device information
         ofxPeoplePower.deviceInfo(XML.getValue("profile:key","null"), XML.getValue("profile:location_id", "null"));
         
-        XMLTranslate(XML, ofxPeoplePower.XML, "device");
+        XML.pushTag("profile");
+        XML.pushTag("devices");
+        ofxPeoplePower.XML.pushTag("response");
+        ofxPeoplePower.XML.pushTag("devices");
         
+        XMLTranslate("device");
+        
+        // Return status message
         if (XML.getValue("profile:key","null") == "null") {
             message = "Login failed, please try again!";
             XML.clear();
