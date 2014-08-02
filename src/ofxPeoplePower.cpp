@@ -113,7 +113,7 @@ void ofxPeoplePower::deviceEnergyUsage(string key, string location_id, string ag
     } else if (!(end_date == "null") && device_id == "null") {
         URL = prefix + "/deviceEnergyUsage/" + key + "/" + location_id + "/" + aggregate + "/" + start_date + "?endDate=" + end_date;
     } else if (end_date == "null" && !(device_id == "null")) {
-        URL = prefix + "/deviceEnergyUsage/" + key + "/" + location_id + "/" + aggregate + "/" + start_date + "&deviceId=" + device_id;
+        URL = prefix + "/deviceEnergyUsage/" + key + "/" + location_id + "/" + aggregate + "/" + start_date + "?deviceId=" + device_id;
     } else {
         URL = prefix + "/deviceEnergyUsage/" + key + "/" + location_id + "/" + aggregate + "/" + start_date + "?endDate=" + end_date + "&deviceId=" + device_id;
     }
@@ -125,11 +125,11 @@ void ofxPeoplePower::deviceEnergyUsage(string key, string location_id, string ag
 
 void ofxPeoplePower::deviceReadings(string key, string location_id, string device_id, string start_date, string end_date, string param_name) {
     if (end_date == "null" && param_name == "null") {
-        URL = prefix + "/deviceReadings/" + key + "/" + device_id + "/" + start_date + "&locationId=" + location_id;
+        URL = prefix + "/deviceReadings/" + key + "/" + device_id + "/" + start_date + "?locationId=" + location_id;
     } else if (!(end_date == "null") && param_name == "null") {
         URL = prefix + "/deviceReadings/" + key + "/" + device_id + "/" + start_date + "?endDate=" + end_date + "&locationId=" + location_id;
     } else if (end_date == "null" && !(param_name == "null")) {
-        URL = prefix + "/deviceReadings/" + key + "/" + device_id + "/" + start_date + "&paramName=" + param_name + "&locationId=" + location_id;
+        URL = prefix + "/deviceReadings/" + key + "/" + device_id + "/" + start_date + "?paramName=" + param_name + "&locationId=" + location_id;
     } else {
         URL = prefix + "/deviceReadings/" + key + "/" + device_id + "/" + start_date + "?endDate=" + end_date + "&paramName=" + param_name + "&locationId=" + location_id;
     }
@@ -175,11 +175,11 @@ void ofxPeoplePower::realTimeDeviceReadings(string key, string location_id, stri
     if (device_id == "null" && client_id == "null") {
         URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous;
     } else if (!(device_id == "null") && client_id == "null") {
-        URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous + "&deviceId=" + device_id;
+        URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous + "?deviceId=" + device_id;
     } else if (device_id == "null" && !(client_id == "null")) {
-        URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous + "&clientId=" + client_id;
+        URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous + "?clientId=" + client_id;
     } else {
-        URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous + "&deviceId=" + device_id + "&clientId=" + client_id;
+        URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous + "?deviceId=" + device_id + "&clientId=" + client_id;
     }
     ofHttpResponse resp = ofLoadURL(URL);
     ofBuffer buffer = resp.data.getText();
