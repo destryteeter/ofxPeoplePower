@@ -81,7 +81,7 @@ public:
 
     // Get aggregated device level energy usage
     // Returns energy usage at a device level for a specified period of time and aggregated by different periods. If no device ID is specified then it returns data for all devices in that location
-    void deviceEnergyUsage(string key, string location_id, string aggregate, string start_date, string end_date, string device_id, string device_type_category);
+    void deviceEnergyUsage(string key, string location_id, string aggregate, string start_date, string end_date, string device_id);
 
     // Get instantaneous readings history of a device
     // Returns historical information about device instantaneous readings granulated by small period of time

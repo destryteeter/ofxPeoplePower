@@ -107,8 +107,16 @@ void ofxPeoplePower::deviceCurrentEnergyUsage(string key, string location_id, st
     XML.loadFromBuffer(buffer.getText());
 }
 
-void ofxPeoplePower::deviceEnergyUsage(string key, string location_id, string aggregate, string start_date, string end_date, string device_id, string device_type_category) {
-    URL = prefix + "/deviceEnergyUsage/" + key + "/" + location_id + "/" + aggregate + "/" + start_date + "?endDate=" + end_date + "&deviceId=" + device_id + "&deviceTypeCategory=" + device_type_category;
+void ofxPeoplePower::deviceEnergyUsage(string key, string location_id, string aggregate, string start_date, string end_date, string device_id) {
+    if (end_date == "null" && device_id == "null") {
+        URL = prefix + "/deviceEnergyUsage/" + key + "/" + location_id + "/" + aggregate + "/" + start_date;
+    } else if (!(end_date == "null") && device_id == "null") {
+        URL = prefix + "/deviceEnergyUsage/" + key + "/" + location_id + "/" + aggregate + "/" + start_date + "?endDate=" + end_date;
+    } else if (end_date == "null" && !(device_id == "null")) {
+        URL = prefix + "/deviceEnergyUsage/" + key + "/" + location_id + "/" + aggregate + "/" + start_date + "&deviceId=" + device_id;
+    } else {
+        URL = prefix + "/deviceEnergyUsage/" + key + "/" + location_id + "/" + aggregate + "/" + start_date + "?endDate=" + end_date + "&deviceId=" + device_id;
+    }
     ofHttpResponse resp = ofLoadURL(URL);
     ofBuffer buffer = resp.data.getText();
     
