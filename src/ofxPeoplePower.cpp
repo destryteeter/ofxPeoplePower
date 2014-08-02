@@ -164,7 +164,15 @@ void ofxPeoplePower::deviceParameters(string key, string location_id, string dev
 }
 
 void ofxPeoplePower::realTimeDeviceReadings(string key, string location_id, string continuous, string device_id, string client_id) {
-    URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous + "&deviceId=" + device_id + "&clientId=" + client_id;
+    if (device_id == "null" && client_id == "null") {
+        URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous;
+    } else if (!(device_id == "null") && client_id == "null") {
+        URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous + "&deviceId=" + device_id;
+    } else if (device_id == "null" && !(client_id == "null")) {
+        URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous + "&clientId=" + client_id;
+    } else {
+        URL = prefix + "/realTimeDeviceReadings/" + key + "/" + location_id + "/" + continuous + "&deviceId=" + device_id + "&clientId=" + client_id;
+    }
     ofHttpResponse resp = ofLoadURL(URL);
     ofBuffer buffer = resp.data.getText();
     
