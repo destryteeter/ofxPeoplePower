@@ -55,5 +55,5 @@ public:
                 XML.setAttribute(tag, attributeNames[j], ofxPeoplePower.XML.getAttribute(tag,attributeNames[j],"null", i), i);
             }
         }
-    };
+    }
 };

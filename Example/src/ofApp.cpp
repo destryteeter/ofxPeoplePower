@@ -31,11 +31,15 @@ void ofApp::setup(){
             if (XML.getAttribute("profile:key", "expires", "") == "2030-01-01T00:00:00-05:00") {
                 message = "Currently signed in";
                 
-                /*
                 // Refresh device data to ensure it is up to date.
                 ofxPeoplePower.deviceInfo(XML.getValue("profile:key","null"), XML.getValue("profile:location_id", "null"));
                 
                 XML.pushTag("profile");
+                
+                // Remove previous devices
+                XML.removeTag("devices");
+                XML.addTag("devices");
+                
                 XML.pushTag("devices");
                 ofxPeoplePower.XML.pushTag("response");
                 ofxPeoplePower.XML.pushTag("devices");
@@ -46,7 +50,6 @@ void ofApp::setup(){
                 XML.popTag();
                 ofxPeoplePower.XML.popTag();
                 ofxPeoplePower.XML.popTag();
-                */
                 
             } else {
                 message = "You are not longer signed in.";
@@ -114,13 +117,9 @@ void ofApp::keyPressed(int key){
     }
     if(key == 'l') {
         
-        cout << XML.getPushLevel() << endl;
-        
         // get key and asign it to XML
         ofxPeoplePower.login(ppUsername, ppPassword); // TODO: don't hardcode credentials
         XML.pushTag("profile",0);
-
-                cout << XML.getPushLevel() << endl;
         
         XML.setValue("key", ofxPeoplePower.XML.getValue("response:key","null"));
         XML.setAttribute("key", "expires", ofxPeoplePower.XML.getValue("response:keyExpire","null"), 0);
@@ -134,12 +133,13 @@ void ofApp::keyPressed(int key){
         // Get user device information
         ofxPeoplePower.deviceInfo(XML.getValue("profile:key","null"), XML.getValue("profile:location_id", "null"));
         
-                cout << XML.getPushLevel() << endl;
-        
         XML.pushTag("profile");
-                cout << XML.getPushLevel() << endl;
+        
+        // Remove previous devices
+        XML.removeTag("devices");
+        XML.addTag("devices");
+        
         XML.pushTag("devices");
-                cout << XML.getPushLevel() << endl;
         ofxPeoplePower.XML.pushTag("response");
         ofxPeoplePower.XML.pushTag("devices");
         
@@ -147,6 +147,8 @@ void ofApp::keyPressed(int key){
         
         XML.popTag();
         XML.popTag();
+        ofxPeoplePower.XML.popTag();
+        ofxPeoplePower.XML.popTag();
         
         // Return status message
         if (XML.getValue("profile:key","null") == "null") {
@@ -156,6 +158,10 @@ void ofApp::keyPressed(int key){
             message = "Login successful";
             XML.saveFile();
         }
+        
+        // Print XML to console
+        XML.copyXmlToString(temp);
+        cout << temp.data() << endl;
     }
     
     // Load LocationEnergyUsage
