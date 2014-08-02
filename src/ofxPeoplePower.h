@@ -89,7 +89,10 @@ public:
 
     // Get Last N history records
     // Return last N historical information about device instantaneous readings.
-    void lastDeviceReadings(string key, string device_id, string row_count, string start_date, string end_date, string location_id, string param_name, string index);
+    // -- StartDate: start date for data collection period in "YYYY-MM-DDThh:mm:ss" format, example 2010-04-03T15:03:42
+    // -- EndDate: (optional)
+    // -- paramName: (optional (example = "power","energy")
+    void lastDeviceReadings(string key, string device_id, string row_count, string start_date, string end_date, string param_name, string location_id);
 
     // Get real time device readings
     // Returns real time parameter readings at a device level. The method will return current data stored on the server and request update from the device
