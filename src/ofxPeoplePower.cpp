@@ -96,7 +96,11 @@ void ofxPeoplePower::locationEnergyUsage(string key, string location_id, string 
 }
 
 void ofxPeoplePower::deviceCurrentEnergyUsage(string key, string location_id, string device_id) {
-    URL = prefix + "/deviceCurrentEnergyUsage/" + key + "/" + location_id + "?deviceID=" + device_id;
+    if (device_id == "null") {
+        URL = prefix + "/deviceCurrentEnergyUsage/" + key + "/" + location_id;
+    } else {
+        URL = prefix + "/deviceCurrentEnergyUsage/" + key + "/" + location_id + "?deviceID=" + device_id;
+    }
     ofHttpResponse resp = ofLoadURL(URL);
     ofBuffer buffer = resp.data.getText();
     
