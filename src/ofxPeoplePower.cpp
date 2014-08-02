@@ -50,8 +50,8 @@ void ofxPeoplePower::deviceStatus(string key, string device_id) {
     XML.loadFromBuffer(buffer.getText());
 }
 
-void ofxPeoplePower::deviceInfo(string key, string location_id, string user_id, string consumer, string checkPersistent) {
-    URL = prefix + "/deviceInfo/" + key + "?locationId=" + location_id + "&userId=" + user_id + "&consumers=" + consumer + "&checkPersisetnt=" + checkPersistent;
+void ofxPeoplePower::deviceInfo(string key, string location_id) {
+    URL = prefix + "/deviceInfo/" + key + "?locationId=" + location_id;
     ofHttpResponse resp = ofLoadURL(URL);
     ofBuffer buffer = resp.data.getText();
     

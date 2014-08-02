@@ -54,7 +54,7 @@ public:
 
     // GetDevicesInfo
     // Returns a list of user devices linked to energy consumers
-    void deviceInfo(string key, string location_id, string user_id, string consumer, string checkPersistent);
+    void deviceInfo(string key, string location_id);
     
     // Get location current total energy usage
     // Returns total energy usage and its cost for the specified location
