@@ -30,7 +30,14 @@ public:
     string temp;
     
     string ppUsername;
+    string username;
     string ppPassword;
+    string password;
+    
+    int setUsername;
+    bool setPassword;
+    
+    bool signedIn;
     
     void setupXML() {
         XML.popTag();
