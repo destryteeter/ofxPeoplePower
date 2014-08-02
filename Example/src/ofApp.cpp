@@ -147,7 +147,6 @@ void ofApp::keyPressed(int key){
         }
     } else {
         if (setUsername == 0) {
-            cout << "part 3 - setUsername: " << setUsername << " setPassword: " << setPassword << endl;
             
             // First part
             if ((key == OF_KEY_DEL || key == OF_KEY_BACKSPACE) && username.size() > 0) {
@@ -162,7 +161,6 @@ void ofApp::keyPressed(int key){
             }
             
         } else if (setUsername == 1) {
-            cout << "part 2 - setUsername: " << setUsername << " setPassword: " << setPassword << endl;
             
             // First part
             if ((key == OF_KEY_DEL || key == OF_KEY_BACKSPACE) && username.size() > 0) {
@@ -176,7 +174,6 @@ void ofApp::keyPressed(int key){
             }
             
         } else if (setUsername == 2 && !setPassword) {
-            cout << "part 3 - setUsername: " << setUsername << " setPassword: " << setPassword << endl;
             
             // Third Part
             
