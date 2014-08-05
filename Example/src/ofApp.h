@@ -40,6 +40,13 @@ public:
     
     bool signedIn;
     
+    // Device Information
+    int numberOfDevices;
+    
+    int t = 0;
+    
+    string targetString;
+    
     void setupXML() {
         XML.popTag();
         XML.addTag("profile");
@@ -64,4 +71,20 @@ public:
             }
         }
     }
+    
+    void XMLSetTagAttributeToString(string tag, string attribute, int k) {
+
+        
+//        for (int i = 0; i < XML.getNumTags(tag); i++) {
+            for (int j = 0; j < XML.getNumAttributes(tag); j++) {
+                vector<string> attributeNames;
+                
+                XML.getAttributeNames(tag, attributeNames);
+                if (attributeNames[j] == attribute) {
+                    targetString = XML.getAttribute(tag,attributeNames[j],"null", k);
+                }
+            }
+        }
+//    }
+
 };

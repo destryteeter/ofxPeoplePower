@@ -48,6 +48,9 @@ void ofApp::setup(){
                 
                 XMLTranslate("device");
                 
+                // Setup device information for GUI
+                numberOfDevices = XML.getNumTags("device");
+                
                 XML.popTag();
                 XML.popTag();
                 ofxPeoplePower.XML.popTag();
@@ -113,6 +116,42 @@ void ofApp::draw(){
     TTF.drawString("Status: " + message, 30, ofGetHeight() - 22);
     
     if (setUsername == 2 && setPassword) {
+        ofSetColor(0, 0, 0, 200);
+        // Display deviceInformation
+        
+        ofRect(312 + textSpacing * 2, textSpacing, ofGetWidth() - 312 - textSpacing * 3, textSpacing * (numberOfDevices + 1.5));
+        ofSetColor(240, 240, 240);
+        
+        TTF.drawString("Connected", 312 + textSpacing * 3, textSpacing * 2);
+        TTF.drawString("| Description", 312 + textSpacing * 3 + 100, textSpacing * 2);
+        TTF.drawString("| ID", 312 + textSpacing * 3 + 350, textSpacing * 2);
+
+        for (int i = 0; i < numberOfDevices; i ++) {
+
+            XML.pushTag("profile");
+            XML.pushTag("devices");
+            
+            string deviceConnected;
+            string deviceDescription;
+            string deviceId;
+            
+            XMLSetTagAttributeToString("device", "connected", i);
+            deviceConnected = targetString;
+            
+            XMLSetTagAttributeToString("device", "desc", i);
+            deviceDescription = targetString;
+            
+            XMLSetTagAttributeToString("device", "id", i);
+            deviceId = targetString;
+            
+            XML.popTag();
+            XML.popTag();
+            
+            TTF.drawString(deviceConnected , 312 + textSpacing * 3, textSpacing * (i + 3));
+            TTF.drawString("| " + deviceDescription, 312 + textSpacing * 3 + 100, textSpacing * (i + 3));
+            TTF.drawString("| " + deviceId, 312 + textSpacing * 3 + 350, textSpacing * (i + 3));
+            
+        }
         
     } else {
         ofSetColor(0, 0, 0, 200);
@@ -223,6 +262,9 @@ void ofApp::keyPressed(int key){
                 ofxPeoplePower.XML.pushTag("devices");
                 
                 XMLTranslate("device");
+                
+                // Setup device information for GUI
+                numberOfDevices = XML.getNumTags("device");
                 
                 XML.popTag();
                 XML.popTag();
