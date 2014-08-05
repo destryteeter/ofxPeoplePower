@@ -97,6 +97,7 @@ void ofApp::draw(){
 	// ofSetHexColor(0xDDDDDD);
 	ofEnableAlphaBlending();
 	ofSetColor(0, 0, 0, 200);
+    output.fill();
     
     // Draw Key rectangle
 	ofRect(textSpacing, textSpacing, 312, textSpacing * 9);
@@ -155,38 +156,38 @@ void ofApp::draw(){
         
         if (displayNetEnergy) {
             ofSetHexColor(0xCC0000);
-            ofDrawBitmapString("g) curve(); \n", 240, 300);
             
             output.setColor(0x7e7e7e);
+            output.noFill();
             
             graphNetEnergy.pushTag("response");
             graphNetEnergy.pushTag("usages");
             
             float usagePts = graphNetEnergy.getNumTags("usage");
             
-            for (int i = 2; i < usagePts; i++) {
+            for (int i = 0; i < usagePts; i++) {
                 
                 graphNetEnergy.pushTag("usage", i - 3);
                     int c1[] = {
-                        ofGetWidth() * ((i - 1) / usagePts),
+                        ofGetWidth() * ((i - 1) * (1 / usagePts)),
                         (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
                     };
                 graphNetEnergy.popTag();
                 graphNetEnergy.pushTag("usage",i - 2);
                     int p1[] = {
-                        ofGetWidth() * (i / usagePts),
+                        ofGetWidth() * ((i) * (1 / usagePts)),
                         (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
                     };
                 graphNetEnergy.popTag();
                 graphNetEnergy.pushTag("usage",i - 1);
                     int p2[] = {
-                        ofGetWidth() * ((i + 1) / usagePts),
+                        ofGetWidth() * ((i + 1) * (1 / usagePts)),
                         (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
                     };
                 graphNetEnergy.popTag();
                 graphNetEnergy.pushTag("usage",i);
                     int c2[] = {
-                        ofGetWidth() * ((i + 2) / usagePts),
+                        ofGetWidth() * ((i + 2)* (1 / usagePts)),
                         (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
                     };
                 graphNetEnergy.popTag();
@@ -194,13 +195,13 @@ void ofApp::draw(){
                     output.curve(c1[0],c1[1],p1[0],p1[1],p2[0],p2[1],c2[0],c2[1]);
 //                output.curve(160, 100,  240, 270,   330, 240,  360, 500);
                 
-                cout << __PRETTY_FUNCTION__ << "curve 1: " << endl;
+                cout << __PRETTY_FUNCTION__ << "curve  " << i << ":" << endl;
                 cout << __PRETTY_FUNCTION__ << "C1: (" << c1[0] << "," << c1[1] << ")" << endl;
                 cout << __PRETTY_FUNCTION__ << "P1: (" << p1[0] << "," << p1[1] << ")" << endl;
                 cout << __PRETTY_FUNCTION__ << "P2: (" << p2[0] << "," << p2[1] << ")" << endl;
                 cout << __PRETTY_FUNCTION__ << "C2: (" << c2[0] << "," << c2[1] << ")" << endl << endl;
                 
-                if (i == usagePts - 1) {
+                if (i == usagePts -1) {
                 
                 }
             }
@@ -210,6 +211,7 @@ void ofApp::draw(){
         }
         
     } else {
+        output.fill();
         ofSetColor(0, 0, 0, 200);
         ofRect(ofGetWidth() / 4, ofGetHeight() / 2 - textSpacing * 2.25, ofGetWidth() * 1/2, textSpacing * 4);
         ofSetColor(240, 240, 240);
