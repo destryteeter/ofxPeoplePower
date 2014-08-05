@@ -171,19 +171,34 @@ void ofApp::draw(){
             
             output.setColor(0xEEEEEE);
             
-            // Draw horizontal lines
-            for(float y = 0; y < 2 * numY; y++){
+            // Draw positive horizontal lines
+            for(float y = 0; y < numY; y++){
+                float lineY = (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y);
+                
                 output.line(
-                            0, (ofGetHeight() / 2) - (multiplier * numY) + (multiplier * y),
-                            ofGetWidth(), (ofGetHeight() / 2) - (multiplier * numY) + (multiplier * y)); // ofGetHeight() * 1/3 + (y * multiplier));
+                            0,            lineY, // (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y), //(ofGetHeight() / 2) - (multiplier * y),
+                            ofGetWidth(), lineY); // (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y)); //(ofGetHeight() / 2) - (multiplier * y));
             }
+
+            // Draw negaiteve horizontal lines
+            for(float y = 1; y < numY; y++){
+                float lineY = (ofGetHeight() / 2) + (multiplier * y);
+                output.line(
+                            0,            lineY, // (ofGetHeight() / 2) + (multiplier * y), //(ofGetHeight() / 2) - (multiplier * numY) + (multiplier * y),
+                            ofGetWidth(), lineY); // (ofGetHeight() / 2) + (multiplier * y)); //(ofGetHeight() / 2) - (multiplier * numY) + (multiplier * y));
+            }
+
             
             // Draw vertical lines
             for(float x = 1; x < pts; x++){
                 float lineX = ofGetWidth() * x / pts;
+                float lineY[] = {
+                    (ofGetHeight() / 2) - (multiplier * (numY - .5)),
+                    (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * 2 * (numY - .5))
+                };
                 output.line(
-                        lineX, (ofGetHeight() / 2) - (multiplier * numY),
-                        lineX, (ofGetHeight() / 2) - (multiplier * numY) + (multiplier * 2 * numY));
+                        lineX, lineY[0], // (ofGetHeight() / 2) - (multiplier * (numY - .5)),
+                        lineX, lineY[1]); // (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * 2 * (numY - .5)));
 
             }
             

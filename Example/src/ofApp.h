@@ -98,41 +98,40 @@ public:
         cout << __PRETTY_FUNCTION__ << "*** Points for " << childTab << endl;
         
         for (int i = 0; i < pts; i++) {
-            
-//cout << __PRETTY_FUNCTION__ << "curve  " << i << ":" << endl;
+
             graphNetEnergy.pushTag(parentTab, i - 3);
             float c1[] = {
                 ofGetWidth() * ((i - 1) * (1 / pts)),
                 (ofGetHeight() / 2) - (k * graphNetEnergy.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "C1: (" << c1[0] << "," << c1[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0) << endl;
+cout << __PRETTY_FUNCTION__ << "C1[" << i << "]: (" << c1[0] << "," << c1[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0) << endl;
             graphNetEnergy.popTag();
             graphNetEnergy.pushTag(parentTab,i - 2);
             float p1[] = {
                 ofGetWidth() * ((i) * (1 / pts)),
                 (ofGetHeight() / 2) - (k * graphNetEnergy.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "P1: (" << p1[0] << "," << p1[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0)  << endl;
-cout << __PRETTY_FUNCTION__ << "P[" << i << "]: ofGetWidth() * ((i) * (1/pts)) = " << p1[0] << endl;
+cout << __PRETTY_FUNCTION__ << "P1[" << i << "]: (" << p1[0] << "," << p1[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0)  << endl;
+
             graphNetEnergy.popTag();
             graphNetEnergy.pushTag(parentTab,i - 1);
             float p2[] = {
                 ofGetWidth() * ((i + 1) * (1 / pts)),
                 (ofGetHeight() / 2) - (k * graphNetEnergy.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "P2: (" << p2[0] << "," << p2[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0)  << endl;
+cout << __PRETTY_FUNCTION__ << "P2[" << i << "]: (" << p2[0] << "," << p2[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0)  << endl;
             graphNetEnergy.popTag();
             graphNetEnergy.pushTag(parentTab,i);
             float c2[] = {
                 ofGetWidth() * ((i + 2)* (1 / pts)),
                 (ofGetHeight() / 2) - (k * graphNetEnergy.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "C2: (" << c2[0] << "," << c2[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0)  << endl << endl;
+cout << __PRETTY_FUNCTION__ << "C2[" << i << "]: (" << c2[0] << "," << c2[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0)  << endl << endl;
 
             graphNetEnergy.popTag();
         
             output.curve(c1[0],c1[1],p1[0],p1[1],p2[0],p2[1],c2[0],c2[1]);
-            output.circle(p1[0], p1[1], k);
+            output.circle(p1[0], p1[1], 3);
             
 
             
