@@ -155,57 +155,46 @@ void ofApp::draw(){
         }
         
         if (displayNetEnergy) {
+            
+            // Go to 'usages' tag
+            graphNetEnergy.pushTag("response");
+            graphNetEnergy.pushTag("usages");
+            
+            // Set constant multiplier
+            float multiplier = 20;
+            
+            // Set number of points
+            int pts = graphNetEnergy.getNumTags("usage");
+
+            // Draw graph
+            float numY = (ofGetHeight() / 4) / multiplier;
+            
+            output.setColor(0xEEEEEE);
+            
+            // Draw horizontal lines
+            for(float y = 0; y < 2 * numY; y++){
+                output.line(
+                            0, (ofGetHeight() / 2) - (multiplier * numY) + (multiplier * y),
+                            ofGetWidth(), (ofGetHeight() / 2) - (multiplier * numY) + (multiplier * y)); // ofGetHeight() * 1/3 + (y * multiplier));
+            }
+            
+            // Draw vertical lines
+            for(float x = 1; x < pts; x++){
+                float lineX = ofGetWidth() * x / pts;
+                output.line(
+                        lineX, (ofGetHeight() / 2) - (multiplier * numY),
+                        lineX, (ofGetHeight() / 2) - (multiplier * numY) + (multiplier * 2 * numY));
+
+            }
+            
+            
             ofSetHexColor(0xCC0000);
             
             output.setColor(0x7e7e7e);
             output.noFill();
             
-            graphNetEnergy.pushTag("response");
-            graphNetEnergy.pushTag("usages");
-            
-            float usagePts = graphNetEnergy.getNumTags("usage");
-            
-            for (int i = 0; i < usagePts; i++) {
-                
-                graphNetEnergy.pushTag("usage", i - 3);
-                    int c1[] = {
-                        ofGetWidth() * ((i - 1) * (1 / usagePts)),
-                        (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
-                    };
-                graphNetEnergy.popTag();
-                graphNetEnergy.pushTag("usage",i - 2);
-                    int p1[] = {
-                        ofGetWidth() * ((i) * (1 / usagePts)),
-                        (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
-                    };
-                graphNetEnergy.popTag();
-                graphNetEnergy.pushTag("usage",i - 1);
-                    int p2[] = {
-                        ofGetWidth() * ((i + 1) * (1 / usagePts)),
-                        (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
-                    };
-                graphNetEnergy.popTag();
-                graphNetEnergy.pushTag("usage",i);
-                    int c2[] = {
-                        ofGetWidth() * ((i + 2)* (1 / usagePts)),
-                        (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
-                    };
-                graphNetEnergy.popTag();
-                
-                    output.curve(c1[0],c1[1],p1[0],p1[1],p2[0],p2[1],c2[0],c2[1]);
-//                output.curve(160, 100,  240, 270,   330, 240,  360, 500);
-                
-                cout << __PRETTY_FUNCTION__ << "curve  " << i << ":" << endl;
-                cout << __PRETTY_FUNCTION__ << "C1: (" << c1[0] << "," << c1[1] << ")" << endl;
-                cout << __PRETTY_FUNCTION__ << "P1: (" << p1[0] << "," << p1[1] << ")" << endl;
-                cout << __PRETTY_FUNCTION__ << "P2: (" << p2[0] << "," << p2[1] << ")" << endl;
-                cout << __PRETTY_FUNCTION__ << "C2: (" << c2[0] << "," << c2[1] << ")" << endl << endl;
-                
-                if (i == usagePts -1) {
-                
-                }
-            }
-            
+            graphCatMullPointsForXML("usage", "amount",multiplier);
+            graphCatMullPointsForXML("usage", "kWh",multiplier);
             graphNetEnergy.popTag();
             graphNetEnergy.popTag();
         }
@@ -255,23 +244,8 @@ void ofApp::keyPressed(int key){
             
             graphNetEnergy = ofxPeoplePower.XML;
             
-            graphNetEnergy.copyXmlToString(temp);
-            cout << " *** DISPLAY NET ENERGY ***" << endl << temp.data() << endl;
-            
-            
-            graphNetEnergy.pushTag("response");
-            graphNetEnergy.pushTag("usages");
-            
-//            cout << __PRETTY_FUNCTION__ << "usages attribute: " << graphNetEnergy.getAttribute("usage", "startDate", "null",0) << endl;
-            
-            graphNetEnergy.pushTag("usage",0);
-            
-//            cout << __PRETTY_FUNCTION__ << "usage amount: " << graphNetEnergy.getValue("amount", 0.0) << endl;
-            
-            graphNetEnergy.popTag();
-            graphNetEnergy.popTag();
-            graphNetEnergy.popTag();
-            
+//            ofxPeoplePower.XML.copyXmlToString(temp);
+//            cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
             
             message = "Displaying Total Net Energy Usage!";
         }
