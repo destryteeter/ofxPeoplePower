@@ -153,6 +153,62 @@ void ofApp::draw(){
             
         }
         
+        if (displayNetEnergy) {
+            ofSetHexColor(0xCC0000);
+            ofDrawBitmapString("g) curve(); \n", 240, 300);
+            
+            output.setColor(0x7e7e7e);
+            
+            graphNetEnergy.pushTag("response");
+            graphNetEnergy.pushTag("usages");
+            
+            float usagePts = graphNetEnergy.getNumTags("usage");
+            
+            for (int i = 2; i < usagePts; i++) {
+                
+                graphNetEnergy.pushTag("usage", i - 3);
+                    int c1[] = {
+                        ofGetWidth() * ((i - 1) / usagePts),
+                        (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
+                    };
+                graphNetEnergy.popTag();
+                graphNetEnergy.pushTag("usage",i - 2);
+                    int p1[] = {
+                        ofGetWidth() * (i / usagePts),
+                        (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
+                    };
+                graphNetEnergy.popTag();
+                graphNetEnergy.pushTag("usage",i - 1);
+                    int p2[] = {
+                        ofGetWidth() * ((i + 1) / usagePts),
+                        (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
+                    };
+                graphNetEnergy.popTag();
+                graphNetEnergy.pushTag("usage",i);
+                    int c2[] = {
+                        ofGetWidth() * ((i + 2) / usagePts),
+                        (ofGetHeight() / 2) + (100 * graphNetEnergy.getValue("amount", 0.0))
+                    };
+                graphNetEnergy.popTag();
+                
+                    output.curve(c1[0],c1[1],p1[0],p1[1],p2[0],p2[1],c2[0],c2[1]);
+//                output.curve(160, 100,  240, 270,   330, 240,  360, 500);
+                
+                cout << __PRETTY_FUNCTION__ << "curve 1: " << endl;
+                cout << __PRETTY_FUNCTION__ << "C1: (" << c1[0] << "," << c1[1] << ")" << endl;
+                cout << __PRETTY_FUNCTION__ << "P1: (" << p1[0] << "," << p1[1] << ")" << endl;
+                cout << __PRETTY_FUNCTION__ << "P2: (" << p2[0] << "," << p2[1] << ")" << endl;
+                cout << __PRETTY_FUNCTION__ << "C2: (" << c2[0] << "," << c2[1] << ")" << endl << endl;
+                
+                if (i == usagePts - 1) {
+                
+                }
+            }
+            
+            graphNetEnergy.popTag();
+            graphNetEnergy.popTag();
+        }
+        
     } else {
         ofSetColor(0, 0, 0, 200);
         ofRect(ofGetWidth() / 4, ofGetHeight() / 2 - textSpacing * 2.25, ofGetWidth() * 1/2, textSpacing * 4);
@@ -185,16 +241,37 @@ void ofApp::keyPressed(int key){
             setPassword = false;
             username = "";
             password = "";
+            
+            displayNetEnergy = false;
         }
         
         // Load LocationEnergyUsage
         if(key == 'e') {
-            ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
-
-            ofxPeoplePower.XML.copyXmlToString(temp);
-            cout << temp.data() << endl;
             
-            message = "Success!";
+            displayNetEnergy = true;
+            ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
+            
+            graphNetEnergy = ofxPeoplePower.XML;
+            
+            graphNetEnergy.copyXmlToString(temp);
+            cout << " *** DISPLAY NET ENERGY ***" << endl << temp.data() << endl;
+            
+            
+            graphNetEnergy.pushTag("response");
+            graphNetEnergy.pushTag("usages");
+            
+//            cout << __PRETTY_FUNCTION__ << "usages attribute: " << graphNetEnergy.getAttribute("usage", "startDate", "null",0) << endl;
+            
+            graphNetEnergy.pushTag("usage",0);
+            
+//            cout << __PRETTY_FUNCTION__ << "usage amount: " << graphNetEnergy.getValue("amount", 0.0) << endl;
+            
+            graphNetEnergy.popTag();
+            graphNetEnergy.popTag();
+            graphNetEnergy.popTag();
+            
+            
+            message = "Displaying Total Net Energy Usage!";
         }
     } else {
         if (setUsername == 0) {

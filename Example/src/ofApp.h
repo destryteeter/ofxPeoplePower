@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxPeoplePower.h"
+#include "ofxVectorGraphics.h"
 
 class ofApp : public ofBaseApp{
     
@@ -25,6 +26,8 @@ public:
     ofxXmlSettings XML;
     ofTrueTypeFont TTF;
     
+    ofxVectorGraphics output;
+    
     string xmlStructure;
     string message;
     string temp;
@@ -42,11 +45,11 @@ public:
     
     // Device Information
     int numberOfDevices;
-    
-    int t = 0;
-    
     string targetString;
     
+    // Graphing Energy
+    bool displayNetEnergy;
+    ofxXmlSettings graphNetEnergy;
     void setupXML() {
         XML.popTag();
         XML.addTag("profile");
