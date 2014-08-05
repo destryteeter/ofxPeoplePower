@@ -1,0 +1,17 @@
+<!-- Example Data for calls... obsolete...
+URL: https://esp.peoplepowerco.com/espapi/rest/login?username=destry@peoplepowerco.com&password=aaaaaa&expiry=14
+URL: https://esp.peoplepowerco.com/espapi/rest/user/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb
+URL: https://esp.peoplepowerco.com/espapi/rest/locationEnergyUsage/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/144526/2/2014-07-01T00:00:00
+api_key: Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb
+device_id: MON31693
+location_id: 144526
+user_id: 149168
+aggregate: 1
+start_date: 2014-08-01T20:00:00
+end_date: 2014-08-02T00:00:00
+param_name: power
+row_count: 4
+continuous: 1
+client_id: null
+
+-->

@@ -1,0 +1,23 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/locationEnergyUsage/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/144526/1/2014-08-01T20:00:00?endDate=2014-08-02T00:00:00 -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <usages>
+        <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+            <amount>0.0146</amount>
+            <kWh>0.145</kWh>
+        </usage>
+        <usage endDate="2014-08-01T22:00:00-04:00" startDate="2014-08-01T21:00:00-04:00">
+            <amount>0.0144</amount>
+            <kWh>0.143</kWh>
+        </usage>
+        <usage endDate="2014-08-01T23:00:00-04:00" startDate="2014-08-01T22:00:00-04:00">
+            <amount>0.0139</amount>
+            <kWh>0.138</kWh>
+        </usage>
+        <usage endDate="2014-08-02T00:00:00-04:00" startDate="2014-08-01T23:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+    </usages>
+</response>

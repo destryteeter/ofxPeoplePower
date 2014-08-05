@@ -1,0 +1,12 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/deviceParameters/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/144526/true/true?deviceId=MON31693&paramName=power -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <devices>
+        <device id="MON31693" lastDataReceivedDate="2014-08-05T17:38:12-04:00" lastMeasureDate="2014-08-05T17:38:12-04:00">
+            <parameters>
+                <param lastUpdateTime="2014-08-05T17:38:12-04:00" name="power">136</param>
+            </parameters>
+        </device>
+    </devices>
+</response>

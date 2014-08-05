@@ -1,0 +1,22 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/lastDeviceReadings/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/MON31693/4?startDate=2014-08-01T20:00:00&endDate=2014-08-02T00:00:00&locationId=144526 -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <readings>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T23:02:18-04:00">
+            <param name="power">138</param>
+            <param name="energy">105.433</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T23:17:22-04:00">
+            <param name="energy">105.468</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T23:32:26-04:00">
+            <param name="power">138</param>
+            <param name="energy">105.503</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T23:47:30-04:00">
+            <param name="power">140</param>
+            <param name="energy">105.538</param>
+        </reading>
+    </readings>
+</response>

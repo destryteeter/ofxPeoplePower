@@ -1,0 +1,73 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/deviceParameters/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/144526/true/true -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <devices>
+        <device id="001EC0108896" lastDataReceivedDate="2014-08-05T17:37:38-04:00" lastMeasureDate="2014-08-05T17:37:36-04:00">
+            <parameters>
+                <param lastUpdateTime="2014-05-08T14:21:52-04:00" name="batteryLevel">100</param>
+                <param lastUpdateTime="2014-08-05T17:37:36-04:00" name="energy">47.456</param>
+                <param lastUpdateTime="2014-07-03T14:39:37-04:00" name="firmware">15</param>
+                <param lastUpdateTime="2014-06-14T22:24:33-04:00" name="model">1.49.12</param>
+                <param lastUpdateTime="2014-08-05T17:37:36-04:00" name="power">54</param>
+                <param lastUpdateTime="2014-08-05T17:36:32-04:00" name="signalStrength">14</param>
+                <param lastUpdateTime="2014-08-05T17:37:36-04:00" name="temp">25</param>
+            </parameters>
+        </device>
+        <device id="78667808-D2E4-46D0-9D7B-440886C8EC14::149168" lastDataReceivedDate="2014-08-02T14:54:59-04:00" lastMeasureDate="2014-08-02T14:55:01-04:00">
+            <parameters>
+                <param lastUpdateTime="2014-07-23T10:12:43-04:00" name="accessCameraSettings">1</param>
+                <param lastUpdateTime="2014-08-01T14:42:00-04:00" name="audioStreaming">0</param>
+                <param lastUpdateTime="2014-08-02T14:55:01-04:00" name="batteryLevel">35</param>
+                <param lastUpdateTime="2014-07-25T09:47:19-04:00" name="connectedViewerName">RGVzdHJ5IFRlZXRlcuKAmXMgaVBob25l</param>
+                <param lastUpdateTime="2014-07-30T13:08:19-04:00" name="motionStatus">1</param>
+                <param lastUpdateTime="2014-08-02T14:55:01-04:00" name="ppc.availableBytes">25144799232</param>
+                <param lastUpdateTime="2014-08-01T15:17:40-04:00" name="ppc.blackoutScreenOn">0</param>
+                <param lastUpdateTime="2014-07-31T09:33:07-04:00" name="ppc.charging">0</param>
+                <param lastUpdateTime="2014-08-01T14:41:32-04:00" name="ppc.motionActivity">0</param>
+                <param lastUpdateTime="2014-07-30T13:08:10-04:00" name="ppc.motionCountDownTime">5</param>
+                <param lastUpdateTime="2014-07-30T13:08:15-04:00" name="ppc.rapidMotionStatus">60</param>
+                <param lastUpdateTime="2014-07-30T13:08:02-04:00" name="ppc.recordFullDuration">1</param>
+                <param lastUpdateTime="2014-07-30T13:08:00-04:00" name="ppc.recordSeconds">300</param>
+                <param lastUpdateTime="2014-07-23T10:12:43-04:00" name="ppc.robotConnected">0</param>
+                <param lastUpdateTime="2014-08-01T14:42:22-04:00" name="ppc.warningStatus">1</param>
+                <param lastUpdateTime="2014-07-23T10:12:43-04:00" name="selectedCamera">1</param>
+                <param lastUpdateTime="2014-08-01T14:41:53-04:00" name="streamId">1_MX4yNTczNTcxMn5-RnJpIEF1ZyAwMSAxMTo0MTo0NiBQRFQgMjAxNH4wLjg1MzU3NjF-fg</param>
+                <param lastUpdateTime="2014-07-23T10:12:43-04:00" name="timeZoneId">America/New_York</param>
+                <param lastUpdateTime="2014-07-23T10:12:55-04:00" name="version">2.1.2</param>
+                <param lastUpdateTime="2014-07-23T10:12:43-04:00" name="videoStreaming">1</param>
+            </parameters>
+        </device>
+        <device id="F1D0991F-D253-4BBA-934B-3548A86D0A7D::149168" lastDataReceivedDate="2014-08-03T14:28:00-04:00" lastMeasureDate="2014-08-03T14:28:03-04:00">
+            <parameters>
+                <param lastUpdateTime="2014-08-01T14:40:58-04:00" name="accessCameraSettings">1</param>
+                <param lastUpdateTime="2014-08-01T14:40:58-04:00" name="audioStreaming">1</param>
+                <param lastUpdateTime="2014-08-03T14:18:59-04:00" name="batteryLevel">5</param>
+                <param lastUpdateTime="2014-08-03T09:16:37-04:00" name="model">iPhone5,3</param>
+                <param lastUpdateTime="2014-08-03T14:28:03-04:00" name="motionStatus">0</param>
+                <param lastUpdateTime="2014-08-03T14:25:48-04:00" name="ppc.availableBytes">1997479936</param>
+                <param lastUpdateTime="2014-08-03T09:16:37-04:00" name="ppc.charging">0</param>
+                <param lastUpdateTime="2014-08-03T14:28:01-04:00" name="ppc.motionActivity">1</param>
+                <param lastUpdateTime="2014-08-03T14:13:57-04:00" name="ppc.motionCountDownTime">30</param>
+                <param lastUpdateTime="2014-08-01T14:40:58-04:00" name="ppc.robotConnected">0</param>
+                <param lastUpdateTime="2014-08-03T14:25:49-04:00" name="ppc.twitterStatus">1</param>
+                <param lastUpdateTime="2014-08-03T14:25:57-04:00" name="selectedCamera">0</param>
+                <param lastUpdateTime="2014-08-01T14:40:58-04:00" name="timeZoneId">America/New_York</param>
+                <param lastUpdateTime="2014-08-03T09:16:37-04:00" name="version">2.1.3</param>
+                <param lastUpdateTime="2014-08-01T14:40:58-04:00" name="videoStreaming">1</param>
+            </parameters>
+        </device>
+        <device id="MON31693" lastDataReceivedDate="2014-08-05T17:26:38-04:00" lastMeasureDate="2014-08-05T17:26:38-04:00">
+            <parameters>
+                <param lastUpdateTime="2013-01-09T03:27:00-05:00" name="daylightSavingsTime">0</param>
+                <param lastUpdateTime="2014-08-05T17:26:38-04:00" name="energy">107.642</param>
+                <param lastUpdateTime="2014-04-30T18:10:37-04:00" name="fastUploadTimeout" />
+                <param lastUpdateTime="2013-01-09T03:26:59-05:00" name="firmware">16</param>
+                <param lastUpdateTime="2014-07-25T10:55:22-04:00" name="outletStatus">ON</param>
+                <param lastUpdateTime="2014-08-05T17:26:38-04:00" name="power">140</param>
+                <param lastUpdateTime="2013-01-09T03:27:00-05:00" name="timeZone">0</param>
+                <param lastUpdateTime="2014-04-30T18:11:25-04:00" name="uploadInterval">900</param>
+            </parameters>
+        </device>
+    </devices>
+</response>

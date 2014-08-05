@@ -1,0 +1,13 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/realTimeDeviceReadings/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/144526/0?deviceId=MON31693 -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <readings>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T17:38:15-04:00">
+            <amount>1.039391</amount>
+            <amountPerHour>0.013736</amountPerHour>
+            <watts>136</watts>
+            <kWh>10.291</kWh>
+        </reading>
+    </readings>
+</response>

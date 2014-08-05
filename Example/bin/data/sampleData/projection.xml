@@ -1,0 +1,13 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/projection/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/144526 -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <energy>
+        <amount>0.00</amount>
+        <budget>0.00</budget>
+        <kwh>0.000</kwh>
+        <projectionAlert>0</projectionAlert>
+        <projectionAmount>0.00</projectionAmount>
+        <projectionKWh>0.000</projectionKWh>
+    </energy>
+</response>

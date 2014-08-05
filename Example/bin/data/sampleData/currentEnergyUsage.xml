@@ -1,0 +1,13 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/currentEnergyUsage/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/144526 -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <energy>
+        <amount>0.00</amount>
+        <amountDTD>0.00</amountDTD>
+        <amountYTD>5.65</amountYTD>
+        <kwh>0.000</kwh>
+        <kWhDTD>0.000</kWhDTD>
+        <kWhYTD>47.344</kWhYTD>
+    </energy>
+</response>

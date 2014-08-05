@@ -1,0 +1,55 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/deviceReadings/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/MON31693/2014-08-01T20:00:00?endDate=2014-08-02T00:00:00&paramName=power&locationId=144526 -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <readings>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T20:00:00-04:00">
+            <param name="power">144</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T20:01:33-04:00">
+            <param name="power">143</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T20:16:36-04:00">
+            <param name="power">143</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T20:31:40-04:00">
+            <param name="power">144</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T20:46:44-04:00">
+            <param name="power">144</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T21:01:48-04:00">
+            <param name="power">145</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T21:16:52-04:00">
+            <param name="power">144</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T21:31:55-04:00">
+            <param name="power">144</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T21:46:59-04:00">
+            <param name="power">143</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T22:02:03-04:00">
+            <param name="power">137</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T22:17:07-04:00">
+            <param name="power">134</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T22:32:11-04:00">
+            <param name="power">139</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T22:47:14-04:00">
+            <param name="power">139</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T23:02:18-04:00">
+            <param name="power">138</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T23:32:26-04:00">
+            <param name="power">138</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T23:47:30-04:00">
+            <param name="power">140</param>
+        </reading>
+    </readings>
+</response>

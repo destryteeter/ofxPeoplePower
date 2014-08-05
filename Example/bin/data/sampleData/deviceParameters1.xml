@@ -1,0 +1,19 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/deviceParameters/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/144526/true/true?deviceId=MON31693 -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <devices>
+        <device id="MON31693" lastDataReceivedDate="2014-08-05T17:26:38-04:00" lastMeasureDate="2014-08-05T17:26:38-04:00">
+            <parameters>
+                <param lastUpdateTime="2013-01-09T03:27:00-05:00" name="daylightSavingsTime">0</param>
+                <param lastUpdateTime="2014-08-05T17:26:38-04:00" name="energy">107.642</param>
+                <param lastUpdateTime="2014-04-30T18:10:37-04:00" name="fastUploadTimeout" />
+                <param lastUpdateTime="2013-01-09T03:26:59-05:00" name="firmware">16</param>
+                <param lastUpdateTime="2014-07-25T10:55:22-04:00" name="outletStatus">ON</param>
+                <param lastUpdateTime="2014-08-05T17:26:38-04:00" name="power">140</param>
+                <param lastUpdateTime="2013-01-09T03:27:00-05:00" name="timeZone">0</param>
+                <param lastUpdateTime="2014-04-30T18:11:25-04:00" name="uploadInterval">900</param>
+            </parameters>
+        </device>
+    </devices>
+</response>

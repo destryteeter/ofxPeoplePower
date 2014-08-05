@@ -1,0 +1,1412 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/deviceReadings/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/MON31693/2014-08-01T20:00:00?locationId=144526 -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <readings>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T20:00:00-04:00">
+            <param name="energy">104.971</param>
+            <param name="power">144</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T20:01:33-04:00">
+            <param name="power">143</param>
+            <param name="energy">105.007</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T20:16:36-04:00">
+            <param name="energy">105.043</param>
+            <param name="power">143</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T20:31:40-04:00">
+            <param name="power">144</param>
+            <param name="energy">105.079</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T20:46:44-04:00">
+            <param name="energy">105.115</param>
+            <param name="power">144</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T21:01:48-04:00">
+            <param name="power">145</param>
+            <param name="energy">105.152</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T21:16:52-04:00">
+            <param name="power">144</param>
+            <param name="energy">105.188</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T21:31:55-04:00">
+            <param name="energy">105.224</param>
+            <param name="power">144</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T21:46:59-04:00">
+            <param name="power">143</param>
+            <param name="energy">105.261</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T22:02:03-04:00">
+            <param name="power">137</param>
+            <param name="energy">105.295</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T22:17:07-04:00">
+            <param name="power">134</param>
+            <param name="energy">105.329</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T22:32:11-04:00">
+            <param name="power">139</param>
+            <param name="energy">105.364</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T22:47:14-04:00">
+            <param name="energy">105.399</param>
+            <param name="power">139</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T23:02:18-04:00">
+            <param name="power">138</param>
+            <param name="energy">105.433</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T23:17:22-04:00">
+            <param name="energy">105.468</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T23:32:26-04:00">
+            <param name="power">138</param>
+            <param name="energy">105.503</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-01T23:47:30-04:00">
+            <param name="power">140</param>
+            <param name="energy">105.538</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T00:02:33-04:00">
+            <param name="power">139</param>
+            <param name="energy">105.573</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T00:17:37-04:00">
+            <param name="power">138</param>
+            <param name="energy">105.608</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T00:32:41-04:00">
+            <param name="power">139</param>
+            <param name="energy">105.642</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T00:47:45-04:00">
+            <param name="energy">105.677</param>
+            <param name="power">139</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T01:02:48-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.679</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T01:17:52-04:00">
+            <param name="power">3</param>
+            <param name="energy">105.680</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T01:32:56-04:00">
+            <param name="energy">105.681</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T01:48:00-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.682</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T02:03:04-04:00">
+            <param name="energy">105.682</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T02:18:07-04:00">
+            <param name="energy">105.683</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T02:33:11-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.684</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T02:48:15-04:00">
+            <param name="power">3</param>
+            <param name="energy">105.685</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T03:03:19-04:00">
+            <param name="power">3</param>
+            <param name="energy">105.685</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T03:18:23-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.686</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T03:33:26-04:00">
+            <param name="energy">105.687</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T03:48:30-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.687</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T04:03:34-04:00">
+            <param name="power">4</param>
+            <param name="energy">105.688</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T04:18:38-04:00">
+            <param name="power">3</param>
+            <param name="energy">105.689</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T04:33:42-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.690</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T04:48:45-04:00">
+            <param name="energy">105.690</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T05:03:49-04:00">
+            <param name="energy">105.691</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T05:18:53-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.692</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T05:33:57-04:00">
+            <param name="power">4</param>
+            <param name="energy">105.693</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T05:49:00-04:00">
+            <param name="power">3</param>
+            <param name="energy">105.694</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T06:04:04-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.694</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T06:19:08-04:00">
+            <param name="energy">105.695</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T06:34:12-04:00">
+            <param name="energy">105.696</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T06:49:16-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.696</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T07:04:19-04:00">
+            <param name="power">3</param>
+            <param name="energy">105.697</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T07:19:23-04:00">
+            <param name="energy">105.698</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T07:34:27-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.699</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T07:49:31-04:00">
+            <param name="energy">105.699</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T07:54:18-04:00">
+            <param name="energy">105.700</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T07:59:55-04:00">
+            <param name="power">2</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T07:59:58-04:00">
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T08:00:01-04:00">
+            <param name="power">2</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T08:15:23-04:00">
+            <param name="energy">105.700</param>
+            <param name="power">2</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T08:30:27-04:00">
+            <param name="power">3</param>
+            <param name="energy">105.702</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T08:45:31-04:00">
+            <param name="power">3</param>
+            <param name="energy">105.702</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T09:00:35-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.703</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T09:15:38-04:00">
+            <param name="energy">105.704</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T09:30:42-04:00">
+            <param name="energy">105.704</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T09:45:46-04:00">
+            <param name="power">2</param>
+            <param name="energy">105.705</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T10:00:50-04:00">
+            <param name="power">3</param>
+            <param name="energy">105.706</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T10:15:54-04:00">
+            <param name="power">146</param>
+            <param name="energy">105.727</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T10:30:57-04:00">
+            <param name="energy">105.764</param>
+            <param name="power">146</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T10:46:01-04:00">
+            <param name="power">147</param>
+            <param name="energy">105.801</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T11:01:05-04:00">
+            <param name="power">139</param>
+            <param name="energy">105.837</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T11:16:09-04:00">
+            <param name="power">140</param>
+            <param name="energy">105.872</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T11:31:13-04:00">
+            <param name="power">139</param>
+            <param name="energy">105.907</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T11:46:16-04:00">
+            <param name="power">138</param>
+            <param name="energy">105.942</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T12:01:20-04:00">
+            <param name="energy">105.976</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T12:05:36-04:00">
+            <param name="power">138</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T12:05:39-04:00">
+            <param name="power">139</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T12:22:10-04:00">
+            <param name="energy">106.024</param>
+            <param name="power">139</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T12:33:53-04:00">
+            <param name="power">140</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T12:42:48-04:00">
+            <param name="energy">106.073</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T12:59:52-04:00">
+            <param name="power">141</param>
+            <param name="energy">106.113</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T13:14:56-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.117</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T13:29:59-04:00">
+            <param name="energy">106.118</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T13:45:03-04:00">
+            <param name="energy">106.118</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T14:00:07-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.119</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T14:15:11-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.120</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T14:30:15-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.121</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T14:45:18-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.122</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T15:00:22-04:00">
+            <param name="energy">106.122</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T15:15:26-04:00">
+            <param name="energy">106.123</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T15:30:30-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.123</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T15:45:34-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.124</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T16:00:37-04:00">
+            <param name="energy">106.125</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T16:15:41-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.126</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T16:30:45-04:00">
+            <param name="energy">106.127</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T16:45:49-04:00">
+            <param name="energy">106.127</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T17:00:52-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.128</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T17:15:56-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.129</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T17:31:00-04:00">
+            <param name="energy">106.130</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T17:46:04-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.130</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T18:01:08-04:00">
+            <param name="energy">106.131</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T18:16:11-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.132</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T18:31:15-04:00">
+            <param name="power">5</param>
+            <param name="energy">106.132</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T18:46:19-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.133</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T19:01:23-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.134</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T19:16:27-04:00">
+            <param name="energy">106.135</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T19:31:30-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.136</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T19:46:34-04:00">
+            <param name="power">139</param>
+            <param name="energy">106.153</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T20:01:38-04:00">
+            <param name="power">138</param>
+            <param name="energy">106.187</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T20:16:42-04:00">
+            <param name="power">137</param>
+            <param name="energy">106.222</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T20:31:46-04:00">
+            <param name="energy">106.256</param>
+            <param name="power">137</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T20:46:49-04:00">
+            <param name="power">136</param>
+            <param name="energy">106.290</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T21:01:53-04:00">
+            <param name="energy">106.325</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T21:16:57-04:00">
+            <param name="power">136</param>
+            <param name="energy">106.359</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T21:32:01-04:00">
+            <param name="power">139</param>
+            <param name="energy">106.394</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T21:47:04-04:00">
+            <param name="energy">106.429</param>
+            <param name="power">139</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T22:02:08-04:00">
+            <param name="power">134</param>
+            <param name="energy">106.464</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T22:17:12-04:00">
+            <param name="power">138</param>
+            <param name="energy">106.498</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T22:32:16-04:00">
+            <param name="power">139</param>
+            <param name="energy">106.533</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T22:47:20-04:00">
+            <param name="power">138</param>
+            <param name="energy">106.568</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T23:02:23-04:00">
+            <param name="power">139</param>
+            <param name="energy">106.603</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T23:17:27-04:00">
+            <param name="energy">106.638</param>
+            <param name="power">139</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T23:32:31-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.662</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-02T23:47:35-04:00">
+            <param name="energy">106.663</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T00:02:39-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.663</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T00:17:42-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.664</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T00:32:46-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.665</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T00:47:50-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.666</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T01:02:54-04:00">
+            <param name="energy">106.667</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T01:17:58-04:00">
+            <param name="energy">106.667</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T01:33:01-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.668</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T01:48:05-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.669</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T02:03:09-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.670</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T02:18:13-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.671</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T02:33:16-04:00">
+            <param name="energy">106.671</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T02:48:20-04:00">
+            <param name="energy">106.672</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T03:03:24-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.673</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T03:18:28-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.673</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T03:33:32-04:00">
+            <param name="energy">106.674</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T03:48:35-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.675</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T04:03:39-04:00">
+            <param name="energy">106.676</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T04:18:43-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.676</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T04:33:47-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.677</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T04:48:51-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.678</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T05:03:54-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.679</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T05:18:58-04:00">
+            <param name="energy">106.679</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T05:34:02-04:00">
+            <param name="energy">106.680</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T05:49:06-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.681</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T06:04:10-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.682</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T06:19:13-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.682</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T06:34:17-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.683</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T06:49:21-04:00">
+            <param name="energy">106.684</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T07:04:25-04:00">
+            <param name="energy">106.684</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T07:19:28-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.685</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T07:34:32-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.686</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T07:49:36-04:00">
+            <param name="energy">106.687</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T08:04:40-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.687</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T08:19:44-04:00">
+            <param name="energy">106.688</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T08:34:47-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.689</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T08:49:51-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.690</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T09:04:55-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.691</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T09:14:07-04:00">
+            <param name="power">2</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T09:21:38-04:00">
+            <param name="energy">106.691</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T09:21:41-04:00">
+            <param name="energy">106.692</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T09:45:05-04:00">
+            <param name="energy">106.692</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T10:00:09-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.693</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T10:15:13-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.694</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T10:30:16-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.695</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T10:45:20-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.696</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T11:00:24-04:00">
+            <param name="energy">106.696</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T11:15:28-04:00">
+            <param name="energy">106.697</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T11:30:32-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.697</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T11:45:35-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.698</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T12:00:39-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.699</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T12:15:43-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.700</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T12:30:47-04:00">
+            <param name="energy">106.701</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T12:45:51-04:00">
+            <param name="energy">106.701</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T13:00:54-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.702</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T13:15:58-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.703</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T13:31:02-04:00">
+            <param name="energy">106.704</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T13:46:06-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.704</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T14:01:10-04:00">
+            <param name="energy">106.705</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T14:22:54-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.706</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T14:37:58-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.707</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T14:53:02-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.708</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T15:08:05-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.708</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T15:23:09-04:00">
+            <param name="energy">106.709</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T15:38:13-04:00">
+            <param name="energy">106.710</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T15:53:17-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.710</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T16:08:20-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.711</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T16:23:24-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.712</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T16:38:28-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.713</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T16:53:32-04:00">
+            <param name="energy">106.713</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T17:08:36-04:00">
+            <param name="energy">106.714</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T17:23:39-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.715</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T17:38:43-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.716</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T17:53:47-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.717</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T18:08:51-04:00">
+            <param name="energy">106.717</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T18:23:55-04:00">
+            <param name="energy">106.718</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T18:38:58-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.718</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T18:54:02-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.719</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T19:09:06-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.720</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T19:24:10-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.721</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T19:39:14-04:00">
+            <param name="energy">106.722</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T19:54:17-04:00">
+            <param name="energy">106.722</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T20:09:21-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.723</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T20:24:25-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.724</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T20:39:29-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.725</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T20:54:32-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.725</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T21:09:36-04:00">
+            <param name="energy">106.726</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T21:24:40-04:00">
+            <param name="energy">106.727</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T21:39:44-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.727</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T21:54:48-04:00">
+            <param name="power">133</param>
+            <param name="energy">106.729</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T22:09:51-04:00">
+            <param name="power">137</param>
+            <param name="energy">106.763</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T22:24:55-04:00">
+            <param name="power">136</param>
+            <param name="energy">106.798</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T22:39:59-04:00">
+            <param name="energy">106.832</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T22:55:03-04:00">
+            <param name="energy">106.866</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T23:10:07-04:00">
+            <param name="power">136</param>
+            <param name="energy">106.900</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T23:25:10-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.906</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T23:40:14-04:00">
+            <param name="energy">106.907</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-03T23:55:18-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.908</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T00:10:22-04:00">
+            <param name="energy">106.909</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T00:25:26-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.909</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T00:40:29-04:00">
+            <param name="power">5</param>
+            <param name="energy">106.910</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T00:55:33-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.911</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T01:10:37-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.912</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T01:25:41-04:00">
+            <param name="energy">106.912</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T01:40:44-04:00">
+            <param name="energy">106.913</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T01:55:48-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.914</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T02:10:52-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.914</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T02:25:56-04:00">
+            <param name="energy">106.915</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T02:41:00-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.916</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T02:56:03-04:00">
+            <param name="energy">106.917</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T03:11:07-04:00">
+            <param name="energy">106.917</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T03:26:11-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.918</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T03:41:15-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.919</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T03:56:19-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.920</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T04:11:22-04:00">
+            <param name="energy">106.920</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T04:26:26-04:00">
+            <param name="energy">106.921</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T04:41:30-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.922</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T04:56:34-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.922</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T05:11:38-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.923</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T05:26:41-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.924</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T05:41:45-04:00">
+            <param name="energy">106.925</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T05:56:49-04:00">
+            <param name="energy">106.925</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T06:11:53-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.926</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T06:26:56-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.927</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T06:42:00-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.928</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T06:57:04-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.928</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T07:12:08-04:00">
+            <param name="energy">106.929</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T07:27:12-04:00">
+            <param name="energy">106.930</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T07:42:15-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.930</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T07:57:19-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.931</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T08:12:23-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.932</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T08:27:27-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.933</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T08:42:31-04:00">
+            <param name="energy">106.934</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T08:57:34-04:00">
+            <param name="energy">106.934</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T09:12:38-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.935</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T09:27:42-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.936</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T09:42:46-04:00">
+            <param name="energy">106.937</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T09:57:50-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.938</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T10:12:53-04:00">
+            <param name="energy">106.938</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T10:27:57-04:00">
+            <param name="energy">106.939</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T10:43:01-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.939</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T10:58:05-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.940</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T11:13:08-04:00">
+            <param name="energy">106.941</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T11:28:12-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.942</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T11:43:16-04:00">
+            <param name="energy">106.943</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T11:58:20-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.943</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T12:13:24-04:00">
+            <param name="power">5</param>
+            <param name="energy">106.944</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T12:28:27-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.945</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T12:43:31-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.946</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T12:58:35-04:00">
+            <param name="energy">106.946</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T13:13:39-04:00">
+            <param name="energy">106.947</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T13:28:43-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.948</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T13:43:46-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.948</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T13:58:50-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.949</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T14:13:54-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.950</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T14:28:58-04:00">
+            <param name="energy">106.951</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T14:44:02-04:00">
+            <param name="energy">106.951</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T14:59:05-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.952</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T15:14:09-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.953</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T15:29:13-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.954</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T15:44:17-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.954</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T15:59:20-04:00">
+            <param name="energy">106.955</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T16:14:24-04:00">
+            <param name="energy">106.956</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T16:29:28-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.956</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T16:44:32-04:00">
+            <param name="power">4</param>
+            <param name="energy">106.957</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T16:59:36-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.958</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T17:14:39-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.959</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T17:29:43-04:00">
+            <param name="energy">106.959</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T17:44:47-04:00">
+            <param name="energy">106.960</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T17:59:51-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.961</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T18:14:55-04:00">
+            <param name="power">3</param>
+            <param name="energy">106.962</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T18:29:58-04:00">
+            <param name="energy">106.963</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T18:42:08-04:00">
+            <param name="power">2</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T18:59:13-04:00">
+            <param name="energy">106.964</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T19:14:17-04:00">
+            <param name="power">2</param>
+            <param name="energy">106.964</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T19:29:20-04:00">
+            <param name="power">132</param>
+            <param name="energy">106.968</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T19:44:24-04:00">
+            <param name="power">139</param>
+            <param name="energy">107.004</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T19:59:28-04:00">
+            <param name="power">138</param>
+            <param name="energy">107.039</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T20:14:32-04:00">
+            <param name="power">137</param>
+            <param name="energy">107.073</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T20:29:35-04:00">
+            <param name="power">140</param>
+            <param name="energy">107.109</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T20:44:39-04:00">
+            <param name="energy">107.144</param>
+            <param name="power">140</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T20:59:43-04:00">
+            <param name="power">143</param>
+            <param name="energy">107.179</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T21:14:47-04:00">
+            <param name="power">141</param>
+            <param name="energy">107.215</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T21:29:51-04:00">
+            <param name="power">139</param>
+            <param name="energy">107.250</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T21:44:54-04:00">
+            <param name="energy">107.285</param>
+            <param name="power">139</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T21:59:58-04:00">
+            <param name="power">138</param>
+            <param name="energy">107.320</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T22:15:02-04:00">
+            <param name="power">139</param>
+            <param name="energy">107.355</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T22:30:06-04:00">
+            <param name="power">140</param>
+            <param name="energy">107.390</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T22:45:10-04:00">
+            <param name="power">139</param>
+            <param name="energy">107.425</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T23:00:13-04:00">
+            <param name="power">138</param>
+            <param name="energy">107.460</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T23:15:17-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.469</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T23:30:21-04:00">
+            <param name="energy">107.470</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-04T23:45:25-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.471</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T00:00:29-04:00">
+            <param name="power">4</param>
+            <param name="energy">107.472</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T00:15:32-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.473</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T00:30:36-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.474</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T00:45:40-04:00">
+            <param name="energy">107.474</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T01:00:44-04:00">
+            <param name="energy">107.475</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T01:15:47-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.475</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T01:30:51-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.476</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T01:45:55-04:00">
+            <param name="energy">107.477</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T02:00:59-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.478</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T02:16:03-04:00">
+            <param name="energy">107.479</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T02:31:06-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.479</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T02:46:10-04:00">
+            <param name="power">5</param>
+            <param name="energy">107.480</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T03:01:14-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.481</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T03:16:18-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.482</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T03:31:22-04:00">
+            <param name="energy">107.482</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T03:46:25-04:00">
+            <param name="energy">107.483</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T04:01:29-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.484</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T04:16:33-04:00">
+            <param name="power">4</param>
+            <param name="energy">107.484</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T04:31:37-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.485</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T04:46:41-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.486</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T05:01:44-04:00">
+            <param name="energy">107.487</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T05:16:48-04:00">
+            <param name="energy">107.487</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T05:31:52-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.488</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T05:46:56-04:00">
+            <param name="power">4</param>
+            <param name="energy">107.489</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T06:01:59-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.490</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T06:17:03-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.490</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T06:32:07-04:00">
+            <param name="energy">107.491</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T06:47:11-04:00">
+            <param name="energy">107.492</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T07:02:15-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.492</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T07:17:18-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.494</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T07:32:22-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.494</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T07:47:26-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.495</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T08:02:30-04:00">
+            <param name="energy">107.496</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T08:17:34-04:00">
+            <param name="energy">107.496</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T08:32:37-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.497</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T08:47:41-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.498</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T09:02:45-04:00">
+            <param name="energy">107.499</param>
+            <param name="power">3</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T09:17:49-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.499</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T09:32:53-04:00">
+            <param name="energy">107.500</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T09:47:56-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.501</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T10:03:00-04:00">
+            <param name="power">4</param>
+            <param name="energy">107.501</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T10:18:04-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.503</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T10:33:08-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.503</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T10:48:11-04:00">
+            <param name="energy">107.504</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T11:03:15-04:00">
+            <param name="energy">107.504</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T11:18:19-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.505</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T11:33:23-04:00">
+            <param name="power">4</param>
+            <param name="energy">107.506</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T11:48:27-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.507</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T12:10:18-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.508</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T12:25:22-04:00">
+            <param name="energy">107.509</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T12:40:26-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.509</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T12:55:29-04:00">
+            <param name="power">5</param>
+            <param name="energy">107.510</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T13:10:33-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.511</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T13:25:37-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.512</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T13:40:41-04:00">
+            <param name="energy">107.512</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T13:55:45-04:00">
+            <param name="energy">107.513</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T14:10:48-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.514</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T14:25:52-04:00">
+            <param name="power">4</param>
+            <param name="energy">107.514</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T14:40:56-04:00">
+            <param name="power">3</param>
+            <param name="energy">107.515</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T14:56:00-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.516</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T15:11:04-04:00">
+            <param name="energy">107.517</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T15:26:07-04:00">
+            <param name="energy">107.517</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T15:41:11-04:00">
+            <param name="power">2</param>
+            <param name="energy">107.518</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T15:56:15-04:00">
+            <param name="power">4</param>
+            <param name="energy">107.519</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T16:41:26-04:00">
+            <param name="power">137</param>
+            <param name="energy">107.539</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T16:56:30-04:00">
+            <param name="power">135</param>
+            <param name="energy">107.573</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T17:11:34-04:00">
+            <param name="power">138</param>
+            <param name="energy">107.607</param>
+        </reading>
+        <reading deviceId="MON31693" timeStamp="2014-08-05T17:26:38-04:00">
+            <param name="power">140</param>
+            <param name="energy">107.642</param>
+        </reading>
+    </readings>
+</response>

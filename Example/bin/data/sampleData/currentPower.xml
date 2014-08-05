@@ -1,0 +1,12 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/currentPower/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/144526 -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <power>
+        <amountPerHour>0.0055</amountPerHour>
+        <amountPerHourMax>1.01</amountPerHourMax>
+        <currentRate>0.1010</currentRate>
+        <watts>54</watts>
+        <wattsMax>10000</wattsMax>
+    </power>
+</response>
