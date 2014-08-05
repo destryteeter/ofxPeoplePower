@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<response>
-     <resultCode>0</resultCode>
-     <devices>
-          <device connected="true" desc="Entertainment Center" id="MON31693" lastDataReceivedDate="2014-07-29T11:51:04-04:00" lastMeasureDate="2014-07-29T11:51:04-04:00" locationId="144526" type="2012" typeCategory="2"/>
-     </devices>
-</response>
