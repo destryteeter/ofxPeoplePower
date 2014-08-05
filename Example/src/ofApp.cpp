@@ -13,6 +13,10 @@ void ofApp::setup(){
     // Set signed in status to false
     signedIn = false;
     
+    // To use example data sign in using the username 'test' and push enter three times. (There's an issue with the shift key so the first enter adds an '@' sign.)
+    // If you would like to user your own data check out Presence by People Power and look into installing a compatible smart plug.
+    isExampleData = false;
+    
 	//the string is printed at the top of the app
 	//to give the user some feedback
     message = "Loading mySettings.xml";
@@ -255,15 +259,24 @@ void ofApp::keyPressed(int key){
         if(key == 'e') {
             
             displayNetEnergy = true;
-            ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
             
-            graphNetEnergy = ofxPeoplePower.XML;
+            if (isExampleData) {
+                graphNetEnergy.load("sampleData/locationEnergyUsage.xml");
+                message = "Displaying Total Net Energy Usage! (example data)";
+                
+                graphNetEnergy.copyXmlToString(temp);
+                cout << "graphNetEnergy: " << endl << temp.data() << endl;
+            } else {
+                ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
+                graphNetEnergy = ofxPeoplePower.XML;
+                message = "Displaying Total Net Energy Usage!";
+                
+                ofxPeoplePower.XML.copyXmlToString(temp);
+                cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
+            }
             
-//            ofxPeoplePower.XML.copyXmlToString(temp);
-//            cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
-            
-            message = "Displaying Total Net Energy Usage!";
         }
+        
     } else {
         if (setUsername == 0) {
             
@@ -303,6 +316,47 @@ void ofApp::keyPressed(int key){
                 
                 setPassword = true;
                 
+                if  (username == "test@") {
+                    
+                    isExampleData = true;
+                    
+                    exampleDevices.load("sampleData/deviceInfo.xml");
+                    
+                    
+                    XML.pushTag("profile");
+                    
+                    // Remove previous devices
+                    XML.removeTag("devices");
+                    XML.addTag("devices");
+                    
+                    XML.pushTag("devices");
+                    exampleDevices.pushTag("response");
+                    exampleDevices.pushTag("devices");
+                    
+                    XMLTranslate("device");
+                    
+                    // Setup device information for GUI
+                    numberOfDevices = XML.getNumTags("device");
+                    
+                    XML.popTag();
+                    XML.popTag();
+                    exampleDevices.popTag();
+                    exampleDevices.popTag();
+                    
+                    
+                    
+                    message = "Login successful";
+                    XML.saveFile();
+                    signedIn = true;
+                    username = "";
+                    password = "";
+                    setUsername = 2;
+                    setPassword = true;
+
+                } else {
+                
+                    isExampleData = false;
+                    
                 // get key and asign it to XML
                 ofxPeoplePower.login(username, password); // TODO: don't hardcode credentials
                 XML.pushTag("profile",0);
@@ -357,7 +411,7 @@ void ofApp::keyPressed(int key){
                     setUsername = 2;
                     setPassword = true;
                 }
-                
+                }
                 // Print XML to console
                 XML.copyXmlToString(temp);
                 cout << temp.data() << endl;

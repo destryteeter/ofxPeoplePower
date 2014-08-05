@@ -3,19 +3,147 @@
 <response>
     <resultCode>0</resultCode>
     <usages>
-        <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
-            <amount>0.0146</amount>
-            <kWh>0.145</kWh>
+        <usage endDate="2014-07-02T00:00:00-04:00" startDate="2014-07-01T00:00:00-04:00">
+            <amount>0.2014</amount>
+            <kWh>1.972</kWh>
         </usage>
-        <usage endDate="2014-08-01T22:00:00-04:00" startDate="2014-08-01T21:00:00-04:00">
-            <amount>0.0144</amount>
-            <kWh>0.143</kWh>
+        <usage endDate="2014-07-03T00:00:00-04:00" startDate="2014-07-02T00:00:00-04:00">
+            <amount>0.3490</amount>
+            <kWh>2.908</kWh>
         </usage>
-        <usage endDate="2014-08-01T23:00:00-04:00" startDate="2014-08-01T22:00:00-04:00">
-            <amount>0.0139</amount>
-            <kWh>0.138</kWh>
+        <usage endDate="2014-07-04T00:00:00-04:00" startDate="2014-07-03T00:00:00-04:00">
+            <amount>0.0331</amount>
+            <kWh>0.276</kWh>
         </usage>
-        <usage endDate="2014-08-02T00:00:00-04:00" startDate="2014-08-01T23:00:00-04:00">
+        <usage endDate="2014-07-05T00:00:00-04:00" startDate="2014-07-04T00:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+        <usage endDate="2014-07-07T00:00:00-04:00" startDate="2014-07-06T00:00:00-04:00">
+            <amount>0.7244</amount>
+            <kWh>6.036</kWh>
+        </usage>
+        <usage endDate="2014-07-08T00:00:00-04:00" startDate="2014-07-07T00:00:00-04:00">
+            <amount>0.0859</amount>
+            <kWh>0.716</kWh>
+        </usage>
+        <usage endDate="2014-07-09T00:00:00-04:00" startDate="2014-07-08T00:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+        <usage endDate="2014-07-10T00:00:00-04:00" startDate="2014-07-09T00:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+        <usage endDate="2014-07-11T00:00:00-04:00" startDate="2014-07-10T00:00:00-04:00">
+            <amount>0.1776</amount>
+            <kWh>1.480</kWh>
+        </usage>
+        <usage endDate="2014-07-12T00:00:00-04:00" startDate="2014-07-11T00:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+        <usage endDate="2014-07-13T00:00:00-04:00" startDate="2014-07-12T00:00:00-04:00">
+            <amount>0.1109</amount>
+            <kWh>0.924</kWh>
+        </usage>
+        <usage endDate="2014-07-14T00:00:00-04:00" startDate="2014-07-13T00:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+        <usage endDate="2014-07-15T00:00:00-04:00" startDate="2014-07-14T00:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+        <usage endDate="2014-07-16T00:00:00-04:00" startDate="2014-07-15T00:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+        <usage endDate="2014-07-17T00:00:00-04:00" startDate="2014-07-16T00:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+        <usage endDate="2014-07-18T00:00:00-04:00" startDate="2014-07-17T00:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+        <usage endDate="2014-07-19T00:00:00-04:00" startDate="2014-07-18T00:00:00-04:00">
+            <amount>0.1071</amount>
+            <kWh>0.892</kWh>
+        </usage>
+        <usage endDate="2014-07-20T00:00:00-04:00" startDate="2014-07-19T00:00:00-04:00">
+            <amount>0.2117</amount>
+            <kWh>1.764</kWh>
+        </usage>
+        <usage endDate="2014-07-21T00:00:00-04:00" startDate="2014-07-20T00:00:00-04:00">
+            <amount>0.1740</amount>
+            <kWh>1.450</kWh>
+        </usage>
+        <usage endDate="2014-07-22T00:00:00-04:00" startDate="2014-07-21T00:00:00-04:00">
+            <amount>0.2393</amount>
+            <kWh>0.668</kWh>
+        </usage>
+        <usage endDate="2014-07-23T00:00:00-04:00" startDate="2014-07-22T00:00:00-04:00">
+            <amount>0.7297</amount>
+            <kWh>3.364</kWh>
+        </usage>
+        <usage endDate="2014-07-24T00:00:00-04:00" startDate="2014-07-23T00:00:00-04:00">
+            <amount>0.3510</amount>
+            <kWh>3.472</kWh>
+        </usage>
+        <usage endDate="2014-07-25T00:00:00-04:00" startDate="2014-07-24T00:00:00-04:00">
+            <amount>0.2657</amount>
+            <kWh>2.628</kWh>
+        </usage>
+        <usage endDate="2014-07-26T00:00:00-04:00" startDate="2014-07-25T00:00:00-04:00">
+            <amount>0.0366</amount>
+            <kWh>0.363</kWh>
+        </usage>
+        <usage endDate="2014-07-27T00:00:00-04:00" startDate="2014-07-26T00:00:00-04:00">
+            <amount>0.0501</amount>
+            <kWh>0.495</kWh>
+        </usage>
+        <usage endDate="2014-07-28T00:00:00-04:00" startDate="2014-07-27T00:00:00-04:00">
+            <amount>0.2308</amount>
+            <kWh>2.285</kWh>
+        </usage>
+        <usage endDate="2014-07-29T00:00:00-04:00" startDate="2014-07-28T00:00:00-04:00">
+            <amount>0.0906</amount>
+            <kWh>0.899</kWh>
+        </usage>
+        <usage endDate="2014-07-30T00:00:00-04:00" startDate="2014-07-29T00:00:00-04:00">
+            <amount>0.1266</amount>
+            <kWh>1.254</kWh>
+        </usage>
+        <usage endDate="2014-07-31T00:00:00-04:00" startDate="2014-07-30T00:00:00-04:00">
+            <amount>0.0245</amount>
+            <kWh>0.242</kWh>
+        </usage>
+        <usage endDate="2014-08-01T00:00:00-04:00" startDate="2014-07-31T00:00:00-04:00">
+            <amount>0.0872</amount>
+            <kWh>0.865</kWh>
+        </usage>
+        <usage endDate="2014-08-02T00:00:00-04:00" startDate="2014-08-01T00:00:00-04:00">
+            <amount>0.2220</amount>
+            <kWh>2.196</kWh>
+        </usage>
+        <usage endDate="2014-08-03T00:00:00-04:00" startDate="2014-08-02T00:00:00-04:00">
+            <amount>0.1099</amount>
+            <kWh>1.090</kWh>
+        </usage>
+        <usage endDate="2014-08-04T00:00:00-04:00" startDate="2014-08-03T00:00:00-04:00">
+            <amount>0.0247</amount>
+            <kWh>0.246</kWh>
+        </usage>
+        <usage endDate="2014-08-05T00:00:00-04:00" startDate="2014-08-04T00:00:00-04:00">
+            <amount>0.0000</amount>
+            <kWh>0.000</kWh>
+        </usage>
+        <usage endDate="2014-08-06T00:00:00-04:00" startDate="2014-08-05T00:00:00-04:00">
             <amount>0.0000</amount>
             <kWh>0.000</kWh>
         </usage>

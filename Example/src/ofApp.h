@@ -26,6 +26,9 @@ public:
     ofxXmlSettings XML;
     ofTrueTypeFont TTF;
     
+    bool isExampleData;
+    ofxXmlSettings exampleDevices;
+    
     ofxVectorGraphics output;
     
     string xmlStructure;
@@ -64,14 +67,28 @@ public:
     }
     
     void XMLTranslate(string tag) {
-        for (int i = 0; i < ofxPeoplePower.XML.getNumTags(tag); i++) {
-            XML.addTag(tag);
-            for (int j = 0; j < ofxPeoplePower.XML.getNumAttributes(tag); j++) {
-                vector<string> attributeNames;
-                
-                ofxPeoplePower.XML.getAttributeNames(tag, attributeNames);
-                XML.setAttribute(tag, attributeNames[j], ofxPeoplePower.XML.getAttribute(tag,attributeNames[j],"null", i), i);
+        
+        if (!isExampleData) {
+            for (int i = 0; i < ofxPeoplePower.XML.getNumTags(tag); i++) {
+                XML.addTag(tag);
+                for (int j = 0; j < ofxPeoplePower.XML.getNumAttributes(tag); j++) {
+                    vector<string> attributeNames;
+                    
+                    ofxPeoplePower.XML.getAttributeNames(tag, attributeNames);
+                    XML.setAttribute(tag, attributeNames[j], ofxPeoplePower.XML.getAttribute(tag,attributeNames[j],"null", i), i);
+                }
             }
+        } else {
+            for (int i = 0; i < exampleDevices.getNumTags(tag); i++) {
+                XML.addTag(tag);
+                for (int j = 0; j < exampleDevices.getNumAttributes(tag); j++) {
+                    vector<string> attributeNames;
+                    
+                    exampleDevices.getAttributeNames(tag, attributeNames);
+                    XML.setAttribute(tag, attributeNames[j], exampleDevices.getAttribute(tag,attributeNames[j],"null", i), i);
+                }
+            }
+            
         }
     }
     
