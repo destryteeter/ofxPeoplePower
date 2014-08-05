@@ -56,8 +56,8 @@ void ofApp::setup(){
                 message = "Currently signed in";
                 
                 signedIn = true;
-                setUsername = 0;
-                setPassword = false;
+                setUsername = 2;
+                setPassword = true;
                 username = "";
                 password = "";
                 
@@ -95,20 +95,32 @@ void ofApp::draw(){
 	ofEnableAlphaBlending();
 	ofSetColor(0, 0, 0, 200);
     
-	ofRect(20, 20, ofGetWidth() - 40, 200); // 74
+    // Draw Key rectangle
+	ofRect(textSpacing, textSpacing, 312, textSpacing * 9);
     ofRect(20, ofGetHeight() - 40, ofGetWidth()-40, 24);
     
-	// Add our key.
+    // Add our key.
+    TTF.drawString("********************************", 15, textSpacing * 1.5);
+    TTF.drawString("********************************", 15, textSpacing * 10.5);
 	ofSetColor(240, 240, 240);
-	TTF.drawString("Sign in to account hit 'l' key.", 30, 45);
-	TTF.drawString("Sign out to account hit 'q' key.", 30, 63);
-	TTF.drawString("Get energy usage hit 'e' key.", 30, 81);
+	TTF.drawString(" KEY  |         ACTION        ", 30, textSpacing * 2);
+    TTF.drawString("------------------------------", 30, textSpacing * 3);
+    TTF.drawString("  l   |         Sign In       ", 30, textSpacing * 4);
+	TTF.drawString("  q   |         Sign Out      ", 30, textSpacing * 5);
+	TTF.drawString("  e   |    Net Energy Usage   ", 30, textSpacing * 6);
     
     // Add status message
     TTF.drawString("Status: " + message, 30, ofGetHeight() - 22);
     
-    TTF.drawString("username: " + username, 30, 100);
-    TTF.drawString("password: " + password, 30, 118);
+    if (setUsername == 2 && setPassword) {
+        
+    } else {
+        ofSetColor(0, 0, 0, 200);
+        ofRect(ofGetWidth() / 4, ofGetHeight() / 2 - textSpacing * 2.25, ofGetWidth() * 1/2, textSpacing * 4);
+        ofSetColor(240, 240, 240);
+        TTF.drawString("username: " + username, ofGetWidth() / 2 - textSpacing * 11, ofGetHeight() / 2 - textSpacing);
+        TTF.drawString("password: " + password, ofGetWidth() / 2 - textSpacing * 11, ofGetHeight() / 2 + textSpacing);
+    }
 }
 
 //--------------------------------------------------------------
@@ -232,8 +244,8 @@ void ofApp::keyPressed(int key){
                     signedIn = true;
                     username = "";
                     password = "";
-                    setUsername = 0;
-                    setPassword = 0;
+                    setUsername = 2;
+                    setPassword = true;
                 }
                 
                 // Print XML to console

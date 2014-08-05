@@ -28,6 +28,7 @@ public:
     string xmlStructure;
     string message;
     string temp;
+    int textSpacing = 18;
     
     string ppUsername;
     string username;
