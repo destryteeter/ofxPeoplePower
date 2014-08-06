@@ -51,10 +51,36 @@ public:
     int numberOfDevices;
     string targetString;
     
-    // Graphing Energy
+    // Graphing
+    bool loadGraph;
+    int displayGraph;
+    int drawGraph;
+    bool toggleGraphOverlay;
+    void loadGraphData() {
+        if (displayGraph == 1) {
+            if (isExampleData) {
+                graphNetEnergy.load("sampleData/locationEnergyUsage.xml");
+                message = "Displaying Total Net Energy Usage! (example data)";
+                
+                graphNetEnergy.copyXmlToString(temp);
+                cout << "graphNetEnergy: " << endl << temp.data() << endl;
+            } else {
+                ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
+                graphNetEnergy = ofxPeoplePower.XML;
+                message = "Displaying Total Net Energy Usage!";
+                
+                ofxPeoplePower.XML.copyXmlToString(temp);
+                cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
+            }
+            
+        } else if (displayGraph == 2) {
+            // TODO: add second data points
+        }
+    }
+    
     bool displayNetEnergy;
     ofxXmlSettings graphNetEnergy;
-    int drawGraph;
+
     
     
     void setupXML() {
@@ -153,12 +179,6 @@ public:
         
             output.curve(c1[0],c1[1],p1[0],p1[1],p2[0],p2[1],c2[0],c2[1]);
             output.circle(p1[0], p1[1], 3);
-            
-
-            
-            
-            
-            
         }
     }
 };

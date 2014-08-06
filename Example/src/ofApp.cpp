@@ -92,7 +92,6 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
 }
 
 //--------------------------------------------------------------
@@ -125,11 +124,13 @@ if (!signedIn) {
 } else {
     int row = 4;
 	TTF.drawString("   q   | Sign Out", 30, textSpacing * row);
-	TTF.drawString("   e   | Net Energy Usage", 30, textSpacing * (row + 1));
-    if (displayNetEnergy) {
-    TTF.drawString("   0   | Show graph overlay", 30, textSpacing * (row + 3));
-	TTF.drawString("   1   | Aggregated Cost", 30, textSpacing * (row + 4));
-	TTF.drawString("   2   | Usage in kWh", 30, textSpacing * (row + 5));
+    TTF.drawString("   tab | Change data", 30, textSpacing * (row + 1));
+    TTF.drawString("   o | Toggle Graph Overlay", 30, textSpacing * (row + 2));
+    if (displayGraph == 1) {
+	TTF.drawString("   ** Net Energy Usage **", 30, textSpacing * (row + 3));
+    TTF.drawString("   0   | Show combined graphs", 30, textSpacing * (row + 4));
+	TTF.drawString("   1   | Aggregated Cost", 30, textSpacing * (row + 5));
+	TTF.drawString("   2   | Usage in kWh", 30, textSpacing * (row + 6));
     }
 }
     
@@ -173,74 +174,64 @@ if (!signedIn) {
             TTF.drawString("| " + deviceId, 312 + textSpacing * 3 + 350, textSpacing * (i + 3));
             
         }
-        
-        if (displayNetEnergy) {
-            
-            // Go to 'usages' tag
-            graphNetEnergy.pushTag("response");
-            graphNetEnergy.pushTag("usages");
-            
-            // Set constant multiplier
-            float multiplier = 20;
-            
-            // Set number of points
-            int pts = graphNetEnergy.getNumTags("usage");
-
-            // Draw graph
-            float numY = (ofGetHeight() / 4) / multiplier;
-            
-            output.setColor(0xEEEEEE);
-            
-            // Draw positive horizontal lines
-            for(float y = 0; y < numY; y++){
-                float lineY = (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y);
+        if (loadGraph) {
+            if (displayGraph == 1) { // previously displayGraphEnergy
                 
-                output.line(
-                            0,            lineY,
-                            ofGetWidth(), lineY);
-            }
-
-            // Draw negaiteve horizontal lines
-            for(float y = 1; y < numY; y++){
-                float lineY = (ofGetHeight() / 2) + (multiplier * y);
-                output.line(
-                            0,            lineY,
-                            ofGetWidth(), lineY);
-            }
-
-            
-            // Draw vertical lines
-            for(float x = 1; x < pts; x++){
-                float lineX = ofGetWidth() * x / pts;
-                float lineY[] = {
-                    (ofGetHeight() / 2) - (multiplier * (numY - .5)),
-                    (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * 2 * (numY - .5))
-                };
-                output.line(
-                        lineX, lineY[0],
-                        lineX, lineY[1]);
-
-            }
-            
-            
-            ofSetHexColor(0xCC0000);
-            
-            output.setColor(0x7e7e7e);
-            output.noFill();
-            if (drawGraph == 1) {
-                graphCatMullPointsForXML("usage", "amount",multiplier);
-            } else if (drawGraph == 2) {
-                graphCatMullPointsForXML("usage", "kWh",multiplier);
-            } else if (drawGraph == 99) {
-                graphCatMullPointsForXML("usage", "kWh",multiplier);
-                graphCatMullPointsForXML("usage", "amount",multiplier);
+                // Go to 'usages' tag
+                graphNetEnergy.pushTag("response");
+                graphNetEnergy.pushTag("usages");
                 
-            }
+                // Set constant multiplier
+                float multiplier = 20;
+                
+                // Set number of points
+                int pts = graphNetEnergy.getNumTags("usage");
 
-            graphNetEnergy.popTag();
-            graphNetEnergy.popTag();
+                // Draw graph
+                float numY = (ofGetHeight() / 4) / multiplier;
+                
+                output.setColor(0xEEEEEE);
+                
+                // Draw positive horizontal lines
+                for(float y = 0; y < numY; y++){
+                    float lineY = (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y);
+                    output.line(0, lineY, ofGetWidth(), lineY);
+                }
+
+                // Draw negaiteve horizontal lines
+                for(float y = 1; y < numY; y++){
+                    float lineY = (ofGetHeight() / 2) + (multiplier * y);
+                    output.line(0, lineY, ofGetWidth(), lineY);
+                }
+
+                // Draw vertical lines
+                for(float x = 1; x < pts; x++){
+                    float lineX = ofGetWidth() * x / pts;
+                    float lineY[] = {(ofGetHeight() / 2) - (multiplier * (numY - .5)),
+                                     (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * 2 * (numY - .5))};
+                    output.line(lineX, lineY[0], lineX, lineY[1]);
+                }
+                
+                ofSetHexColor(0xCC0000);
+                
+                output.setColor(0x7e7e7e);
+                output.noFill();
+                if (drawGraph == 1) {
+                    graphCatMullPointsForXML("usage", "amount",multiplier);
+                } else if (drawGraph == 2) {
+                    graphCatMullPointsForXML("usage", "kWh",multiplier);
+                } else if (drawGraph == 99) {
+                    graphCatMullPointsForXML("usage", "kWh",multiplier);
+                    graphCatMullPointsForXML("usage", "amount",multiplier);
+                    
+                }
+
+                graphNetEnergy.popTag();
+                graphNetEnergy.popTag();
+            } else if (displayGraph == 2) {
+                message = "This is the second graph";
+            }
         }
-        
     } else if (signingIn) {
         
         output.fill();
@@ -276,37 +267,37 @@ void ofApp::keyPressed(int key){
             username = "";
             password = "";
             
-            displayNetEnergy = false;
+            displayGraph = 0;
+            loadGraph = false;
         }
         
         // Load LocationEnergyUsage
-        if(key == 'e') {
-            
-            displayNetEnergy = true;
-            drawGraph = 0;
-            
-            if (isExampleData) {
-                graphNetEnergy.load("sampleData/locationEnergyUsage.xml");
-                message = "Displaying Total Net Energy Usage! (example data)";
-                
-                graphNetEnergy.copyXmlToString(temp);
-                cout << "graphNetEnergy: " << endl << temp.data() << endl;
+        if(key == 'o') {
+            if (toggleGraphOverlay == false) {
+                toggleGraphOverlay = true;
             } else {
-                ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
-                graphNetEnergy = ofxPeoplePower.XML;
-                message = "Displaying Total Net Energy Usage!";
-                
-                ofxPeoplePower.XML.copyXmlToString(temp);
-                cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
+                toggleGraphOverlay = false;
             }
         }
-        if (key == '1' && displayNetEnergy) {
+        
+        if (key == OF_KEY_TAB) {
+            loadGraph = true;
+            drawGraph = 0;
+            if (displayGraph == 2) {
+                displayGraph = 1;
+            } else {
+                ++displayGraph;
+            }
+//            ++displayGraph;
+            loadGraphData();
+        }
+        if (key == '1' && loadGraph) {
             drawGraph = 1;
         }
-        if (key == '2' && displayNetEnergy) {
+        if (key == '2' && loadGraph) {
             drawGraph = 2;
         }
-        if (key == '0' && displayNetEnergy) {
+        if (key == '0' && loadGraph) {
             drawGraph = 99;
         }
         
@@ -403,7 +394,7 @@ void ofApp::keyPressed(int key){
                     isExampleData = false;
                     
                 // get key and asign it to XML
-                ofxPeoplePower.login(username, password); // TODO: don't hardcode credentials
+                ofxPeoplePower.login(username, password);
                     
                     ofxPeoplePower.XML.copyXmlToString(temp);
                     cout << temp.data() << endl;
