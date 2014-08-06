@@ -126,11 +126,10 @@ if (!signedIn) {
 	TTF.drawString("   q   | Sign Out", 30, textSpacing * row);
     TTF.drawString("   o   | Toggle Graph Overlay", 30, textSpacing * (row + 1));
     TTF.drawString("   tab | Change data", 30, textSpacing * (row + 2));
-    if (displayGraph == 1) {
-	TTF.drawString("   ** Net Energy Usage **", 30, textSpacing * (row + 3));
-    TTF.drawString("   0   | Show combined graphs", 30, textSpacing * (row + 4));
-	TTF.drawString("   1   | Aggregated Cost", 30, textSpacing * (row + 5));
-	TTF.drawString("   2   | Usage in kWh", 30, textSpacing * (row + 6));
+    if (displayGraph == 1 || displayGraph == 2) {
+    TTF.drawString("   0   | Show combined graphs", 30, textSpacing * (row + 3));
+	TTF.drawString("   1   | Aggregated Cost", 30, textSpacing * (row + 4));
+	TTF.drawString("   2   | Usage in kWh", 30, textSpacing * (row + 5));
     }
 }
     
@@ -175,49 +174,22 @@ if (!signedIn) {
             
         }
         if (loadGraph) {
+            
+            cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
             if (displayGraph == 1) { // previously displayGraphEnergy
                 
-                // Go to 'usages' tag
-                graphNetEnergy.pushTag("response");
-                graphNetEnergy.pushTag("usages");
+                // Go to 'response:usages' tag
+                graphXML.pushTag("response");
+                graphXML.pushTag("usages");
                 
                 // Set constant multiplier
                 float multiplier = 20;
                 
                 // Set number of points
-                int pts = graphNetEnergy.getNumTags("usage");
+                int pts = graphXML.getNumTags("usage");
                 
                 renderGraph(pts,multiplier);
-/*                // Draw graph
-                float numY = (ofGetHeight() / 4) / multiplier;
                 
-                output.setColor(0xEEEEEE);
-                
-                // Draw positive horizontal lines
-                for(float y = 0; y < numY; y++){
-                    float lineY = (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y);
-                    output.line(0, lineY, ofGetWidth(), lineY);
-                }
-
-                // Draw negaiteve horizontal lines
-                for(float y = 1; y < numY; y++){
-                    float lineY = (ofGetHeight() / 2) + (multiplier * y);
-                    output.line(0, lineY, ofGetWidth(), lineY);
-                }
-
-                // Draw vertical lines
-                for(float x = 1; x < pts; x++){
-                    float lineX = ofGetWidth() * x / pts;
-                    float lineY[] = {(ofGetHeight() / 2) - (multiplier * (numY - .5)),
-                                     (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * 2 * (numY - .5))};
-                    output.line(lineX, lineY[0], lineX, lineY[1]);
-                }
- */
-                
-                ofSetHexColor(0xCC0000);
-                
-                output.setColor(0x7e7e7e);
-                output.noFill();
                 if (drawGraph == 1) {
                     graphCatMullPointsForXML("usage", "amount",multiplier);
                 } else if (drawGraph == 2) {
@@ -228,10 +200,37 @@ if (!signedIn) {
                     
                 }
 
-                graphNetEnergy.popTag();
-                graphNetEnergy.popTag();
+                graphXML.popTag();
+                graphXML.popTag();
             } else if (displayGraph == 2) {
-                message = "This is the second graph";
+//                message = "This is the second graph";
+                
+                // Go to 'response:usages:device' tag
+                graphXML.pushTag("response");
+                graphXML.pushTag("usages");
+                graphXML.pushTag("device");
+                
+                // Set constant multiplier
+                float multiplier = 100;
+                
+                // Set number of points
+                int pts = graphXML.getNumTags("usage");
+                
+                renderGraph(pts,multiplier);
+                
+                if (drawGraph == 1) {
+                    graphCatMullPointsForXML("usage", "amount",multiplier);
+                } else if (drawGraph == 2) {
+                    graphCatMullPointsForXML("usage", "kWh",multiplier);
+                } else if (drawGraph == 99) {
+                    graphCatMullPointsForXML("usage", "kWh",multiplier);
+                    graphCatMullPointsForXML("usage", "amount",multiplier);
+                }
+                
+                graphXML.popTag();
+                graphXML.popTag();
+                graphXML.popTag();
+                
             }
         }
     } else if (signingIn) {
@@ -283,7 +282,7 @@ void ofApp::keyPressed(int key){
         }
         
         if (key == OF_KEY_TAB) {
-            loadGraph = true;
+            loadGraph = false;
             drawGraph = 99;
             if (displayGraph == 2) {
                 displayGraph = 1;
@@ -292,6 +291,7 @@ void ofApp::keyPressed(int key){
             }
 //            ++displayGraph;
             loadGraphData();
+            loadGraph = true;
         }
         if (key == '1' && loadGraph) {
             drawGraph = 1;

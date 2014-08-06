@@ -56,26 +56,33 @@ public:
     int displayGraph;
     int drawGraph;
     bool toggleGraphOverlay;
+    ofxXmlSettings graphXML;
     void loadGraphData() {
+        cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
         if (displayGraph == 1) {
+            message = "Displaying Location Energy Usage!";
             if (isExampleData) {
-                message = "Displaying Total Net Energy Usage!";
-                graphNetEnergy.load("sampleData/locationEnergyUsage.xml");
+                graphXML.loadFile("sampleData/locationEnergyUsage.xml");
                 message.append(" (example data)");
-                
-//                graphNetEnergy.copyXmlToString(temp);
-//                cout << "graphNetEnergy: " << endl << temp.data() << endl;
+//                graphXML.copyXmlToString(temp);
+//                cout << "graphXML: " << endl << temp.data() << endl;
             } else {
                 ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
-                graphNetEnergy = ofxPeoplePower.XML;
-
-                
+                graphXML = ofxPeoplePower.XML;
 //                ofxPeoplePower.XML.copyXmlToString(temp);
 //                cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
             }
-            
-        } else if (displayGraph == 2) {
-            // TODO: add second data points
+        } else if (displayGraph == 2) {  // deviceEnergyUsage
+            message = "Displaying Device Energy Usage!";
+            if (isExampleData) {
+                graphXML.load("sampleData/deviceEnergyUsage2.xml");
+                message.append(" (example data)");
+            } else {
+                ofxPeoplePower.deviceEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "1", "2014-08-01T00:00:00", "null", "MON31693");
+                graphXML = ofxPeoplePower.XML;
+//                ofxPeoplePower.XML.copyXmlToString(temp);
+//                cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
+            }
         }
     }
     void renderGraph(int pts, int multiplier) {
@@ -106,7 +113,6 @@ public:
     }
     
     bool displayNetEnergy;
-    ofxXmlSettings graphNetEnergy;
 
     
     
@@ -165,44 +171,46 @@ public:
 //    }
     
     void graphCatMullPointsForXML(string parentTab,string childTab, float k) {
+        output.setColor(0x7e7e7e);
+        output.noFill();
         
         // Find number of points
-        float pts = graphNetEnergy.getNumTags(parentTab);
+        float pts = graphXML.getNumTags(parentTab);
         
 //        cout << __PRETTY_FUNCTION__ << "*** Points for " << childTab << endl;
         
         for (int i = 0; i < pts; i++) {
 
-            graphNetEnergy.pushTag(parentTab, i - 3);
+            graphXML.pushTag(parentTab, i - 3);
             float c1[] = {
                 ofGetWidth() * ((i - 1) * (1 / pts)),
-                (ofGetHeight() / 2) - (k * graphNetEnergy.getValue(childTab, 0.0))
+                (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "C1[" << i << "]: (" << c1[0] << "," << c1[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0) << endl;
-            graphNetEnergy.popTag();
-            graphNetEnergy.pushTag(parentTab,i - 2);
+//cout << __PRETTY_FUNCTION__ << "C1[" << i << "]: (" << c1[0] << "," << c1[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0) << endl;
+            graphXML.popTag();
+            graphXML.pushTag(parentTab,i - 2);
             float p1[] = {
                 ofGetWidth() * ((i) * (1 / pts)),
-                (ofGetHeight() / 2) - (k * graphNetEnergy.getValue(childTab, 0.0))
+                (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "P1[" << i << "]: (" << p1[0] << "," << p1[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0)  << endl;
+//cout << __PRETTY_FUNCTION__ << "P1[" << i << "]: (" << p1[0] << "," << p1[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl;
 
-            graphNetEnergy.popTag();
-            graphNetEnergy.pushTag(parentTab,i - 1);
+            graphXML.popTag();
+            graphXML.pushTag(parentTab,i - 1);
             float p2[] = {
                 ofGetWidth() * ((i + 1) * (1 / pts)),
-                (ofGetHeight() / 2) - (k * graphNetEnergy.getValue(childTab, 0.0))
+                (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "P2[" << i << "]: (" << p2[0] << "," << p2[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0)  << endl;
-            graphNetEnergy.popTag();
-            graphNetEnergy.pushTag(parentTab,i);
+//cout << __PRETTY_FUNCTION__ << "P2[" << i << "]: (" << p2[0] << "," << p2[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl;
+            graphXML.popTag();
+            graphXML.pushTag(parentTab,i);
             float c2[] = {
                 ofGetWidth() * ((i + 2)* (1 / pts)),
-                (ofGetHeight() / 2) - (k * graphNetEnergy.getValue(childTab, 0.0))
+                (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "C2[" << i << "]: (" << c2[0] << "," << c2[1] << ")" << " For value: " << graphNetEnergy.getValue(childTab, 0.0)  << endl << endl;
+//cout << __PRETTY_FUNCTION__ << "C2[" << i << "]: (" << c2[0] << "," << c2[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl << endl;
 
-            graphNetEnergy.popTag();
+            graphXML.popTag();
         
             output.curve(c1[0],c1[1],p1[0],p1[1],p2[0],p2[1],c2[0],c2[1]);
             output.circle(p1[0], p1[1], 3);
