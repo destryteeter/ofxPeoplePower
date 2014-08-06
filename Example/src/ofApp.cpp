@@ -12,6 +12,7 @@ void ofApp::setup(){
     
     // Set signed in status to false
     signedIn = false;
+    signingIn = false;
     
     // To use example data sign in using the username 'test' and push enter three times. (There's an issue with the shift key so the first enter adds an '@' sign.)
     // If you would like to user your own data check out Presence by People Power and look into installing a compatible smart plug.
@@ -111,11 +112,26 @@ void ofApp::draw(){
     TTF.drawString("********************************", 15, textSpacing * 1.5);
     TTF.drawString("********************************", 15, textSpacing * 10.5);
 	ofSetColor(240, 240, 240);
-	TTF.drawString(" KEY  |         ACTION        ", 30, textSpacing * 2);
-    TTF.drawString("------------------------------", 30, textSpacing * 3);
-    TTF.drawString("  l   |         Sign In       ", 30, textSpacing * 4);
-	TTF.drawString("  q   |         Sign Out      ", 30, textSpacing * 5);
-	TTF.drawString("  e   |    Net Energy Usage   ", 30, textSpacing * 6);
+	TTF.drawString("   KEY | ACTION", 30, textSpacing * 2);
+    TTF.drawString("-----------------------------", 30, textSpacing * 3);
+if (!signedIn) {
+    int row = 4;
+    TTF.drawString("   l   | Sign In", 30, textSpacing * row);
+    if (signingIn) {
+    TTF.drawString("   tab | Cancel", 30, textSpacing * (row + 1));
+    }
+	TTF.drawString("Enter the username 'test' to ", 30, textSpacing * 8);
+	TTF.drawString("display sample data.         ", 30, textSpacing * 9);
+} else {
+    int row = 4;
+	TTF.drawString("   q   | Sign Out", 30, textSpacing * row);
+	TTF.drawString("   e   | Net Energy Usage", 30, textSpacing * (row + 1));
+    if (displayNetEnergy) {
+    TTF.drawString("   0   | Show graph overlay", 30, textSpacing * (row + 3));
+	TTF.drawString("   1   | Aggregated Cost", 30, textSpacing * (row + 4));
+	TTF.drawString("   2   | Usage in kWh", 30, textSpacing * (row + 5));
+    }
+}
     
     // Add status message
     TTF.drawString("Status: " + message, 30, ofGetHeight() - 22);
@@ -180,16 +196,16 @@ void ofApp::draw(){
                 float lineY = (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y);
                 
                 output.line(
-                            0,            lineY, // (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y), //(ofGetHeight() / 2) - (multiplier * y),
-                            ofGetWidth(), lineY); // (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y)); //(ofGetHeight() / 2) - (multiplier * y));
+                            0,            lineY,
+                            ofGetWidth(), lineY);
             }
 
             // Draw negaiteve horizontal lines
             for(float y = 1; y < numY; y++){
                 float lineY = (ofGetHeight() / 2) + (multiplier * y);
                 output.line(
-                            0,            lineY, // (ofGetHeight() / 2) + (multiplier * y), //(ofGetHeight() / 2) - (multiplier * numY) + (multiplier * y),
-                            ofGetWidth(), lineY); // (ofGetHeight() / 2) + (multiplier * y)); //(ofGetHeight() / 2) - (multiplier * numY) + (multiplier * y));
+                            0,            lineY,
+                            ofGetWidth(), lineY);
             }
 
             
@@ -201,8 +217,8 @@ void ofApp::draw(){
                     (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * 2 * (numY - .5))
                 };
                 output.line(
-                        lineX, lineY[0], // (ofGetHeight() / 2) - (multiplier * (numY - .5)),
-                        lineX, lineY[1]); // (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * 2 * (numY - .5)));
+                        lineX, lineY[0],
+                        lineX, lineY[1]);
 
             }
             
@@ -211,14 +227,22 @@ void ofApp::draw(){
             
             output.setColor(0x7e7e7e);
             output.noFill();
-            
-            graphCatMullPointsForXML("usage", "amount",multiplier);
-            graphCatMullPointsForXML("usage", "kWh",multiplier);
+            if (drawGraph == 1) {
+                graphCatMullPointsForXML("usage", "amount",multiplier);
+            } else if (drawGraph == 2) {
+                graphCatMullPointsForXML("usage", "kWh",multiplier);
+            } else if (drawGraph == 99) {
+                graphCatMullPointsForXML("usage", "kWh",multiplier);
+                graphCatMullPointsForXML("usage", "amount",multiplier);
+                
+            }
+
             graphNetEnergy.popTag();
             graphNetEnergy.popTag();
         }
         
-    } else {
+    } else if (signingIn) {
+        
         output.fill();
         ofSetColor(0, 0, 0, 200);
         ofRect(ofGetWidth() / 4, ofGetHeight() / 2 - textSpacing * 2.25, ofGetWidth() * 1/2, textSpacing * 4);
@@ -259,6 +283,7 @@ void ofApp::keyPressed(int key){
         if(key == 'e') {
             
             displayNetEnergy = true;
+            drawGraph = 0;
             
             if (isExampleData) {
                 graphNetEnergy.load("sampleData/locationEnergyUsage.xml");
@@ -274,10 +299,30 @@ void ofApp::keyPressed(int key){
                 ofxPeoplePower.XML.copyXmlToString(temp);
                 cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
             }
-            
+        }
+        if (key == '1' && displayNetEnergy) {
+            drawGraph = 1;
+        }
+        if (key == '2' && displayNetEnergy) {
+            drawGraph = 2;
+        }
+        if (key == '0' && displayNetEnergy) {
+            drawGraph = 99;
         }
         
+    } else if (!signingIn) {
+        if (key == 'l') {
+            signingIn = true;
+        }
     } else {
+        if (key == OF_KEY_TAB) {
+            signingIn = false;
+            username = "";
+            password = "";
+            setPassword = false;
+            setUsername = 0;
+            signedIn = false;
+        }
         if (setUsername == 0) {
             
             // First part
@@ -359,6 +404,10 @@ void ofApp::keyPressed(int key){
                     
                 // get key and asign it to XML
                 ofxPeoplePower.login(username, password); // TODO: don't hardcode credentials
+                    
+                    ofxPeoplePower.XML.copyXmlToString(temp);
+                    cout << temp.data() << endl;
+                    
                 XML.pushTag("profile",0);
                 
                 XML.setValue("key", ofxPeoplePower.XML.getValue("response:key","null"));
@@ -397,6 +446,7 @@ void ofApp::keyPressed(int key){
                 if (XML.getValue("profile:key","null") == "null") {
                     message = "Login failed, please try again!";
                     XML.clear();
+                    setupXML();
                     username = "";
                     password = "";
                     setUsername = 0;
@@ -415,6 +465,7 @@ void ofApp::keyPressed(int key){
                 // Print XML to console
                 XML.copyXmlToString(temp);
                 cout << temp.data() << endl;
+                signingIn = false;
                 
             } else {
                 password.append(1,(char)key);

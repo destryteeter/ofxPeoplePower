@@ -16,12 +16,12 @@
             <kWh>0.276</kWh>
         </usage>
         <usage endDate="2014-07-05T00:00:00-04:00" startDate="2014-07-04T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>-0.2022</amount>
+            <kWh>-0.300</kWh>
         </usage>
         <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>-0.1040</amount>
+            <kWh>-0.020</kWh>
         </usage>
         <usage endDate="2014-07-07T00:00:00-04:00" startDate="2014-07-06T00:00:00-04:00">
             <amount>0.7244</amount>
@@ -32,44 +32,44 @@
             <kWh>0.716</kWh>
         </usage>
         <usage endDate="2014-07-09T00:00:00-04:00" startDate="2014-07-08T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>-0.200</amount>
+            <kWh>-0.920</kWh>
         </usage>
         <usage endDate="2014-07-10T00:00:00-04:00" startDate="2014-07-09T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>-1.2200</amount>
+            <kWh>-0.840</kWh>
         </usage>
         <usage endDate="2014-07-11T00:00:00-04:00" startDate="2014-07-10T00:00:00-04:00">
             <amount>0.1776</amount>
             <kWh>1.480</kWh>
         </usage>
         <usage endDate="2014-07-12T00:00:00-04:00" startDate="2014-07-11T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>0.14400</amount>
+            <kWh>0.40</kWh>
         </usage>
         <usage endDate="2014-07-13T00:00:00-04:00" startDate="2014-07-12T00:00:00-04:00">
             <amount>0.1109</amount>
             <kWh>0.924</kWh>
         </usage>
         <usage endDate="2014-07-14T00:00:00-04:00" startDate="2014-07-13T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>-0.9800</amount>
+            <kWh>-2.440</kWh>
         </usage>
         <usage endDate="2014-07-15T00:00:00-04:00" startDate="2014-07-14T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>-0.500</amount>
+            <kWh>-0.20</kWh>
         </usage>
         <usage endDate="2014-07-16T00:00:00-04:00" startDate="2014-07-15T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>-0.9400</amount>
+            <kWh>-3.00</kWh>
         </usage>
         <usage endDate="2014-07-17T00:00:00-04:00" startDate="2014-07-16T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>0.3200</amount>
+            <kWh>0.50</kWh>
         </usage>
         <usage endDate="2014-07-18T00:00:00-04:00" startDate="2014-07-17T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>0.1100</amount>
+            <kWh>0.050</kWh>
         </usage>
         <usage endDate="2014-07-19T00:00:00-04:00" startDate="2014-07-18T00:00:00-04:00">
             <amount>0.1071</amount>
@@ -140,12 +140,12 @@
             <kWh>0.246</kWh>
         </usage>
         <usage endDate="2014-08-05T00:00:00-04:00" startDate="2014-08-04T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>-0.300</amount>
+            <kWh>-0.110</kWh>
         </usage>
         <usage endDate="2014-08-06T00:00:00-04:00" startDate="2014-08-05T00:00:00-04:00">
-            <amount>0.0000</amount>
-            <kWh>0.000</kWh>
+            <amount>-0.1400</amount>
+            <kWh>-0.50</kWh>
         </usage>
     </usages>
 </response>
