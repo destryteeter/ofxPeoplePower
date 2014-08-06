@@ -59,22 +59,49 @@ public:
     void loadGraphData() {
         if (displayGraph == 1) {
             if (isExampleData) {
+                message = "Displaying Total Net Energy Usage!";
                 graphNetEnergy.load("sampleData/locationEnergyUsage.xml");
-                message = "Displaying Total Net Energy Usage! (example data)";
+                message.append(" (example data)");
                 
-                graphNetEnergy.copyXmlToString(temp);
-                cout << "graphNetEnergy: " << endl << temp.data() << endl;
+//                graphNetEnergy.copyXmlToString(temp);
+//                cout << "graphNetEnergy: " << endl << temp.data() << endl;
             } else {
                 ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
                 graphNetEnergy = ofxPeoplePower.XML;
-                message = "Displaying Total Net Energy Usage!";
+
                 
-                ofxPeoplePower.XML.copyXmlToString(temp);
-                cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
+//                ofxPeoplePower.XML.copyXmlToString(temp);
+//                cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
             }
             
         } else if (displayGraph == 2) {
             // TODO: add second data points
+        }
+    }
+    void renderGraph(int pts, int multiplier) {
+        // Draw graph
+        float numY = (ofGetHeight() / 4) / multiplier;
+        
+        output.setColor(0xEEEEEE);
+        
+        // Draw positive horizontal lines
+        for(float y = 0; y < numY; y++){
+            float lineY = (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y);
+            output.line(0, lineY, ofGetWidth(), lineY);
+        }
+        
+        // Draw negaiteve horizontal lines
+        for(float y = 1; y < numY; y++){
+            float lineY = (ofGetHeight() / 2) + (multiplier * y);
+            output.line(0, lineY, ofGetWidth(), lineY);
+        }
+        
+        // Draw vertical lines
+        for(float x = 1; x < pts; x++){
+            float lineX = ofGetWidth() * x / pts;
+            float lineY[] = {(ofGetHeight() / 2) - (multiplier * (numY - .5)),
+                (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * 2 * (numY - .5))};
+            output.line(lineX, lineY[0], lineX, lineY[1]);
         }
     }
     

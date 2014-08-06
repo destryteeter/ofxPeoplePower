@@ -124,8 +124,8 @@ if (!signedIn) {
 } else {
     int row = 4;
 	TTF.drawString("   q   | Sign Out", 30, textSpacing * row);
-    TTF.drawString("   tab | Change data", 30, textSpacing * (row + 1));
-    TTF.drawString("   o | Toggle Graph Overlay", 30, textSpacing * (row + 2));
+    TTF.drawString("   o   | Toggle Graph Overlay", 30, textSpacing * (row + 1));
+    TTF.drawString("   tab | Change data", 30, textSpacing * (row + 2));
     if (displayGraph == 1) {
 	TTF.drawString("   ** Net Energy Usage **", 30, textSpacing * (row + 3));
     TTF.drawString("   0   | Show combined graphs", 30, textSpacing * (row + 4));
@@ -186,8 +186,9 @@ if (!signedIn) {
                 
                 // Set number of points
                 int pts = graphNetEnergy.getNumTags("usage");
-
-                // Draw graph
+                
+                renderGraph(pts,multiplier);
+/*                // Draw graph
                 float numY = (ofGetHeight() / 4) / multiplier;
                 
                 output.setColor(0xEEEEEE);
@@ -211,6 +212,7 @@ if (!signedIn) {
                                      (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * 2 * (numY - .5))};
                     output.line(lineX, lineY[0], lineX, lineY[1]);
                 }
+ */
                 
                 ofSetHexColor(0xCC0000);
                 
@@ -282,7 +284,7 @@ void ofApp::keyPressed(int key){
         
         if (key == OF_KEY_TAB) {
             loadGraph = true;
-            drawGraph = 0;
+            drawGraph = 99;
             if (displayGraph == 2) {
                 displayGraph = 1;
             } else {
@@ -444,13 +446,14 @@ void ofApp::keyPressed(int key){
                     setPassword = false;
                     
                 } else {
-                    message = "Login successful";
+                    message = "Login successful.  Press TAB to graph your data";
                     XML.saveFile();
                     signedIn = true;
                     username = "";
                     password = "";
                     setUsername = 2;
                     setPassword = true;
+                    
                 }
                 }
                 // Print XML to console
