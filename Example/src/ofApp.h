@@ -87,7 +87,8 @@ public:
     }
     void renderGraph(int pts, int multiplier) {
         // Draw graph
-        float numY = (ofGetHeight() / 4) / multiplier;
+        float numY = (ofGetHeight() / 80); // 4 / multiplier);
+cout << __PRETTY_FUNCTION__ << "numY: " << numY << endl;
         
         output.setColor(0xEEEEEE);
         
@@ -95,6 +96,7 @@ public:
         for(float y = 0; y < numY; y++){
             float lineY = (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y);
             output.line(0, lineY, ofGetWidth(), lineY);
+cout << __PRETTY_FUNCTION__ << "lineY[" << y << "]: " << lineY << endl;
         }
         
         // Draw negaiteve horizontal lines
@@ -193,7 +195,7 @@ public:
                 ofGetWidth() * ((i) * (1 / pts)),
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "P1[" << i << "]: (" << p1[0] << "," << p1[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl;
+cout << __PRETTY_FUNCTION__ << "P1[" << i << "]: (" << p1[0] << "," << p1[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl;
 
             graphXML.popTag();
             graphXML.pushTag(parentTab,i - 1);

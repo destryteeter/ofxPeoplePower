@@ -211,7 +211,7 @@ if (!signedIn) {
                 graphXML.pushTag("device");
                 
                 // Set constant multiplier
-                float multiplier = 100;
+                float multiplier = 500;
                 
                 // Set number of points
                 int pts = graphXML.getNumTags("usage");
