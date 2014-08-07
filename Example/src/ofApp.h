@@ -57,6 +57,7 @@ public:
     int drawGraph;
     bool toggleGraphOverlay;
     ofxXmlSettings graphXML;
+    float graphWidth = ofGetWidth() / 1.1;
     void loadGraphData() {
         cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
         if (displayGraph == 1) {
@@ -87,30 +88,44 @@ public:
     }
     void renderGraph(int pts, int multiplier) {
         // Draw graph
-        float numY = (ofGetHeight() / 80); // 4 / multiplier);
-cout << __PRETTY_FUNCTION__ << "numY: " << numY << endl;
+        float numY = (ofGetHeight() / 100); // 4 / multiplier);
+//cout << __PRETTY_FUNCTION__ << "numY: " << numY << endl;
         
         output.setColor(0xEEEEEE);
         
+        // Define outer edges
+        float lineX[] = {(graphWidth * 1 / (pts - 1)), graphWidth}; // TODO: Center graph
+        float lineY[] = {ofGetHeight() / 4, ofGetHeight() / 2};
+        
+        // Draw border
+        output.noFill();
+        output.rect(lineX[0], lineY[0], lineX[1], lineY[1]);
+        output.fill();
+        
         // Draw positive horizontal lines
-        for(float y = 0; y < numY; y++){
-            float lineY = (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y);
-            output.line(0, lineY, ofGetWidth(), lineY);
-cout << __PRETTY_FUNCTION__ << "lineY[" << y << "]: " << lineY << endl;
+        for(float y = 0; y < numY; y++){ // TODO: subdivide lines when space allows
+//            float lineY = (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y);
+            float pointY = (ofGetHeight() / 2) - (multiplier * numY) + (multiplier * y);
+            
+            if (pointY >= ofGetHeight() / 4) {
+                output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
+            }
+//cout << __PRETTY_FUNCTION__ << "lineY[" << y << "]: " << lineY << endl;
         }
         
         // Draw negaiteve horizontal lines
-        for(float y = 1; y < numY; y++){
-            float lineY = (ofGetHeight() / 2) + (multiplier * y);
-            output.line(0, lineY, ofGetWidth(), lineY);
+        for(float y = 0; y < numY + 1; y++){
+            float pointY = (ofGetHeight() / 2) + (multiplier * y);
+//            float lineX[] = {(graphWidth * 1 / (pts - 1)), graphWidth + (graphWidth * 1 / (pts - 1))};
+            if (pointY <= (ofGetHeight() * 3 / 4)) {
+                output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
+            }
         }
         
         // Draw vertical lines
-        for(float x = 1; x < pts; x++){
-            float lineX = ofGetWidth() * x / pts;
-            float lineY[] = {(ofGetHeight() / 2) - (multiplier * (numY - .5)),
-                (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * 2 * (numY - .5))};
-            output.line(lineX, lineY[0], lineX, lineY[1]);
+        for(float x = 0; x < pts; x++){
+            float pointX = graphWidth * x / (pts - 1) + (graphWidth * 1 / (pts - 1));
+            output.line(pointX, lineY[0], pointX, lineY[1] + (ofGetHeight() / 4));
         }
     }
     
@@ -177,37 +192,43 @@ cout << __PRETTY_FUNCTION__ << "lineY[" << y << "]: " << lineY << endl;
         output.noFill();
         
         // Find number of points
-        float pts = graphXML.getNumTags(parentTab);
-        
-//        cout << __PRETTY_FUNCTION__ << "*** Points for " << childTab << endl;
+        float pts = graphXML.getNumTags(parentTab) - 1;
+
+       cout << __PRETTY_FUNCTION__ << "*** Points for " << childTab << endl;
         
         for (int i = 0; i < pts; i++) {
 
-            graphXML.pushTag(parentTab, i - 3);
+            graphXML.pushTag(parentTab, i - 1);
             float c1[] = {
-                ofGetWidth() * ((i - 1) * (1 / pts)),
+                graphWidth * ((i - 1) * (1 / pts)) + (graphWidth * 1 / pts),
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
 //cout << __PRETTY_FUNCTION__ << "C1[" << i << "]: (" << c1[0] << "," << c1[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0) << endl;
             graphXML.popTag();
-            graphXML.pushTag(parentTab,i - 2);
+            graphXML.pushTag(parentTab,i);
             float p1[] = {
-                ofGetWidth() * ((i) * (1 / pts)),
+                graphWidth * ((i) * (1 / pts)) + (graphWidth * 1 / pts),
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
-cout << __PRETTY_FUNCTION__ << "P1[" << i << "]: (" << p1[0] << "," << p1[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl;
+//cout << __PRETTY_FUNCTION__ << "P1[" << i << "]: (" << p1[0] << "," << p1[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl;
 
             graphXML.popTag();
-            graphXML.pushTag(parentTab,i - 1);
+            graphXML.pushTag(parentTab,i + 1);
             float p2[] = {
-                ofGetWidth() * ((i + 1) * (1 / pts)),
+                graphWidth * ((i + 1) * (1 / pts)) + (graphWidth * 1 / pts),
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
 //cout << __PRETTY_FUNCTION__ << "P2[" << i << "]: (" << p2[0] << "," << p2[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl;
             graphXML.popTag();
-            graphXML.pushTag(parentTab,i);
+            // Check to see if it is the last tag
+            if (graphXML.tagExists(parentTab,i + 2)) {
+                graphXML.pushTag(parentTab,i + 2);
+            } else {
+                graphXML.pushTag(parentTab,i + 1);
+                output.circle(p2[0], p2[1], 3);
+            }
             float c2[] = {
-                ofGetWidth() * ((i + 2)* (1 / pts)),
+                graphWidth * ((i + 2)* (1 / pts)) + (graphWidth * 1 / pts),
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
 //cout << __PRETTY_FUNCTION__ << "C2[" << i << "]: (" << c2[0] << "," << c2[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl << endl;
