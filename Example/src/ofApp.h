@@ -57,7 +57,8 @@ public:
     int drawGraph;
     bool toggleGraphOverlay;
     ofxXmlSettings graphXML;
-    float graphWidth = ofGetWidth() / 1.1;
+    float graphWidth;
+    float graphPosition;
     
     void loadGraphData() {
 //        cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
@@ -92,7 +93,7 @@ public:
         float numY = (ofGetHeight() / 80); // 4 / multiplier);
 //cout << __PRETTY_FUNCTION__ << "numY: " << numY << endl;
         // Define outer edges
-        float lineX[] = {(graphWidth * 1 / (pts - 1)), graphWidth}; // TODO: Center graph
+        float lineX[] = {graphPosition, graphWidth}; // TODO: Center graph
         float lineY[] = {ofGetHeight() / 4, ofGetHeight() / 2};
         
         // Draw positive horizontal lines
@@ -103,12 +104,12 @@ public:
             float pointYDelta = pointYPrevious - pointY;
             if (pointY >= ofGetHeight() / 4) {
                 output.setColor(0xDDDDDD);
-                output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
+                output.line(lineX[0], pointY, lineX[1] + graphPosition, pointY);
                 if (multiplier >= 100) { // Draw subdivided lines excluded previously drawn line
                     for (int j = 1; j < 10; j++) {
                         float pointYDivide = (pointYDelta * j) / 10;
                         output.setColor(0xEEEEEE);
-                        output.line(lineX[0], pointY + pointYDivide, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY + pointYDivide);
+                        output.line(lineX[0], pointY + pointYDivide, lineX[1] + graphPosition, pointY + pointYDivide);
                     }
                 }
             }
@@ -121,12 +122,12 @@ public:
             float pointYDelta = pointY - pointYPrevious; // calculate delta for bottom row
             if (pointY <= (ofGetHeight() * 3 / 4)) {
                 output.setColor(0xDDDDDD);
-                output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
+                output.line(lineX[0], pointY, lineX[1] + graphPosition, pointY);
                 if (multiplier >= 100) {
                     for (int j = 1; j < 10; j++) {
                         float pointYDivide = (pointYDelta * j) / 10;
                         output.setColor(0xEEEEEE);
-                        output.line(lineX[0], pointY - pointYDivide, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY - pointYDivide);
+                        output.line(lineX[0], pointY - pointYDivide, lineX[1] + graphPosition, pointY - pointYDivide);
                     }
                 }
             }
@@ -134,7 +135,7 @@ public:
         
         // Draw vertical lines
         for(float x = 0; x < pts; x++){
-            float pointX = graphWidth * x / (pts - 1) + (graphWidth * 1 / (pts - 1));
+            float pointX = graphWidth * x / (pts - 1) + graphPosition;
                     output.setColor(0xDDDDDD);
             output.line(pointX, lineY[0], pointX, lineY[1] + (ofGetHeight() / 4));
         }
@@ -147,9 +148,9 @@ public:
         
         // Draw center line with tics
         output.setColor(0xBBBBBB);
-        output.line(lineX[0], ofGetHeight() / 2, lineX[1] + (graphWidth * 1 / (pts - 1)), ofGetHeight() / 2);
+        output.line(lineX[0], ofGetHeight() / 2, lineX[1] + graphPosition, ofGetHeight() / 2);
         for(float x = 1; x < pts - 1; x++){
-            float pointX = graphWidth * x / (pts - 1) + (graphWidth * 1 / (pts - 1));
+            float pointX = graphWidth * x / (pts - 1) + graphPosition;
             output.line(pointX, (ofGetHeight() / 2) - 5, pointX, (ofGetHeight() / 2) + 5);
         }
     }
@@ -225,14 +226,14 @@ public:
 
             graphXML.pushTag(parentTab, i - 1);
             float c1[] = {
-                graphWidth * ((i - 1) * (1 / pts)) + (graphWidth * 1 / pts),
+                (graphWidth * ((i - 1) * (1 / pts))) + graphPosition,
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
 //cout << __PRETTY_FUNCTION__ << "C1[" << i << "]: (" << c1[0] << "," << c1[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0) << endl;
             graphXML.popTag();
             graphXML.pushTag(parentTab,i);
             float p1[] = {
-                graphWidth * ((i) * (1 / pts)) + (graphWidth * 1 / pts),
+                (graphWidth * ((i) * (1 / pts))) + graphPosition,
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
 //cout << __PRETTY_FUNCTION__ << "P1[" << i << "]: (" << p1[0] << "," << p1[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl;
@@ -240,7 +241,7 @@ public:
             graphXML.popTag();
             graphXML.pushTag(parentTab,i + 1);
             float p2[] = {
-                graphWidth * ((i + 1) * (1 / pts)) + (graphWidth * 1 / pts),
+                (graphWidth * ((i + 1) * (1 / pts))) + graphPosition,
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
 //cout << __PRETTY_FUNCTION__ << "P2[" << i << "]: (" << p2[0] << "," << p2[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl;
@@ -253,7 +254,7 @@ public:
                 output.circle(p2[0], p2[1], 1);
             }
             float c2[] = {
-                graphWidth * ((i + 2)* (1 / pts)) + (graphWidth * 1 / pts),
+                (graphWidth * ((i + 2)* (1 / pts))) + graphPosition,
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
 //cout << __PRETTY_FUNCTION__ << "C2[" << i << "]: (" << c2[0] << "," << c2[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl << endl;

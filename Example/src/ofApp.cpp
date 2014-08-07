@@ -92,6 +92,8 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    graphWidth = ofGetWidth() / 1.1;
+    graphPosition = (ofGetWidth() - graphWidth) / 2;
 }
 
 //--------------------------------------------------------------
