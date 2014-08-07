@@ -58,6 +58,7 @@ public:
     bool toggleGraphOverlay;
     ofxXmlSettings graphXML;
     float graphWidth = ofGetWidth() / 1.1;
+    
     void loadGraphData() {
 //        cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
         if (displayGraph == 1) {
@@ -94,37 +95,23 @@ public:
         float lineX[] = {(graphWidth * 1 / (pts - 1)), graphWidth}; // TODO: Center graph
         float lineY[] = {ofGetHeight() / 4, ofGetHeight() / 2};
         
-        // Draw border
-        output.setColor(0xEEEEEE); // TODO: set to a darker color
-        output.noFill();
-        output.rect(lineX[0], lineY[0], lineX[1], lineY[1]);
-        output.fill();
-        
         // Draw positive horizontal lines
-        for(float y = 0; y < numY; y++){ // TODO: subdivide lines when space allows
-//            float lineY = (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y);
+
+        for(float y = 0; y < numY; y++){
             float pointY = (ofGetHeight() / 2) + (multiplier * y) - (multiplier * numY);
             float pointYPrevious = (ofGetHeight() / 2) + (multiplier * y) - (multiplier * (numY - 1));
-            float pointYDelta = pointYPrevious - pointY; // calculate delta for top row
+            float pointYDelta = pointYPrevious - pointY;
             if (pointY >= ofGetHeight() / 4) {
-                
-                if (multiplier >= 100) {
-//                    cout << __PRETTY_FUNCTION__ << "PointYDelta: " << pointY << " - " << pointYPrevious << " = " << pointYDelta << endl;
-                    output.setColor(0xEEEEEE);
-                    output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
-                    for (int j = 0; j < 10; j++) {
-//                        cout << __PRETTY_FUNCTION__ << "(PointYDelta * j) / 10: " << (pointYDelta * j) / 10 << endl;
+                output.setColor(0xDDDDDD);
+                output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
+                if (multiplier >= 100) { // Draw subdivided lines excluded previously drawn line
+                    for (int j = 1; j < 10; j++) {
                         float pointYDivide = (pointYDelta * j) / 10;
-                        output.setColor(0xEEEEEE); // TODO: set to a lighter color
+                        output.setColor(0xEEEEEE);
                         output.line(lineX[0], pointY + pointYDivide, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY + pointYDivide);
                     }
-                } else {
-                    output.setColor(0xEEEEEE);
-                    output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
                 }
-                
             }
-//cout << __PRETTY_FUNCTION__ << "lineY[" << y << "]: " << lineY << endl;
         }
         
         // Draw negaiteve horizontal lines
@@ -133,19 +120,14 @@ public:
             float pointYPrevious = (ofGetHeight() / 2) - (multiplier * y) + (multiplier * (numY - 1));
             float pointYDelta = pointY - pointYPrevious; // calculate delta for bottom row
             if (pointY <= (ofGetHeight() * 3 / 4)) {
+                output.setColor(0xDDDDDD);
+                output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
                 if (multiplier >= 100) {
-//                    cout << __PRETTY_FUNCTION__ << "PointYDelta: " << pointY << " - " << pointYPrevious << " = " << pointYDelta << endl;
-                    output.setColor(0xEEEEEE);
-                    output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
-                    for (int j = 0; j < 10; j++) {
-//                        cout << __PRETTY_FUNCTION__ << "(PointYDelta * j) / 10: " << (pointYDelta * j) / 10 << endl;
+                    for (int j = 1; j < 10; j++) {
                         float pointYDivide = (pointYDelta * j) / 10;
-                        output.setColor(0xEEEEEE); // TODO: set to a lighter color
+                        output.setColor(0xEEEEEE);
                         output.line(lineX[0], pointY - pointYDivide, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY - pointYDivide);
                     }
-                } else {
-                    output.setColor(0xEEEEEE);
-                    output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
                 }
             }
         }
@@ -153,7 +135,22 @@ public:
         // Draw vertical lines
         for(float x = 0; x < pts; x++){
             float pointX = graphWidth * x / (pts - 1) + (graphWidth * 1 / (pts - 1));
+                    output.setColor(0xDDDDDD);
             output.line(pointX, lineY[0], pointX, lineY[1] + (ofGetHeight() / 4));
+        }
+        
+        // Draw border
+        output.setColor(0x000000); // TODO: set to a darker color
+        output.noFill();
+        output.rect(lineX[0], lineY[0], lineX[1], lineY[1]);
+        output.fill();
+        
+        // Draw center line with tics
+        output.setColor(0xBBBBBB);
+        output.line(lineX[0], ofGetHeight() / 2, lineX[1] + (graphWidth * 1 / (pts - 1)), ofGetHeight() / 2);
+        for(float x = 1; x < pts - 1; x++){
+            float pointX = graphWidth * x / (pts - 1) + (graphWidth * 1 / (pts - 1));
+            output.line(pointX, (ofGetHeight() / 2) - 5, pointX, (ofGetHeight() / 2) + 5);
         }
     }
     
@@ -253,7 +250,7 @@ public:
                 graphXML.pushTag(parentTab,i + 2);
             } else {
                 graphXML.pushTag(parentTab,i + 1);
-                output.circle(p2[0], p2[1], 3);
+                output.circle(p2[0], p2[1], 1);
             }
             float c2[] = {
                 graphWidth * ((i + 2)* (1 / pts)) + (graphWidth * 1 / pts),
@@ -264,7 +261,7 @@ public:
             graphXML.popTag();
         
             output.curve(c1[0],c1[1],p1[0],p1[1],p2[0],p2[1],c2[0],c2[1]);
-            output.circle(p1[0], p1[1], 3);
+            output.circle(p1[0], p1[1], 1);
         }
     }
 };
