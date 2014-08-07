@@ -1,12 +1,12 @@
 <profile>
-    <email></email>
-    <key expires="2030-01-01T00:00:00-05:00">d6grJk3TeLHACeycbkTvszd1BoTj2zqMkFyXXr8dVvKCkqlG-lkhrupb4zYpB5pV</key>
-    <user_id>149168</user_id>
-    <location_id>144526</location_id>
+    <email />
+    <key expires="" />
+    <user_id />
+    <location_id />
     <devices>
-        <device connected="true" desc="PowerCost Meter" hubId="001EC0108896" id="001EC0108896" lastDataReceivedDate="2014-08-07T11:47:06-04:00" lastMeasureDate="2014-08-07T11:46:59-04:00" locationId="144526" startDate="2014-08-04T18:41:47-04:00" type="1100" typeCategory="1"></device>
-        <device connected="false" desc="iPod touch" hubId="78667808-D2E4-46D0-9D7B-440886C8EC14::149168" id="78667808-D2E4-46D0-9D7B-440886C8EC14::149168" lastDataReceivedDate="2014-08-06T15:56:28-04:00" lastMeasureDate="2014-08-06T15:56:28-04:00" locationId="144526" startDate="2014-08-01T11:10:21-04:00" type="21" typeCategory="6"></device>
-        <device connected="false" desc="Destry Teeter’s iPhone" hubId="F1D0991F-D253-4BBA-934B-3548A86D0A7D::149168" id="F1D0991F-D253-4BBA-934B-3548A86D0A7D::149168" lastDataReceivedDate="2014-08-06T18:10:24-04:00" lastMeasureDate="2014-08-06T18:10:29-04:00" locationId="144526" startDate="2014-08-01T14:40:55-04:00" type="21" typeCategory="6"></device>
-        <device connected="true" desc="Entertainment Center" hubId="MON31693" id="MON31693" lastDataReceivedDate="2014-08-07T11:37:08-04:00" lastMeasureDate="2014-08-07T11:37:08-04:00" locationId="144526" startDate="2014-07-25T10:54:01-04:00" type="2012" typeCategory="2"></device>
+        <device connected="true" desc="PowerCost Meter" hubId="001EC0108896" id="001EC0108896" lastDataReceivedDate="2014-08-05T17:37:09-04:00" lastMeasureDate="2014-08-05T17:37:04-04:00" locationId="144526" startDate="2014-08-04T18:41:47-04:00" type="1100" typeCategory="1"></device>
+        <device connected="false" desc="iPod touch" hubId="78667808-D2E4-46D0-9D7B-440886C8EC14::149168" id="78667808-D2E4-46D0-9D7B-440886C8EC14::149168" lastDataReceivedDate="2014-08-02T14:54:59-04:00" lastMeasureDate="2014-08-02T14:55:01-04:00" locationId="144526" startDate="2014-08-01T11:10:21-04:00" type="21" typeCategory="6"></device>
+        <device connected="false" desc="Destry Teeter’s iPhone" hubId="F1D0991F-D253-4BBA-934B-3548A86D0A7D::149168" id="F1D0991F-D253-4BBA-934B-3548A86D0A7D::149168" lastDataReceivedDate="2014-08-03T14:28:00-04:00" lastMeasureDate="2014-08-03T14:28:03-04:00" locationId="144526" startDate="2014-08-01T14:40:55-04:00" type="21" typeCategory="6"></device>
+        <device connected="true" desc="Entertainment Center" hubId="MON31693" id="MON31693" lastDataReceivedDate="2014-08-05T17:26:38-04:00" lastMeasureDate="2014-08-05T17:26:38-04:00" locationId="144526" startDate="2014-07-25T10:54:01-04:00" type="2012" typeCategory="2"></device>
     </devices>
 </profile>

@@ -1,0 +1,177 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/deviceEnergyUsage/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/144526/1/2014-08-01T20:00:00?deviceId=MON31693 -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <usages>
+        <device id="MON31693">
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.10</amount>
+                <kWh>-1.00</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.10</amount>
+                <kWh>-1.00</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.09</amount>
+                <kWh>-0.90</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.09</amount>
+                <kWh>-0.90</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.08</amount>
+                <kWh>-0.80</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.08</amount>
+                <kWh>-0.80</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.07</amount>
+                <kWh>-0.70</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.07</amount>
+                <kWh>-0.70</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.06</amount>
+                <kWh>-0.60</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.06</amount>
+                <kWh>-0.60</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.05</amount>
+                <kWh>-0.50</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.05</amount>
+                <kWh>-0.50</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.04</amount>
+                <kWh>-0.40</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.04</amount>
+                <kWh>-0.40</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.03</amount>
+                <kWh>-0.30</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.03</amount>
+                <kWh>-0.30</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.02</amount>
+                <kWh>-0.20</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.02</amount>
+                <kWh>-0.20</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.01</amount>
+                <kWh>-0.10</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.01</amount>
+                <kWh>-0.10</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.00</amount>
+                <kWh>0.00</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>-0.00</amount>
+                <kWh>0.00</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.01</amount>
+                <kWh>0.10</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.01</amount>
+                <kWh>0.10</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.02</amount>
+                <kWh>0.20</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.02</amount>
+                <kWh>0.20</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.03</amount>
+                <kWh>0.30</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.03</amount>
+                <kWh>0.30</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.04</amount>
+                <kWh>0.40</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.04</amount>
+                <kWh>0.40</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.05</amount>
+                <kWh>0.50</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.05</amount>
+                <kWh>0.50</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.06</amount>
+                <kWh>0.60</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.06</amount>
+                <kWh>0.60</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.07</amount>
+                <kWh>0.70</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.07</amount>
+                <kWh>0.70</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.08</amount>
+                <kWh>0.80</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.08</amount>
+                <kWh>0.80</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.09</amount>
+                <kWh>0.90</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.09</amount>
+                <kWh>0.90</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.10</amount>
+                <kWh>1.00</kWh>
+            </usage>
+            <usage endDate="2014-08-01T21:00:00-04:00" startDate="2014-08-01T20:00:00-04:00">
+                <amount>0.10</amount>
+                <kWh>1.00</kWh>
+            </usage>
+        </device>
+    </usages>
+</response>
