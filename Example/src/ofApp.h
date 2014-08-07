@@ -59,7 +59,7 @@ public:
     ofxXmlSettings graphXML;
     float graphWidth = ofGetWidth() / 1.1;
     void loadGraphData() {
-        cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
+//        cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
         if (displayGraph == 1) {
             message = "Displaying Location Energy Usage!";
             if (isExampleData) {
@@ -88,16 +88,14 @@ public:
     }
     void renderGraph(int pts, int multiplier) {
         // Draw graph
-        float numY = (ofGetHeight() / 100); // 4 / multiplier);
+        float numY = (ofGetHeight() / 80); // 4 / multiplier);
 //cout << __PRETTY_FUNCTION__ << "numY: " << numY << endl;
-        
-        output.setColor(0xEEEEEE);
-        
         // Define outer edges
         float lineX[] = {(graphWidth * 1 / (pts - 1)), graphWidth}; // TODO: Center graph
         float lineY[] = {ofGetHeight() / 4, ofGetHeight() / 2};
         
         // Draw border
+        output.setColor(0xEEEEEE); // TODO: set to a darker color
         output.noFill();
         output.rect(lineX[0], lineY[0], lineX[1], lineY[1]);
         output.fill();
@@ -105,20 +103,50 @@ public:
         // Draw positive horizontal lines
         for(float y = 0; y < numY; y++){ // TODO: subdivide lines when space allows
 //            float lineY = (ofGetHeight() / 2) - (multiplier * (numY - .5)) + (multiplier * y);
-            float pointY = (ofGetHeight() / 2) - (multiplier * numY) + (multiplier * y);
-            
+            float pointY = (ofGetHeight() / 2) + (multiplier * y) - (multiplier * numY);
+            float pointYPrevious = (ofGetHeight() / 2) + (multiplier * y) - (multiplier * (numY - 1));
+            float pointYDelta = pointYPrevious - pointY; // calculate delta for top row
             if (pointY >= ofGetHeight() / 4) {
-                output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
+                
+                if (multiplier >= 100) {
+//                    cout << __PRETTY_FUNCTION__ << "PointYDelta: " << pointY << " - " << pointYPrevious << " = " << pointYDelta << endl;
+                    output.setColor(0xEEEEEE);
+                    output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
+                    for (int j = 0; j < 10; j++) {
+//                        cout << __PRETTY_FUNCTION__ << "(PointYDelta * j) / 10: " << (pointYDelta * j) / 10 << endl;
+                        float pointYDivide = (pointYDelta * j) / 10;
+                        output.setColor(0xEEEEEE); // TODO: set to a lighter color
+                        output.line(lineX[0], pointY + pointYDivide, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY + pointYDivide);
+                    }
+                } else {
+                    output.setColor(0xEEEEEE);
+                    output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
+                }
+                
             }
 //cout << __PRETTY_FUNCTION__ << "lineY[" << y << "]: " << lineY << endl;
         }
         
         // Draw negaiteve horizontal lines
-        for(float y = 0; y < numY + 1; y++){
-            float pointY = (ofGetHeight() / 2) + (multiplier * y);
-//            float lineX[] = {(graphWidth * 1 / (pts - 1)), graphWidth + (graphWidth * 1 / (pts - 1))};
+        for(float y = 0; y < numY; y++){
+            float pointY = (ofGetHeight() / 2) - (multiplier * y) + (multiplier * numY);
+            float pointYPrevious = (ofGetHeight() / 2) - (multiplier * y) + (multiplier * (numY - 1));
+            float pointYDelta = pointY - pointYPrevious; // calculate delta for bottom row
             if (pointY <= (ofGetHeight() * 3 / 4)) {
-                output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
+                if (multiplier >= 100) {
+//                    cout << __PRETTY_FUNCTION__ << "PointYDelta: " << pointY << " - " << pointYPrevious << " = " << pointYDelta << endl;
+                    output.setColor(0xEEEEEE);
+                    output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
+                    for (int j = 0; j < 10; j++) {
+//                        cout << __PRETTY_FUNCTION__ << "(PointYDelta * j) / 10: " << (pointYDelta * j) / 10 << endl;
+                        float pointYDivide = (pointYDelta * j) / 10;
+                        output.setColor(0xEEEEEE); // TODO: set to a lighter color
+                        output.line(lineX[0], pointY - pointYDivide, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY - pointYDivide);
+                    }
+                } else {
+                    output.setColor(0xEEEEEE);
+                    output.line(lineX[0], pointY, lineX[1] + (graphWidth * 1 / (pts - 1)), pointY);
+                }
             }
         }
         
@@ -194,7 +222,7 @@ public:
         // Find number of points
         float pts = graphXML.getNumTags(parentTab) - 1;
 
-       cout << __PRETTY_FUNCTION__ << "*** Points for " << childTab << endl;
+//       cout << __PRETTY_FUNCTION__ << "*** Points for " << childTab << endl;
         
         for (int i = 0; i < pts; i++) {
 

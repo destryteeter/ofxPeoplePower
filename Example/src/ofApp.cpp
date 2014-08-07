@@ -175,7 +175,7 @@ if (!signedIn) {
         }
         if (loadGraph) {
             
-            cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
+//            cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
             if (displayGraph == 1) { // previously displayGraphEnergy
                 
                 // Go to 'response:usages' tag
