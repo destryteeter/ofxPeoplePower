@@ -47,11 +47,14 @@ public:
     bool signedIn;
     bool signingIn;
     
+    bool printOnce;
+    
     // Device Information
     int numberOfDevices;
     string targetString;
     
     // Graphing
+    bool displayNetEnergy;
     bool loadGraph;
     int displayGraph;
     int drawGraph;
@@ -61,21 +64,16 @@ public:
     float graphPosition;
     
     void loadGraphData() {
-//        cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
         if (displayGraph == 1) {
             message = "Displaying Location Energy Usage!";
             if (isExampleData) {
                 graphXML.loadFile("sampleData/locationEnergyUsage.xml");
                 message.append(" (example data)");
-//                graphXML.copyXmlToString(temp);
-//                cout << "graphXML: " << endl << temp.data() << endl;
             } else {
                 ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
                 graphXML = ofxPeoplePower.XML;
-//                ofxPeoplePower.XML.copyXmlToString(temp);
-//                cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
             }
-        } else if (displayGraph == 2) {  // deviceEnergyUsage
+        } else if (displayGraph == 2) {
             message = "Displaying Device Energy Usage!";
             if (isExampleData) {
                 graphXML.load("sampleData/deviceEnergyUsage2.xml");
@@ -83,21 +81,28 @@ public:
             } else {
                 ofxPeoplePower.deviceEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "1", "2014-08-01T00:00:00", "null", "MON31693");
                 graphXML = ofxPeoplePower.XML;
-//                ofxPeoplePower.XML.copyXmlToString(temp);
-//                cout << "ofxPeoplePower.XML: " << endl << temp.data() << endl;
             }
         }
+#ifdef DEBUG
+        if (isExampleData) {
+            graphXML.copyXmlToString(temp);
+        }
+        else {
+            ofxPeoplePower.XML.copyXmlToString(temp);
+        }
+        cout << __PRETTY_FUNCTION__ << endl << temp.data() << endl;
+#endif
     }
     void renderGraph(int pts, int multiplier) {
-        // Draw graph
-        float numY = (ofGetHeight() / 80); // 4 / multiplier);
-//cout << __PRETTY_FUNCTION__ << "numY: " << numY << endl;
+        
+        // Define line height
+        float numY = (ofGetHeight() / 80);
+        
         // Define outer edges
-        float lineX[] = {graphPosition, graphWidth}; // TODO: Center graph
+        float lineX[] = {graphPosition, graphWidth};
         float lineY[] = {ofGetHeight() / 4, ofGetHeight() / 2};
         
         // Draw positive horizontal lines
-
         for(float y = 0; y < numY; y++){
             float pointY = (ofGetHeight() / 2) + (multiplier * y) - (multiplier * numY);
             float pointYPrevious = (ofGetHeight() / 2) + (multiplier * y) - (multiplier * (numY - 1));
@@ -105,7 +110,7 @@ public:
             if (pointY >= ofGetHeight() / 4) {
                 output.setColor(0xDDDDDD);
                 output.line(lineX[0], pointY, lineX[1] + graphPosition, pointY);
-                if (multiplier >= 100) { // Draw subdivided lines excluded previously drawn line
+                if (multiplier >= 100) {
                     for (int j = 1; j < 10; j++) {
                         float pointYDivide = (pointYDelta * j) / 10;
                         output.setColor(0xEEEEEE);
@@ -119,7 +124,7 @@ public:
         for(float y = 0; y < numY; y++){
             float pointY = (ofGetHeight() / 2) - (multiplier * y) + (multiplier * numY);
             float pointYPrevious = (ofGetHeight() / 2) - (multiplier * y) + (multiplier * (numY - 1));
-            float pointYDelta = pointY - pointYPrevious; // calculate delta for bottom row
+            float pointYDelta = pointY - pointYPrevious;
             if (pointY <= (ofGetHeight() * 3 / 4)) {
                 output.setColor(0xDDDDDD);
                 output.line(lineX[0], pointY, lineX[1] + graphPosition, pointY);
@@ -136,7 +141,7 @@ public:
         // Draw vertical lines
         for(float x = 0; x < pts; x++){
             float pointX = graphWidth * x / (pts - 1) + graphPosition;
-                    output.setColor(0xDDDDDD);
+            output.setColor(0xDDDDDD);
             output.line(pointX, lineY[0], pointX, lineY[1] + (ofGetHeight() / 4));
         }
         
@@ -155,10 +160,6 @@ public:
         }
     }
     
-    bool displayNetEnergy;
-
-    
-    
     void setupXML() {
         XML.popTag();
         XML.addTag("profile");
@@ -173,7 +174,6 @@ public:
     }
     
     void XMLTranslate(string tag) {
-        
         if (!isExampleData) {
             for (int i = 0; i < ofxPeoplePower.XML.getNumTags(tag); i++) {
                 XML.addTag(tag);
@@ -194,24 +194,19 @@ public:
                     XML.setAttribute(tag, attributeNames[j], exampleDevices.getAttribute(tag,attributeNames[j],"null", i), i);
                 }
             }
-            
         }
     }
     
     void XMLSetTagAttributeToString(string tag, string attribute, int k) {
-
-        
-//        for (int i = 0; i < XML.getNumTags(tag); i++) {
-            for (int j = 0; j < XML.getNumAttributes(tag); j++) {
-                vector<string> attributeNames;
-                
-                XML.getAttributeNames(tag, attributeNames);
-                if (attributeNames[j] == attribute) {
-                    targetString = XML.getAttribute(tag,attributeNames[j],"null", k);
-                }
+        for (int j = 0; j < XML.getNumAttributes(tag); j++) {
+            vector<string> attributeNames;
+            
+            XML.getAttributeNames(tag, attributeNames);
+            if (attributeNames[j] == attribute) {
+                targetString = XML.getAttribute(tag,attributeNames[j],"null", k);
             }
         }
-//    }
+    }
     
     void graphCatMullPointsForXML(string parentTab,string childTab, float k) {
         output.setColor(0x7e7e7e);
@@ -219,50 +214,56 @@ public:
         
         // Find number of points
         float pts = graphXML.getNumTags(parentTab) - 1;
-
-//       cout << __PRETTY_FUNCTION__ << "*** Points for " << childTab << endl;
         
         for (int i = 0; i < pts; i++) {
-
+            
             graphXML.pushTag(parentTab, i - 1);
             float c1[] = {
                 (graphWidth * ((i - 1) * (1 / pts))) + graphPosition,
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "C1[" << i << "]: (" << c1[0] << "," << c1[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0) << endl;
             graphXML.popTag();
             graphXML.pushTag(parentTab,i);
             float p1[] = {
                 (graphWidth * ((i) * (1 / pts))) + graphPosition,
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "P1[" << i << "]: (" << p1[0] << "," << p1[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl;
-
             graphXML.popTag();
             graphXML.pushTag(parentTab,i + 1);
             float p2[] = {
                 (graphWidth * ((i + 1) * (1 / pts))) + graphPosition,
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "P2[" << i << "]: (" << p2[0] << "," << p2[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl;
             graphXML.popTag();
-            // Check to see if it is the last tag
+            
+            // If tag exists use it, else use the previous and mark it
             if (graphXML.tagExists(parentTab,i + 2)) {
                 graphXML.pushTag(parentTab,i + 2);
-            } else {
+#ifdef DEBUG
+                if (printOnce) {
+                    cout << __PRETTY_FUNCTION__ << "p1[" << i << "]: (" << p1[0] << ", " << p1[1] << ")" << endl;
+                }
+#endif
+            }
+            else {
                 graphXML.pushTag(parentTab,i + 1);
                 output.circle(p2[0], p2[1], 1);
+#ifdef DEBUG
+            if (printOnce) {
+                cout << __PRETTY_FUNCTION__ << "p2[" << i << "]: (" << p2[0] << ", " << p2[1] << ")" << endl;
+            }
+#endif
             }
             float c2[] = {
                 (graphWidth * ((i + 2)* (1 / pts))) + graphPosition,
                 (ofGetHeight() / 2) - (k * graphXML.getValue(childTab, 0.0))
             };
-//cout << __PRETTY_FUNCTION__ << "C2[" << i << "]: (" << c2[0] << "," << c2[1] << ")" << " For value: " << graphXML.getValue(childTab, 0.0)  << endl << endl;
-
+            
             graphXML.popTag();
-        
+            
             output.curve(c1[0],c1[1],p1[0],p1[1],p2[0],p2[1],c2[0],c2[1]);
             output.circle(p1[0], p1[1], 1);
+
         }
     }
 };

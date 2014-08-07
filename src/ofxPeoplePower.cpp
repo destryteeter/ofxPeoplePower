@@ -5,10 +5,9 @@
 //
 //
 
-
 #include "ofxPeoplePower.h"
 
-// Notes: use "null" value in unused optional feilds.
+//    Notes: use "null" value in unused optional feilds."
 
 // ------------------------------------------------------------------------------------------------------------------------
 // *** Account Management ***
@@ -20,6 +19,10 @@ void ofxPeoplePower::login(string username, string password) {
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::logout(string key) {
@@ -28,6 +31,10 @@ void ofxPeoplePower::logout(string key) {
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::user(string key) {
@@ -36,6 +43,10 @@ void ofxPeoplePower::user(string key) {
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 // ------------------------------------------------------------------------------------------------------------------------
@@ -48,6 +59,10 @@ void ofxPeoplePower::deviceStatus(string key, string device_id) {
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::deviceInfo(string key, string location_id) {
@@ -56,6 +71,10 @@ void ofxPeoplePower::deviceInfo(string key, string location_id) {
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::currentEnergyUsage(string key, string location_id) {
@@ -64,6 +83,10 @@ void ofxPeoplePower::currentEnergyUsage(string key, string location_id) {
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::currentPower(string key, string location_id) {
@@ -72,15 +95,23 @@ void ofxPeoplePower::currentPower(string key, string location_id) {
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::projection(string key, string location_id) {
-
+    
     URL = prefix + "/projection/" + key + "/" + location_id;
     ofHttpResponse resp = ofLoadURL(URL);
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::locationEnergyUsage(string key, string location_id, string aggregate, string start_date, string end_date) {
@@ -93,6 +124,10 @@ void ofxPeoplePower::locationEnergyUsage(string key, string location_id, string 
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::deviceCurrentEnergyUsage(string key, string location_id, string device_id) {
@@ -105,6 +140,10 @@ void ofxPeoplePower::deviceCurrentEnergyUsage(string key, string location_id, st
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::deviceEnergyUsage(string key, string location_id, string aggregate, string start_date, string end_date, string device_id) {
@@ -121,6 +160,10 @@ void ofxPeoplePower::deviceEnergyUsage(string key, string location_id, string ag
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::deviceReadings(string key, string location_id, string device_id, string start_date, string end_date, string param_name) {
@@ -137,6 +180,10 @@ void ofxPeoplePower::deviceReadings(string key, string location_id, string devic
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::lastDeviceReadings(string key, string device_id, string row_count, string start_date, string end_date, string param_name, string location_id) {
@@ -147,12 +194,16 @@ void ofxPeoplePower::lastDeviceReadings(string key, string device_id, string row
     } else if (end_date == "null" && !(param_name == "null")) {
         URL = prefix + "/lastDeviceReadings/" + key + "/" + device_id + "/" + row_count + "?startDate=" + start_date + "&paramName=" + param_name + "&locationId=" + location_id;
     } else {
-    URL = prefix + "/lastDeviceReadings/" + key + "/" + device_id + "/" + row_count + "?startDate=" + start_date + "&endDate=" + end_date + "&paramName=" + param_name + "&locationId=" + location_id;
+        URL = prefix + "/lastDeviceReadings/" + key + "/" + device_id + "/" + row_count + "?startDate=" + start_date + "&endDate=" + end_date + "&paramName=" + param_name + "&locationId=" + location_id;
     }
     ofHttpResponse resp = ofLoadURL(URL);
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::GetCurrentParameters(string key, string location_id, string device_id, string param_name) {
@@ -169,6 +220,10 @@ void ofxPeoplePower::GetCurrentParameters(string key, string location_id, string
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
 
 void ofxPeoplePower::realTimeDeviceReadings(string key, string location_id, string continuous, string device_id, string client_id) {
@@ -185,24 +240,8 @@ void ofxPeoplePower::realTimeDeviceReadings(string key, string location_id, stri
     ofBuffer buffer = resp.data.getText();
     
     XML.loadFromBuffer(buffer.getText());
+    
+#ifdef DEBUG
+    cout << __PRETTY_FUNCTION__ << URL << endl << buffer << endl;
+#endif
 }
-
-// ------------------------------------------------------------------------------------------------------------------------
-// *** Control ***
-// ------------------------------------------------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------------------------------------------------
-// *** Rules ***
-// ------------------------------------------------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------------------------------------------------
-// *** Compare ***
-// ------------------------------------------------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------------------------------------------------
-// *** Quiz ***
-// ------------------------------------------------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------------------------------------------------
-// *** Market ***
-// ------------------------------------------------------------------------------------------------------------------------
