@@ -1,0 +1,95 @@
+<!-- URL: https://esp.peoplepowerco.com/espapi/rest/locationEnergyUsage/Ej9Cns39hiAGrwqWFvUeYvPNrH8avE85yJ8USBtkNGS5XJTYBxZhP-2vLwguzdZb/144526/1/2014-08-01T20:00:00?endDate=2014-08-02T00:00:00 -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<response>
+    <resultCode>0</resultCode>
+    <usages>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>-0.5</amount>
+            <kWh>-5.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>-0.5</amount>
+            <kWh>-5.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>-0.4</amount>
+            <kWh>-4.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>-0.4</amount>
+            <kWh>-4.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>-0.3</amount>
+            <kWh>-3.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>-0.3</amount>
+            <kWh>-3.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>-0.2</amount>
+            <kWh>-2.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>-0.2</amount>
+            <kWh>-2.0</kWh>
+        </usage>
+        <usage endDate="2014-07-04T00:00:00-04:00" startDate="2014-07-03T00:00:00-04:00">
+            <amount>-0.1</amount>
+            <kWh>-1.0</kWh>
+        </usage>
+        <usage endDate="2014-07-05T00:00:00-04:00" startDate="2014-07-04T00:00:00-04:00">
+            <amount>-0.1</amount>
+            <kWh>-1.0</kWh>
+        </usage>
+        <usage endDate="2014-07-02T00:00:00-04:00" startDate="2014-07-01T00:00:00-04:00">
+            <amount>0.0</amount>
+            <kWh>0.0</kWh>
+        </usage>
+        <usage endDate="2014-07-03T00:00:00-04:00" startDate="2014-07-02T00:00:00-04:00">
+            <amount>0.0</amount>
+            <kWh>0.0</kWh>
+        </usage>
+        <usage endDate="2014-07-04T00:00:00-04:00" startDate="2014-07-03T00:00:00-04:00">
+            <amount>0.1</amount>
+            <kWh>1.0</kWh>
+        </usage>
+        <usage endDate="2014-07-05T00:00:00-04:00" startDate="2014-07-04T00:00:00-04:00">
+            <amount>0.1</amount>
+            <kWh>1.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>0.2</amount>
+            <kWh>2.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>0.2</amount>
+            <kWh>2.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>0.3</amount>
+            <kWh>3.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>0.3</amount>
+            <kWh>3.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>0.4</amount>
+            <kWh>4.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>0.4</amount>
+            <kWh>4.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>0.5</amount>
+            <kWh>5.0</kWh>
+        </usage>
+        <usage endDate="2014-07-06T00:00:00-04:00" startDate="2014-07-05T00:00:00-04:00">
+            <amount>0.5</amount>
+            <kWh>5.0</kWh>
+        </usage>
+    </usages>
+</response>
