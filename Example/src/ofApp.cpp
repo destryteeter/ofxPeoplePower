@@ -392,6 +392,9 @@ void ofApp::keyPressed(int key){
                 yMax = 0;
                 yMin = 0;
                 
+                // Reset deviceOffset
+                deviceOffset = 0;
+                
                 // Initially display all data points overlayed
                 drawGraph = 99;
                 
@@ -473,6 +476,9 @@ void ofApp::keyPressed(int key){
             if (receivesDevice) {
                 if (key == 'd') {
                     ++device;
+                    
+                    // Reset deviceOffset
+                    deviceOffset = 0;
                     
                     XML.pushTag("profile");
                     XML.pushTag("devices");
