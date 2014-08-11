@@ -384,30 +384,42 @@ void ofApp::keyPressed(int key){
                 username = username.substr(0,username.size()-1);
             }
             else if (key == OF_KEY_RETURN) {
-                message = "Enter the second part of your username (after @ sign) and press return:"; // IMPORTANT
-                
-                username = username.append("@");
-                setUsername = 1;
-            }
-            else {
-                username.append(1,(char)key);
-            }
-        }
-        
-        // Set username part 2
-        else if (setUsername == 1) {
-            if ((key == OF_KEY_DEL || key == OF_KEY_BACKSPACE) && username.size() > 0) {
-                username = username.substr(0,username.size()-1);
-            }
-            else if (key == OF_KEY_RETURN) {
-                
-                message = "Enter your password: ";
+//                message = "Enter the second part of your username (after @ sign) and press return:"; // IMPORTANT
+//                
+//                username = username.append("@");
+//                setUsername = 1;
                 setUsername = 2;
             }
             else {
-                username.append(1,(char)key);
+                
+                // Don't append shift key
+                if (!((unsigned)key == 2304 || (unsigned)key == 2305 || (unsigned)key == 2306)) {
+                    username.append(1,(char)key);
+                }
             }
+            
+#ifdef DEBUG
+                cout << __PRETTY_FUNCTION__ << "Unsigned key: " << (unsigned)key << endl;
+                cout << __PRETTY_FUNCTION__ << "Char key: " << (char)key << endl;
+                cout << __PRETTY_FUNCTION__ << "Username: " << username << endl;
+#endif
+            
         }
+        
+//        // Set username part 2
+//        else if (setUsername == 1) {
+//            if ((key == OF_KEY_DEL || key == OF_KEY_BACKSPACE) && username.size() > 0) {
+//                username = username.substr(0,username.size()-1);
+//            }
+//            else if (key == OF_KEY_RETURN) {
+//                
+//                message = "Enter your password: ";
+//                setUsername = 2;
+//            }
+//            else {
+//                username.append(1,(char)key);
+//            }
+//        }
         
         // Set Password
         else if (setUsername == 2 && !setPassword) {
@@ -415,14 +427,23 @@ void ofApp::keyPressed(int key){
                 password = password.substr(0,password.size()-1);
             }
             else if (!(key == OF_KEY_RETURN)) {
-                password.append(1,(char)key);
+                
+                // Don't append shift keys
+                if (!((unsigned)key == 2304 || (unsigned)key == 2305 || (unsigned)key == 2306)) {
+                    password.append(1,(char)key);
+                }
+#ifdef DEBUG
+                cout << __PRETTY_FUNCTION__ << "Unsigned key: " << (unsigned)key << endl;
+                cout << __PRETTY_FUNCTION__ << "Char key: " << (char)key << endl;
+                cout << __PRETTY_FUNCTION__ << "Password: " << password << endl;
+#endif
             }
             if (key == OF_KEY_RETURN) {
                 message = "Signing in as " + username;
                 setPassword = true;
                 
                 // Did use example account
-                if  (username == "test@") {
+                if  (username == "test") {
                     
                     // Load example data
                     isExampleData = true;
