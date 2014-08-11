@@ -15,6 +15,8 @@ void ofApp::setup(){
     receiveUserInput = false;
     setDefaultApi();
     
+    canScrollDevices = false;
+    
     // To use example data sign in using the username 'test' and push enter three times. (There's an issue with the shift key so the first enter adds an '@' sign.)
     // If you would like to user your own data check out Presence by People Power and look into installing a compatible smart plug.
     isExampleData = false;
@@ -178,7 +180,7 @@ void ofApp::draw(){
     if (setUsername && setPassword) {
         // Display deviceInformation
         ofSetColor(0, 0, 0, 200);
-        ofRect(312 + textSpacing * 2, textSpacing, ofGetWidth() - 312 - textSpacing * 3, textSpacing * (numberOfDevices + 2.5));
+        ofRect(312 + textSpacing * 2, textSpacing, ofGetWidth() - 312 - textSpacing * 3, textSpacing * 9);
         
         ofSetColor(240, 240, 240);
         TTF.drawString("Connected", 312 + textSpacing * 3, textSpacing * 2);
@@ -187,31 +189,62 @@ void ofApp::draw(){
         TTF.drawString("------------------------------------------------------", 312 + textSpacing * 3, textSpacing * 3);
         
         // Iterate through devices
-        for (int i = 0; i < numberOfDevices; i ++) {
-            
-            XML.pushTag("profile");
-            XML.pushTag("devices");
-            
-            string deviceConnected;
-            string deviceDescription;
-            string deviceId;
-            
-            XMLSetTagAttributeToString("device", "connected", i);
-            deviceConnected = targetString;
-            
-            XMLSetTagAttributeToString("device", "desc", i);
-            deviceDescription = targetString;
-            
-            XMLSetTagAttributeToString("device", "id", i);
-            deviceId = targetString;
-            
-            XML.popTag();
-            XML.popTag();
-            
-            TTF.drawString(deviceConnected , 312 + textSpacing * 3, textSpacing * (i + 4));
-            TTF.drawString("| " + deviceDescription, 312 + textSpacing * 3 + 100, textSpacing * (i + 4));
-            TTF.drawString("| " + deviceId, 312 + textSpacing * 3 + 350, textSpacing * (i + 4));
-            
+        if (numberOfDevices > 5) {
+            for (int i = 0 + device + deviceOffset; i < 6 + device + deviceOffset; i ++) {
+                canScrollDevices = true;
+                
+                XML.pushTag("profile");
+                XML.pushTag("devices");
+                
+                string deviceConnected;
+                string deviceDescription;
+                string deviceId;
+                
+                XMLSetTagAttributeToString("device", "connected", i);
+                deviceConnected = targetString;
+                
+                XMLSetTagAttributeToString("device", "desc", i);
+                deviceDescription = targetString;
+                
+                XMLSetTagAttributeToString("device", "id", i);
+                deviceId = targetString;
+                
+                XML.popTag();
+                XML.popTag();
+
+                TTF.drawString(deviceConnected , 312 + textSpacing * 3, textSpacing * ((i - device) + 4 - deviceOffset));
+                TTF.drawString("| " + deviceDescription, 312 + textSpacing * 3 + 100, textSpacing * ((i - device) + 4 - deviceOffset));
+                TTF.drawString("| " + deviceId, 312 + textSpacing * 3 + 350, textSpacing * ((i - device) + 4 - deviceOffset));
+                
+            }
+        } else {
+            for (int i = 0; i < numberOfDevices; i ++) {
+                canScrollDevices = false;
+                
+                XML.pushTag("profile");
+                XML.pushTag("devices");
+                
+                string deviceConnected;
+                string deviceDescription;
+                string deviceId;
+                
+                XMLSetTagAttributeToString("device", "connected", i);
+                deviceConnected = targetString;
+                
+                XMLSetTagAttributeToString("device", "desc", i);
+                deviceDescription = targetString;
+                
+                XMLSetTagAttributeToString("device", "id", i);
+                deviceId = targetString;
+                
+                XML.popTag();
+                XML.popTag();
+                
+                TTF.drawString(deviceConnected , 312 + textSpacing * 3, textSpacing * (i + 4));
+                TTF.drawString("| " + deviceDescription, 312 + textSpacing * 3 + 100, textSpacing * (i + 4));
+                TTF.drawString("| " + deviceId, 312 + textSpacing * 3 + 350, textSpacing * (i + 4));
+                
+            }
         }
         if (loadGraph) {
 #ifdef DEBUG
@@ -294,6 +327,7 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+    
     if (signedIn) {
 
         if (!receiveUserInput) {
@@ -383,6 +417,19 @@ void ofApp::keyPressed(int key){
             }
             if (key == '0' && loadGraph) {
                 drawGraph = 99;
+            }
+            
+            // Scroll Devices
+            if (canScrollDevices) {
+                if (key == '>' && deviceOffset <= (numberOfDevices - 7 - device)) {
+                    ++deviceOffset;
+                }
+                if (key == '<' && deviceOffset >= 1 - device) {
+                    deviceOffset = deviceOffset - 1;
+                }
+#ifdef DEBUG
+                cout << __PRETTY_FUNCTION__ << "deviceOffset: " << deviceOffset << " || numberOfDevices: " << numberOfDevices << " || device: " << device << endl;
+#endif
             }
             
             // Change Api Values
