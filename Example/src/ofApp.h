@@ -63,6 +63,35 @@ public:
     float graphWidth;
     float graphPosition;
     
+    // Api Input
+    bool receivesAggeregateFlag;
+    int AggregateFlag;
+    bool receivesStartDate;
+    string startDate;
+    bool receivesEndDate;
+    string endDate;
+    bool receivesDevice;
+    string device;
+    
+    bool receiveUserInput;
+    string userInputFlag;
+    string userInput;
+    
+    void resetReceivableFlags() {
+        receivesAggeregateFlag = false;
+        receivesStartDate = false;
+        receivesEndDate = false;
+        receivesDevice = false;
+        receiveUserInput = false;
+    }
+    
+    void setDefaultApi() {
+        AggregateFlag = 1;
+        startDate = "2014-08-05T00:00:00"; // TODO: call start date dynamically based off of today's date
+        endDate = "null";
+        device = "null";
+    }
+    
     void loadGraphData() {
         if (displayGraph == 1) {
             message = "Displaying Location Energy Usage!";
@@ -70,7 +99,13 @@ public:
                 graphXML.loadFile("sampleData/locationEnergyUsage.xml");
                 message.append(" (example data)");
             } else {
-                ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
+                
+                // Set receivable flags
+                receivesAggeregateFlag = true;
+                receivesStartDate = true;
+                receivesEndDate = true;
+                
+                ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), ofToString(AggregateFlag), startDate, endDate);
                 graphXML = ofxPeoplePower.XML;
             }
         } else if (displayGraph == 2) {
@@ -79,7 +114,18 @@ public:
                 graphXML.load("sampleData/deviceEnergyUsage2.xml");
                 message.append(" (example data)");
             } else {
-                ofxPeoplePower.deviceEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "1", "2014-08-01T00:00:00", "null", "MON31693");
+                
+                // Set receivable flags
+                receivesAggeregateFlag = true;
+                receivesStartDate = true;
+                receivesEndDate = true;
+                receivesDevice = true;
+                
+                if (device == "null") {
+                    device = XML.getAttribute("profile:devices:device", "id", "null", 0);
+                    cout << __PRETTY_FUNCTION__ << "device ID: " << XML.getAttribute("profile:devices:device", "id", "null", 0);
+                }
+                ofxPeoplePower.deviceEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), ofToString(AggregateFlag), startDate, endDate, device);
                 graphXML = ofxPeoplePower.XML;
             }
         }
