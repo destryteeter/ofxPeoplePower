@@ -450,6 +450,11 @@ void ofApp::keyPressed(int key){
                     XML.popTag();
                     XML.popTag();
                     
+                    k = 0;
+                    yMax = 0;
+                    yMin = 0;
+                    loadGraphData();
+                    
                     }
 //                    receiveUserInput = true;
 //                    userInputFlag = "device";
@@ -503,6 +508,8 @@ void ofApp::keyPressed(int key){
     else if (!signingIn) {
         if (key == 'l') {
             signingIn = true;
+            username = "";
+            password = "";
             
         }
     }
@@ -524,6 +531,9 @@ void ofApp::keyPressed(int key){
         if (!setUsername) {
             if ((key == OF_KEY_DEL || key == OF_KEY_BACKSPACE) && username.size() > 0) {
                 username = username.substr(0,username.size()-1);
+            }
+            else if (key == OF_KEY_BACKSPACE && username.size() == 0) {
+                signingIn = false;
             }
             else if (key == OF_KEY_RETURN) {
                 setUsername = true;
@@ -548,6 +558,9 @@ void ofApp::keyPressed(int key){
         else if (setUsername && !setPassword) {
             if ((key == OF_KEY_DEL || key == OF_KEY_BACKSPACE) && password.size() > 0) {
                 password = password.substr(0,password.size()-1);
+            }
+            else if (key == OF_KEY_BACKSPACE && password.size() == 0) {
+                setUsername = false;
             }
             else if (!(key == OF_KEY_RETURN)) {
                 

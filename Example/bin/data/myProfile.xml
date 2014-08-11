@@ -4,7 +4,7 @@
     <user_id>149168</user_id>
     <location_id>144526</location_id>
     <devices>
-        <device connected="true" desc="PowerCost Meter" hubId="001EC0108896" id="001EC0108896" lastDataReceivedDate="2014-08-11T13:31:23-04:00" lastMeasureDate="2014-08-11T13:31:15-04:00" locationId="144526" startDate="2014-08-04T18:41:47-04:00" type="1100" typeCategory="1"></device>
+        <device connected="true" desc="PowerCost Meter" hubId="001EC0108896" id="001EC0108896" lastDataReceivedDate="2014-08-11T13:42:33-04:00" lastMeasureDate="2014-08-11T13:42:26-04:00" locationId="144526" startDate="2014-08-04T18:41:47-04:00" type="1100" typeCategory="1"></device>
         <device connected="false" desc="Destry Teeter’s iPhone" hubId="0A584E6F-D8A4-4948-842A-44654F2F2A13::149168" id="0A584E6F-D8A4-4948-842A-44654F2F2A13::149168" lastDataReceivedDate="2014-08-09T16:19:22-04:00" lastMeasureDate="2014-08-09T16:19:28-04:00" locationId="144526" startDate="2014-08-09T16:16:01-04:00" type="21" typeCategory="6"></device>
         <device connected="false" desc="CatCam" hubId="541B38B3-6BBB-4FFF-A614-59623276FE2E::149168" id="541B38B3-6BBB-4FFF-A614-59623276FE2E::149168" lastDataReceivedDate="2014-08-11T07:10:46-04:00" lastMeasureDate="2014-08-11T07:10:53-04:00" locationId="144526" startDate="2014-08-10T14:33:43-04:00" type="21" typeCategory="6"></device>
         <device connected="false" desc="iPod touch" hubId="C3ABCBFF-B7B3-4979-9A03-A0D5CDC3C161::149168" id="C3ABCBFF-B7B3-4979-9A03-A0D5CDC3C161::149168" lastDataReceivedDate="2014-08-08T23:31:54-04:00" lastMeasureDate="2014-08-08T23:32:00-04:00" locationId="144526" startDate="2014-08-09T16:23:32-04:00" type="21" typeCategory="6"></device>
