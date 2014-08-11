@@ -41,7 +41,7 @@ public:
     string ppPassword;
     string password;
     
-    int setUsername;
+    bool setUsername;
     bool setPassword;
     
     bool signedIn;
@@ -74,7 +74,7 @@ public:
     bool receivesEndDate;
     string endDate;
     bool receivesDevice;
-    string device;
+    int device;
     
     bool receiveUserInput;
     string userInputFlag;
@@ -92,7 +92,7 @@ public:
         AggregateFlag = 1;
         startDate = "2014-08-05T00:00:00"; // TODO: call start date dynamically based off of today's date
         endDate = "null";
-        device = "null";
+        device = 0;
     }
     
     void loadGraphData() {
@@ -124,11 +124,14 @@ public:
                 receivesEndDate = true;
                 receivesDevice = true;
                 
-                if (device == "null") {
-                    device = XML.getAttribute("profile:devices:device", "id", "null", 0);
-                    cout << __PRETTY_FUNCTION__ << "device ID: " << XML.getAttribute("profile:devices:device", "id", "null", 0);
-                }
-                ofxPeoplePower.deviceEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), ofToString(AggregateFlag), startDate, endDate, device);
+                XML.pushTag("profile");
+                XML.pushTag("devices");
+//                XML.pushTag("device",device);
+                string deviceId = XML.getAttribute("device","id","null",device);
+                XML.popTag();
+                XML.popTag();
+                
+                ofxPeoplePower.deviceEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), ofToString(AggregateFlag), startDate, endDate, deviceId);
                 graphXML = ofxPeoplePower.XML;
             }
         }
@@ -321,7 +324,7 @@ public:
                 graphXML.pushTag(parentTab,i + 2);
 #ifdef DEBUG
                 if (printOnce) {
-                    cout << __PRETTY_FUNCTION__ << "p1[" << i << "]: (" << p1[0] << ", " << p1[1] << ")" << endl;
+//                    cout << __PRETTY_FUNCTION__ << "p1[" << i << "]: (" << p1[0] << ", " << p1[1] << ")" << endl;
                 }
 #endif
             }
@@ -330,7 +333,7 @@ public:
                 output.circle(p2[0], p2[1], 1);
 #ifdef DEBUG
             if (printOnce) {
-                cout << __PRETTY_FUNCTION__ << "p2[" << i << "]: (" << p2[0] << ", " << p2[1] << ")" << endl;
+//                cout << __PRETTY_FUNCTION__ << "p2[" << i << "]: (" << p2[0] << ", " << p2[1] << ")" << endl;
             }
 #endif
             }
@@ -340,10 +343,6 @@ public:
             };
             
             graphXML.popTag();
-            
-//            if (toggleGraphOverlay) {
-//                renderGraph(pts,k);
-//            }
             
             output.curve(c1[0],c1[1],p1[0],p1[1],p2[0],p2[1],c2[0],c2[1]);
             output.circle(p1[0], p1[1], 1);

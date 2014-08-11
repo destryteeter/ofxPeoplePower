@@ -32,11 +32,11 @@ void ofApp::setup(){
         if (XML.getValue("profile:key","null") == "null") {
             XML.clear();
             setupXML();
-            setUsername = 0;
+            setUsername = false;
             setPassword = false;
             username = "";
             password = "";
-            message = "Please sign in. Enter the first part of your username (before @ sign) and press return:";
+            message = "Please sign in.";
         } else {
             // Determine if user has been signed out from another device.
             if (XML.getAttribute("profile:key", "expires", "") == "2030-01-01T00:00:00-05:00") {
@@ -65,7 +65,7 @@ void ofApp::setup(){
                 message = "Currently signed in";
                 
                 signedIn = true;
-                setUsername = 2;
+                setUsername = true;
                 setPassword = true;
                 username = "";
                 password = "";
@@ -153,7 +153,6 @@ void ofApp::draw(){
         }
         
         // Display receivable flags key
-        
         ofSetColor(0, 0, 0, 200);
         ofRect(textSpacing, ofGetHeight() - ofGetHeight()/4 + textSpacing, ofGetWidth() - textSpacing * 2, textSpacing * 6);
         
@@ -176,7 +175,7 @@ void ofApp::draw(){
     // Add status message
     TTF.drawString("Status: " + message, 30, ofGetHeight() - 22);
     
-    if (setUsername == 2 && setPassword) {
+    if (setUsername && setPassword) {
         // Display deviceInformation
         ofSetColor(0, 0, 0, 200);
         ofRect(312 + textSpacing * 2, textSpacing, ofGetWidth() - 312 - textSpacing * 3, textSpacing * (numberOfDevices + 2.5));
@@ -226,9 +225,6 @@ void ofApp::draw(){
                 graphXML.pushTag("response");
                 graphXML.pushTag("usages");
                 
-                // Set constant multiplier // TODO: Set multiplier dynamically
-//                float multiplier = 20;
-                
                 // Set number of points
                 int pts = graphXML.getNumTags("usage");
                 
@@ -261,12 +257,10 @@ void ofApp::draw(){
                 graphXML.pushTag("usages");
                 graphXML.pushTag("device");
                 
-                float multiplier = 180;
-                
                 int pts = graphXML.getNumTags("usage");
                 
                 if (toggleGraphOverlay) {
-                    renderGraph(pts,multiplier);
+                    renderGraph(pts,k);
                 }
                 
                 if (drawGraph == 1) {
@@ -327,7 +321,7 @@ void ofApp::keyPressed(int key){
                 message = "Signed out!";
                 
                 signedIn = false;
-                setUsername = 0;
+                setUsername = false;
                 setPassword = false;
                 username = "";
                 password = "";
@@ -395,10 +389,16 @@ void ofApp::keyPressed(int key){
             if (receivesAggeregateFlag) {
                 if (key == '+' && AggregateFlag < 5) {
                     ++AggregateFlag;
+                    k = 0;
+                    yMax = 0;
+                    yMin = 0;
                     loadGraphData();
                 }
                 if (key == '_' && AggregateFlag > 1) { // Needed to use '_' rather than '-' ??
                     AggregateFlag = AggregateFlag - 1;
+                    k = 0;
+                    yMax = 0;
+                    yMin = 0;
                     loadGraphData();
                 }
             }
@@ -421,11 +421,40 @@ void ofApp::keyPressed(int key){
             
             if (receivesDevice) {
                 if (key == 'd') {
+                    ++device;
                     
-                    receiveUserInput = true;
-                    userInputFlag = "device";
-                    message = "Enter your device ID here."; // TODO: add toggle to choose between listed devices
-                }
+                    XML.pushTag("profile");
+                    XML.pushTag("devices");
+                    
+                    for (int i = 0; i < numberOfDevices; ++i) {
+                        
+                        string deviceType = XML.getAttribute("device", "type", "null", device);
+                        
+                        if (deviceType == "21") {
+                            ++device;
+                        }
+                        else if (device >= numberOfDevices){
+                            device = 0;
+                        }
+                        else {
+                            break;
+                        }
+                    }
+
+#ifdef DEBUG
+                    cout << __PRETTY_FUNCTION__ << "deviceType: " << XML.getAttribute("device", "type", "null", device) << " || deviceID: " << XML.getAttribute("device", "id", "null", device) << endl;
+#endif
+                    
+                    message = "Graphing data for device with ID: " + XML.getAttribute("device", "id", "null", device);
+                    
+                    XML.popTag();
+                    XML.popTag();
+                    
+                    }
+//                    receiveUserInput = true;
+//                    userInputFlag = "device";
+//                    message = "Enter your device ID here."; // TODO: add toggle to choose between listed devices
+//                }
             }
         } else {
             if ((key == OF_KEY_DEL || key == OF_KEY_BACKSPACE) && userInput.size() > 0) {
@@ -442,10 +471,14 @@ void ofApp::keyPressed(int key){
                     message = "end date is now: " + endDate;
                 }
                 
-                if (userInputFlag == "device") {
-                    device = ofToUpper(userInput);
-                    message = "your device is now: " + device;
-                }
+//                if (userInputFlag == "device") {
+//                    device = ofToUpper(userInput);
+//                    message = "your device is now: " + device;
+//                }
+                
+                k = 0;
+                yMax = 0;
+                yMin = 0;
                 
                 loadGraphData();
                 
@@ -458,7 +491,9 @@ void ofApp::keyPressed(int key){
                     userInput.append(1,(char)key);
                     message = userInput;
                 }
+#ifdef DEBUG
                 cout << __PRETTY_FUNCTION__ << "userInput: " << userInput << endl;
+#endif
             }
 
         }
@@ -481,21 +516,17 @@ void ofApp::keyPressed(int key){
             username = "";
             password = "";
             setPassword = false;
-            setUsername = 0;
+            setUsername = false;
             signedIn = false;
         }
         
         // Set username part 1
-        if (setUsername == 0) {
+        if (!setUsername) {
             if ((key == OF_KEY_DEL || key == OF_KEY_BACKSPACE) && username.size() > 0) {
                 username = username.substr(0,username.size()-1);
             }
             else if (key == OF_KEY_RETURN) {
-//                message = "Enter the second part of your username (after @ sign) and press return:"; // IMPORTANT
-//                
-//                username = username.append("@");
-//                setUsername = 1;
-                setUsername = 2;
+                setUsername = true;
             }
             else {
                 
@@ -506,30 +537,15 @@ void ofApp::keyPressed(int key){
             }
             
 #ifdef DEBUG
-                cout << __PRETTY_FUNCTION__ << "Unsigned key: " << (unsigned)key << endl;
-                cout << __PRETTY_FUNCTION__ << "Char key: " << (char)key << endl;
+//                cout << __PRETTY_FUNCTION__ << "Unsigned key: " << (unsigned)key << endl;
+//                cout << __PRETTY_FUNCTION__ << "Char key: " << (char)key << endl;
                 cout << __PRETTY_FUNCTION__ << "Username: " << username << endl;
 #endif
             
         }
         
-//        // Set username part 2
-//        else if (setUsername == 1) {
-//            if ((key == OF_KEY_DEL || key == OF_KEY_BACKSPACE) && username.size() > 0) {
-//                username = username.substr(0,username.size()-1);
-//            }
-//            else if (key == OF_KEY_RETURN) {
-//                
-//                message = "Enter your password: ";
-//                setUsername = 2;
-//            }
-//            else {
-//                username.append(1,(char)key);
-//            }
-//        }
-        
         // Set Password
-        else if (setUsername == 2 && !setPassword) {
+        else if (setUsername && !setPassword) {
             if ((key == OF_KEY_DEL || key == OF_KEY_BACKSPACE) && password.size() > 0) {
                 password = password.substr(0,password.size()-1);
             }
@@ -540,8 +556,8 @@ void ofApp::keyPressed(int key){
                     password.append(1,(char)key);
                 }
 #ifdef DEBUG
-                cout << __PRETTY_FUNCTION__ << "Unsigned key: " << (unsigned)key << endl;
-                cout << __PRETTY_FUNCTION__ << "Char key: " << (char)key << endl;
+//                cout << __PRETTY_FUNCTION__ << "Unsigned key: " << (unsigned)key << endl;
+//                cout << __PRETTY_FUNCTION__ << "Char key: " << (char)key << endl;
                 cout << __PRETTY_FUNCTION__ << "Password: " << password << endl;
 #endif
             }
@@ -581,17 +597,13 @@ void ofApp::keyPressed(int key){
                     signedIn = true;
                     username = "";
                     password = "";
-                    setUsername = 2;
+                    setUsername = true;
                     setPassword = true;
                 }
                 
                 // Use real account
                 else {
                     isExampleData = false;
-                    
-//                    HardCoded usernamepassword... remove before commit
-                    username = "";
-                    password = "";
                     
                     // get key and asign it to XML
                     // TODO: User temp key... or rather get temp key and delete each time
@@ -633,7 +645,7 @@ void ofApp::keyPressed(int key){
                         setupXML();
                         username = "";
                         password = "";
-                        setUsername = 0;
+                        setUsername = false;
                         setPassword = false;
                         
                     }
@@ -645,7 +657,7 @@ void ofApp::keyPressed(int key){
                         signedIn = true;
                         username = "";
                         password = "";
-                        setUsername = 2;
+                        setUsername = true;
                         setPassword = true;
                     }
                 }
