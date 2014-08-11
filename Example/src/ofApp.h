@@ -62,6 +62,9 @@ public:
     ofxXmlSettings graphXML;
     float graphWidth;
     float graphPosition;
+    float yMax;
+    float yMin;
+    float k;
     
     // Api Input
     bool receivesAggeregateFlag;
@@ -139,7 +142,7 @@ public:
         cout << __PRETTY_FUNCTION__ << endl << temp.data() << endl;
 #endif
     }
-    void renderGraph(int pts, int multiplier) {
+    void renderGraph(int pts, float multiplier) {
         
         // Define line height
         float numY = (ofGetHeight() / 80);
@@ -254,12 +257,43 @@ public:
         }
     }
     
-    void graphCatMullPointsForXML(string parentTab,string childTab, float k) {
+    void graphCatMullPointsForXML(string parentTab,string childTab) {
         output.setColor(0x7e7e7e);
         output.noFill();
         
         // Find number of points
         float pts = graphXML.getNumTags(parentTab) - 1;
+        
+        // Find appropriate multiplier
+        for (int i = 0; i < pts; i++) {
+            graphXML.pushTag(parentTab,i);
+            if (graphXML.getValue(childTab, 0.0) > yMax) {
+                yMax = (graphXML.getValue(childTab, 0.0));
+            }
+            if (graphXML.getValue(childTab, 0.0) < yMin) {
+                yMin = (graphXML.getValue(childTab, 0.0));
+            }
+            graphXML.popTag();
+            
+#ifdef DEBUG
+            if (printOnce) {
+                cout << __PRETTY_FUNCTION__ << "yMax: " << yMax << "|| yMin: " << yMin << endl;
+            }
+#endif
+        }
+        
+        if (yMax > -yMin) {
+            k = (ofGetHeight()/2 / (yMax * 2.2));
+        } else {
+            k = (ofGetHeight()/2 / (yMin * 2.2));
+        }
+        
+#ifdef DEBUG
+        if (printOnce) {
+            cout << __PRETTY_FUNCTION__ << "k: " << "(" << ofGetHeight()/2 << " / (" << yMax * 10 << "))" << endl;
+        }
+#endif
+
         
         for (int i = 0; i < pts; i++) {
             
@@ -306,6 +340,10 @@ public:
             };
             
             graphXML.popTag();
+            
+//            if (toggleGraphOverlay) {
+//                renderGraph(pts,k);
+//            }
             
             output.curve(c1[0],c1[1],p1[0],p1[1],p2[0],p2[1],c2[0],c2[1]);
             output.circle(p1[0], p1[1], 1);

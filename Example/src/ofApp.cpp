@@ -227,26 +227,26 @@ void ofApp::draw(){
                 graphXML.pushTag("usages");
                 
                 // Set constant multiplier // TODO: Set multiplier dynamically
-                float multiplier = 20;
+//                float multiplier = 20;
                 
                 // Set number of points
                 int pts = graphXML.getNumTags("usage");
                 
                 // Render Grid first
                 if (toggleGraphOverlay) {
-                    renderGraph(pts,multiplier);
+                    renderGraph(pts,k);
                 }
                 
                 // Then draw points and catmull points on top
                 if (drawGraph == 1) {
-                    graphCatMullPointsForXML("usage", "amount",multiplier);
+                    graphCatMullPointsForXML("usage", "amount");
                 }
                 else if (drawGraph == 2) {
-                    graphCatMullPointsForXML("usage", "kWh",multiplier);
+                    graphCatMullPointsForXML("usage", "kWh");
                 }
                 else if (drawGraph == 99) {
-                    graphCatMullPointsForXML("usage", "kWh",multiplier);
-                    graphCatMullPointsForXML("usage", "amount",multiplier);
+                    graphCatMullPointsForXML("usage", "kWh");
+                    graphCatMullPointsForXML("usage", "amount");
                     
                 }
                 
@@ -270,12 +270,12 @@ void ofApp::draw(){
                 }
                 
                 if (drawGraph == 1) {
-                    graphCatMullPointsForXML("usage", "amount",multiplier);
+                    graphCatMullPointsForXML("usage", "amount");
                 } else if (drawGraph == 2) {
-                    graphCatMullPointsForXML("usage", "kWh",multiplier);
+                    graphCatMullPointsForXML("usage", "kWh");
                 } else if (drawGraph == 99) {
-                    graphCatMullPointsForXML("usage", "kWh",multiplier);
-                    graphCatMullPointsForXML("usage", "amount",multiplier);
+                    graphCatMullPointsForXML("usage", "kWh");
+                    graphCatMullPointsForXML("usage", "amount");
                 }
                 
                 graphXML.popTag();
@@ -354,6 +354,11 @@ void ofApp::keyPressed(int key){
                 // Stop loading graph
                 loadGraph = false;
                 resetReceivableFlags();
+                
+                // Reset yMax, yMin and k
+                k = 0;
+                yMax = 0;
+                yMin = 0;
                 
                 // Initially display all data points overlayed
                 drawGraph = 99;
