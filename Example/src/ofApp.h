@@ -41,7 +41,7 @@ public:
     string ppPassword;
     string password;
     
-    int setUsername;
+    bool setUsername;
     bool setPassword;
     
     bool signedIn;
@@ -62,6 +62,38 @@ public:
     ofxXmlSettings graphXML;
     float graphWidth;
     float graphPosition;
+    float yMax;
+    float yMin;
+    float k;
+    
+    // Api Input
+    bool receivesAggeregateFlag;
+    int AggregateFlag;
+    bool receivesStartDate;
+    string startDate;
+    bool receivesEndDate;
+    string endDate;
+    bool receivesDevice;
+    int device;
+    
+    bool receiveUserInput;
+    string userInputFlag;
+    string userInput;
+    
+    void resetReceivableFlags() {
+        receivesAggeregateFlag = false;
+        receivesStartDate = false;
+        receivesEndDate = false;
+        receivesDevice = false;
+        receiveUserInput = false;
+    }
+    
+    void setDefaultApi() {
+        AggregateFlag = 1;
+        startDate = "2014-08-05T00:00:00"; // TODO: call start date dynamically based off of today's date
+        endDate = "null";
+        device = 0;
+    }
     
     void loadGraphData() {
         if (displayGraph == 1) {
@@ -70,7 +102,13 @@ public:
                 graphXML.loadFile("sampleData/locationEnergyUsage.xml");
                 message.append(" (example data)");
             } else {
-                ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "2", "2014-07-01T00:00:00", "null");
+                
+                // Set receivable flags
+                receivesAggeregateFlag = true;
+                receivesStartDate = true;
+                receivesEndDate = true;
+                
+                ofxPeoplePower.locationEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), ofToString(AggregateFlag), startDate, endDate);
                 graphXML = ofxPeoplePower.XML;
             }
         } else if (displayGraph == 2) {
@@ -79,7 +117,21 @@ public:
                 graphXML.load("sampleData/deviceEnergyUsage2.xml");
                 message.append(" (example data)");
             } else {
-                ofxPeoplePower.deviceEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), "1", "2014-08-01T00:00:00", "null", "MON31693");
+                
+                // Set receivable flags
+                receivesAggeregateFlag = true;
+                receivesStartDate = true;
+                receivesEndDate = true;
+                receivesDevice = true;
+                
+                XML.pushTag("profile");
+                XML.pushTag("devices");
+//                XML.pushTag("device",device);
+                string deviceId = XML.getAttribute("device","id","null",device);
+                XML.popTag();
+                XML.popTag();
+                
+                ofxPeoplePower.deviceEnergyUsage(XML.getValue("profile:key", "null"), XML.getValue("profile:location_id", "null"), ofToString(AggregateFlag), startDate, endDate, deviceId);
                 graphXML = ofxPeoplePower.XML;
             }
         }
@@ -93,7 +145,7 @@ public:
         cout << __PRETTY_FUNCTION__ << endl << temp.data() << endl;
 #endif
     }
-    void renderGraph(int pts, int multiplier) {
+    void renderGraph(int pts, float multiplier) {
         
         // Define line height
         float numY = (ofGetHeight() / 80);
@@ -208,12 +260,43 @@ public:
         }
     }
     
-    void graphCatMullPointsForXML(string parentTab,string childTab, float k) {
+    void graphCatMullPointsForXML(string parentTab,string childTab) {
         output.setColor(0x7e7e7e);
         output.noFill();
         
         // Find number of points
         float pts = graphXML.getNumTags(parentTab) - 1;
+        
+        // Find appropriate multiplier
+        for (int i = 0; i < pts; i++) {
+            graphXML.pushTag(parentTab,i);
+            if (graphXML.getValue(childTab, 0.0) > yMax) {
+                yMax = (graphXML.getValue(childTab, 0.0));
+            }
+            if (graphXML.getValue(childTab, 0.0) < yMin) {
+                yMin = (graphXML.getValue(childTab, 0.0));
+            }
+            graphXML.popTag();
+            
+#ifdef DEBUG
+            if (printOnce) {
+                cout << __PRETTY_FUNCTION__ << "yMax: " << yMax << "|| yMin: " << yMin << endl;
+            }
+#endif
+        }
+        
+        if (yMax > -yMin) {
+            k = (ofGetHeight()/2 / (yMax * 2.2));
+        } else {
+            k = (ofGetHeight()/2 / (yMin * 2.2));
+        }
+        
+#ifdef DEBUG
+        if (printOnce) {
+            cout << __PRETTY_FUNCTION__ << "k: " << "(" << ofGetHeight()/2 << " / (" << yMax * 10 << "))" << endl;
+        }
+#endif
+
         
         for (int i = 0; i < pts; i++) {
             
@@ -241,7 +324,7 @@ public:
                 graphXML.pushTag(parentTab,i + 2);
 #ifdef DEBUG
                 if (printOnce) {
-                    cout << __PRETTY_FUNCTION__ << "p1[" << i << "]: (" << p1[0] << ", " << p1[1] << ")" << endl;
+//                    cout << __PRETTY_FUNCTION__ << "p1[" << i << "]: (" << p1[0] << ", " << p1[1] << ")" << endl;
                 }
 #endif
             }
@@ -250,7 +333,7 @@ public:
                 output.circle(p2[0], p2[1], 1);
 #ifdef DEBUG
             if (printOnce) {
-                cout << __PRETTY_FUNCTION__ << "p2[" << i << "]: (" << p2[0] << ", " << p2[1] << ")" << endl;
+//                cout << __PRETTY_FUNCTION__ << "p2[" << i << "]: (" << p2[0] << ", " << p2[1] << ")" << endl;
             }
 #endif
             }
