@@ -205,7 +205,7 @@ void ofApp::draw(){
                 graphXML.pushTag("usages");
                 
                 // Set constant multiplier // TODO: Set multiplier dynamically
-//                float multiplier = 20;
+//                float multiplier = 20; 
                 
                 // Set number of points
                 int pts = graphXML.getNumTags("usage");
