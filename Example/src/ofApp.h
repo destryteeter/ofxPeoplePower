@@ -47,6 +47,8 @@ public:
     bool signedIn;
     bool signingIn;
     
+    bool isLoggingOut;
+    
     bool printOnce;
     
     // Device Information
@@ -86,6 +88,30 @@ public:
         receivesEndDate = false;
         receivesDevice = false;
         receiveUserInput = false;
+    }
+    
+    void resetUser() {
+        
+        // Delete myProfile.xml
+        ofFile::removeFile("myProfile.xml");
+        XML.clear();
+        XML.clear(); // Make sure XML is blank.
+        
+        ofxPeoplePower.XML.clear();
+        ofxPeoplePower.XML.clear(); // Make sure XML is blank.
+        
+        // Create and save a black myProfile.xml
+        setupXML();
+        XML.saveFile("myProfile.xml");
+        
+        signedIn = false;
+        setUsername = false;
+        setPassword = false;
+        username = "";
+        password = "";
+        
+        displayGraph = 0;
+        loadGraph = false;
     }
     
     void setDefaultApi() {

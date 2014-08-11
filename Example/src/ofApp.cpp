@@ -11,6 +11,7 @@ void ofApp::setup(){
     // Set signed in status to false
     signedIn = false;
     signingIn = false;
+    isLoggingOut = false;
     
     receiveUserInput = false;
     setDefaultApi();
@@ -215,9 +216,9 @@ void ofApp::draw(){
         }
         if (loadGraph) {
 #ifdef DEBUG
-    if (printOnce) {
-        cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
-    }
+        if (printOnce) {
+            cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
+        }
 #endif
             if (displayGraph == 1) { // previously displayGraphEnergy
                 
@@ -281,8 +282,19 @@ void ofApp::draw(){
     printOnce = false;
 #endif
         }
+        
+        if (isLoggingOut) {
+            // Draw modal
+            output.fill();
+            ofSetColor(0, 0, 0, 200);
+            ofRect(ofGetWidth() / 4, ofGetHeight() / 2 - textSpacing * 2.25, ofGetWidth() * 1/2, textSpacing * 4);
+            ofSetColor(240, 240, 240);
+            TTF.drawString("Press '1' to log out of this device", ofGetWidth() / 4 + textSpacing, ofGetHeight() / 2 - textSpacing);
+            TTF.drawString("Press '2' to log out of all devices", ofGetWidth() / 4 + textSpacing, ofGetHeight() / 2 + textSpacing);
+        }
     }
     else if (signingIn) {
+        // Draw modal
         output.fill();
         ofSetColor(0, 0, 0, 200);
         ofRect(ofGetWidth() / 4, ofGetHeight() / 2 - textSpacing * 2.25, ofGetWidth() * 1/2, textSpacing * 4);
@@ -302,34 +314,26 @@ void ofApp::keyPressed(int key){
             if(key == 'q') {
                 
                 if (!isExampleData) {
-                    // Log out of account (Logs out of all devices)
-                    ofxPeoplePower.logout(XML.getValue("profile:key", "null"));
+                    isLoggingOut = true;
                 }
-            
-                // Delete myProfile.xml
-                ofFile::removeFile("myProfile.xml");
-                XML.clear();
-                XML.clear(); // Make sure XML is blank.
-                
-                ofxPeoplePower.XML.clear();
-                ofxPeoplePower.XML.clear(); // Make sure XML is blank.
-                
-                // Create and save a black myProfile.xml
-                setupXML();
-                XML.saveFile("myProfile.xml");
-                
-                message = "Signed out!";
-                
-                signedIn = false;
-                setUsername = false;
-                setPassword = false;
-                username = "";
-                password = "";
-                
-                displayGraph = 0;
-                loadGraph = false;
-                
-                setDefaultApi();
+                else {
+                    
+                    message = "Signed of test account!";
+                    resetUser();
+                    setDefaultApi();
+                }
+            }
+            if (isLoggingOut) {
+                if (key == '1') {
+                    message = "Signed out of this device";
+                    resetUser();
+                    setDefaultApi();
+                }
+                if (key == '2') {
+                    message = "Signed out of all devices";
+                    resetUser();
+                    setDefaultApi();
+                }
             }
             
             // Load LocationEnergyUsage
