@@ -54,6 +54,8 @@ public:
     // Device Information
     int numberOfDevices;
     string targetString;
+    bool canScrollDevices;
+    int deviceOffset;
     
     // Graphing
     bool displayNetEnergy;
