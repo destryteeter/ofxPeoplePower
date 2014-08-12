@@ -2,6 +2,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    // Set framerate
+    ofSetFrameRate(60);
     
     ofBackground(255, 255, 255);
     
