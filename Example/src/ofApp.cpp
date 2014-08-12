@@ -20,7 +20,7 @@ void ofApp::setup(){
     
     canScrollDevices = false;
     
-    // To use example data sign in using the username 'test' and push enter three times. (There's an issue with the shift key so the first enter adds an '@' sign.)
+    // To use example data sign in using the username 'test' and push enter three times.
     // If you would like to user your own data check out Presence by People Power and look into installing a compatible smart plug.
     isExampleData = false;
     
@@ -35,12 +35,7 @@ void ofApp::setup(){
         
         // Determine if user is singed in
         if (XML.getValue("profile:key","null") == "null") {
-            XML.clear();
-            setupXML();
-            setUsername = false;
-            setPassword = false;
-            username = "";
-            password = "";
+            resetUser();
             message = "Please sign in.";
         } else {
             // Determine if user has been signed out from another device.
@@ -80,7 +75,7 @@ void ofApp::setup(){
             }
         }
     } else {
-        setupXML();
+        resetUser();
         message = "Unable to load myProfile.xml. New file created.";
     }
     
@@ -152,11 +147,6 @@ void ofApp::draw(){
             TTF.drawString("   2   | Usage in kWh", 30, textSpacing * (row + 5));
         }
         
-        // Example to display a unique data set - not used
-        else if (displayGraph == 3) {
-            // Display nothing
-        }
-        
         // Display receivable flags key
         ofSetColor(0, 0, 0, 200);
         ofRect(textSpacing, ofGetHeight() - ofGetHeight()/4 + textSpacing, ofGetWidth() - textSpacing * 2, textSpacing * 6);
@@ -192,7 +182,7 @@ void ofApp::draw(){
         TTF.drawString("------------------------------------------------------", 312 + textSpacing * 3, textSpacing * 3);
         
         // Iterate through devices
-        if (numberOfDevices > 5) {
+        if (numberOfDevices > 6) {
             for (int i = 0 + device + deviceOffset; i < 6 + device + deviceOffset; i ++) {
                 canScrollDevices = true;
                 
@@ -251,12 +241,11 @@ void ofApp::draw(){
         }
         if (loadGraph) {
 #ifdef DEBUG
-        if (printOnce) {
-            cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
-        }
+            if (printOnce) {
+                cout << __PRETTY_FUNCTION__ << "displayGraph: " << displayGraph << endl;
+            }
 #endif
-            if (displayGraph == 1) { // previously displayGraphEnergy
-                
+            if (displayGraph == 1) {
                 // Go to 'response:usages' tag
                 graphXML.pushTag("response");
                 graphXML.pushTag("usages");
@@ -488,9 +477,11 @@ void ofApp::keyPressed(int key){
                     for (int i = 0; i < numberOfDevices; ++i) {
                         
                         string deviceType = XML.getAttribute("device", "type", "null", device);
-                        
                         if (deviceType == "21") {
                             ++device;
+                            if (!canScrollDevices) {
+                                deviceOffset = -device;
+                            }
                         }
                         else if (device >= numberOfDevices){
                             device = 0;
@@ -515,10 +506,6 @@ void ofApp::keyPressed(int key){
                     loadGraphData();
                     
                     }
-//                    receiveUserInput = true;
-//                    userInputFlag = "device";
-//                    message = "Enter your device ID here."; // TODO: add toggle to choose between listed devices
-//                }
             }
         } else {
             if ((key == OF_KEY_DEL || key == OF_KEY_BACKSPACE) && userInput.size() > 0) {
@@ -534,11 +521,6 @@ void ofApp::keyPressed(int key){
                     endDate = userInput;
                     message = "end date is now: " + endDate;
                 }
-                
-//                if (userInputFlag == "device") {
-//                    device = ofToUpper(userInput);
-//                    message = "your device is now: " + device;
-//                }
                 
                 k = 0;
                 yMax = 0;
@@ -606,8 +588,6 @@ void ofApp::keyPressed(int key){
             }
             
 #ifdef DEBUG
-//                cout << __PRETTY_FUNCTION__ << "Unsigned key: " << (unsigned)key << endl;
-//                cout << __PRETTY_FUNCTION__ << "Char key: " << (char)key << endl;
                 cout << __PRETTY_FUNCTION__ << "Username: " << username << endl;
 #endif
             

@@ -226,7 +226,7 @@ public:
         }
         
         // Draw border
-        output.setColor(0x000000); // TODO: set to a darker color
+        output.setColor(0x000000);
         output.noFill();
         output.rect(lineX[0], lineY[0], lineX[1], lineY[1]);
         output.fill();
